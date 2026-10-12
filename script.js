@@ -3,31 +3,42 @@
 const players = {
     "messi.html": {
         name: "EDIT MESSI",
-        description: "EDIT MESSI"
+        description: "EDIT MESSI",
+        image: "./messi.jpg"
     },
+
     "ronaldo.html": {
         name: "EDIT RONALDO",
-        description: "EDIT RONALDO"
+        description: "EDIT RONALDO",
+        image: "./ronaldo.jpg"
     },
+
     "mbappe.html": {
         name: "EDIT MBAPPE",
-        description: "EDIT MBAPPE"
+        description: "EDIT MBAPPE",
+        image: "./mbappe.jpg"
     },
+
     "neymar.html": {
         name: "EDIT NEYMAR",
-        description: "EDIT NEYMAR"
+        description: "EDIT NEYMAR",
+        image: "./neymar.jpg"
     },
+
     "haaland.html": {
         name: "EDIT HAALAND",
-        description: "EDIT HAALAND"
+        description: "EDIT HAALAND",
+        image: "./haaland.jpg"
     },
+
     "bellingham.html": {
         name: "EDIT BELLINGHAM",
-        description: "EDIT BELLINGHAM"
+        description: "EDIT BELLINGHAM",
+        image: "./bellingham.jpg"
     }
 };
 
-// تشخیص صفحه‌ی فعلی
+// تشخیص صفحه فعلی
 const currentFile = window.location.pathname
     .split("/")
     .pop()
@@ -49,9 +60,29 @@ if (player) {
     if (playerDescription) {
         playerDescription.textContent = player.description;
     }
+
+    // تنظیم عکس بازیکن
+    const playerPhoto = document.querySelector(".player-photo");
+
+    if (playerPhoto) {
+        playerPhoto.src = player.image;
+        playerPhoto.alt = player.name;
+
+        playerPhoto.onerror = function () {
+            console.error("عکس پیدا نشد:", player.image);
+            playerPhoto.style.display = "none";
+
+            const errorMessage = document.createElement("p");
+            errorMessage.textContent = "عکس بازیکن پیدا نشد: " + player.image;
+            errorMessage.style.color = "#ff6b6b";
+            errorMessage.style.textAlign = "center";
+
+            playerPhoto.insertAdjacentElement("afterend", errorMessage);
+        };
+    }
 }
 
-// لودینگ صفحه‌ی اصلی
+// لودینگ صفحه اصلی
 document.addEventListener("DOMContentLoaded", function () {
     const intro = document.getElementById("intro");
 
