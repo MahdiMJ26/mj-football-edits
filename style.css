@@ -1,0 +1,356 @@
+/* ========================================
+   MJ FOOTBALL EDITS
+   LIGHT GREEN + WHITE + PLAYER PHOTOS
+======================================== */
+
+/* رنگ‌های اصلی */
+:root {
+    --neon: #24c943;
+    --neon-light: #42e85c;
+    --bg: #e8f5e9;
+    --bg-secondary: #f4fbf4;
+    --card-bg: #ffffff;
+    --text: #174d25;
+    --muted: #467a50;
+    --border: rgba(36, 201, 67, 0.4);
+    --glow: rgba(36, 201, 67, 0.15);
+}
+
+/* پس‌زمینه کلی صفحه */
+html,
+body {
+    background-color: #e8f5e9 !important;
+    color: #174d25 !important;
+}
+
+/* ========================================
+   PLAYER HERO BACKGROUND PHOTOS
+======================================== */
+
+.player-page-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    min-height: 360px;
+    padding: 65px 20px;
+
+    text-align: center;
+
+    background-color: #ccebd0 !important;
+    background-size: cover !important;
+    background-position: center 25% !important;
+    background-repeat: no-repeat !important;
+
+    border: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+/* عکس مخصوص صفحه هر بازیکن */
+body.player-ronaldo .player-page-hero {
+    background-image: url("images/ronaldo.jpg") !important;
+}
+
+body.player-messi .player-page-hero {
+    background-image: url("images/messi.jpg") !important;
+}
+
+body.player-mbappe .player-page-hero {
+    background-image: url("images/mbappe.jpg") !important;
+}
+
+body.player-neymar .player-page-hero {
+    background-image: url("images/neymar.jpg") !important;
+}
+
+body.player-haaland .player-page-hero {
+    background-image: url("images/haaland.jpg") !important;
+}
+
+body.player-bellingham .player-page-hero {
+    background-image: url("images/bellingham.jpg") !important;
+}
+
+/* لایه روشن روی عکس برای خوانایی متن */
+.player-page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(10, 30, 15, 0.12) 0%,
+        rgba(10, 30, 15, 0.28) 55%,
+        rgba(232, 245, 233, 0.75) 100%
+    );
+
+    pointer-events: none;
+}
+
+/* متن‌های سربرگ */
+.player-page-hero h1,
+.player-page-hero p {
+    position: relative;
+    color: #ffffff !important;
+    background: transparent !important;
+
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* عنوان بازیکن */
+.player-page-hero h1 {
+    font-size: clamp(30px, 5vw, 44px);
+    direction: ltr;
+}
+
+/* توضیحات زیر عنوان */
+.player-page-hero p {
+    margin-top: 12px;
+}
+
+/* عکس جداگانه بازیکن */
+.player-photo {
+    display: block;
+    width: min(280px, 80%);
+    max-height: 350px;
+    object-fit: contain;
+    margin: 0 auto 20px;
+
+    background-color: transparent !important;
+
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+    animation: none !important;
+}
+
+/* ========================================
+   EDIT LIST
+======================================== */
+
+.edit-list {
+    max-width: 900px;
+    margin: auto;
+    padding: 25px 20px 60px;
+
+    background-color: #e8f5e9 !important;
+    background-image: none !important;
+
+    color: #174d25 !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+/* عنوان‌های بخش ادیت‌ها */
+.edit-list h1,
+.edit-list h2,
+.edit-list h3 {
+    color: #168b30 !important;
+    background: transparent !important;
+    text-shadow: none !important;
+    -webkit-text-fill-color: #168b30 !important;
+}
+
+/* پیام نبودن ادیت */
+.edit-list p,
+.edit-list .videos-status {
+    color: #467a50 !important;
+    background: transparent !important;
+    text-shadow: none !important;
+    -webkit-text-fill-color: #467a50 !important;
+}
+
+/* ========================================
+   EDIT CARDS
+======================================== */
+
+.edit-item {
+    margin-top: 16px;
+    padding: 22px;
+
+    background-color: #ffffff !important;
+    background-image: none !important;
+
+    color: #174d25 !important;
+
+    border: 1px solid rgba(36, 201, 67, 0.4) !important;
+    border-radius: 16px;
+
+    box-shadow: 0 5px 18px rgba(20, 100, 35, 0.08) !important;
+    text-shadow: none !important;
+
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* عنوان داخل کارت */
+.edit-item h2 {
+    font-size: 19px;
+    color: #168b30 !important;
+    background: transparent !important;
+    text-shadow: none !important;
+    -webkit-text-fill-color: #168b30 !important;
+}
+
+/* متن داخل کارت */
+.edit-item p {
+    color: #467a50 !important;
+    background: transparent !important;
+    text-shadow: none !important;
+    -webkit-text-fill-color: #467a50 !important;
+}
+
+/* افکت هنگام رفتن موس روی کارت */
+.edit-item:hover {
+    background-color: #f7fff8 !important;
+    border-color: #24c943 !important;
+    box-shadow: 0 9px 24px rgba(36, 201, 67, 0.17) !important;
+    transform: translateY(-3px);
+}
+
+/* ========================================
+   BACK LINK
+======================================== */
+
+.back-link,
+.back-link:visited,
+.back-link:hover,
+.back-link:active {
+    color: #168b30 !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+
+    text-shadow: none !important;
+    box-shadow: none !important;
+    -webkit-text-fill-color: #168b30 !important;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+footer {
+    background-color: #d8f0dc !important;
+    background-image: none !important;
+
+    color: #174d25 !important;
+    border-top: 1px solid rgba(36, 201, 67, 0.3) !important;
+
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+footer p,
+footer a {
+    color: #267d39 !important;
+    background: transparent !important;
+    text-shadow: none !important;
+    -webkit-text-fill-color: #267d39 !important;
+}
+
+/* ========================================
+   LINKS AND BUTTONS
+======================================== */
+
+.player-page-hero a,
+.edit-list a,
+.edit-item a {
+    color: #168b30 !important;
+    background-color: transparent !important;
+    text-decoration-color: #24c943 !important;
+    text-shadow: none !important;
+}
+
+.player-page-hero button,
+.edit-list button,
+.edit-item button {
+    color: #ffffff !important;
+    background-color: #24c943 !important;
+
+    border: 1px solid #1db63a !important;
+    border-radius: 10px;
+
+    box-shadow: 0 4px 12px rgba(36, 201, 67, 0.18) !important;
+    text-shadow: none !important;
+
+    -webkit-text-fill-color: #ffffff !important;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* افکت دکمه‌ها */
+.player-page-hero button:hover,
+.edit-list button:hover,
+.edit-item button:hover {
+    background-color: #168b30 !important;
+    border-color: #168b30 !important;
+    transform: translateY(-2px);
+}
+
+/* فوکوس صفحه‌کلید */
+.back-link:focus-visible,
+.player-page-hero a:focus-visible,
+.edit-list a:focus-visible,
+.edit-list button:focus-visible,
+.edit-item button:focus-visible {
+    outline: 2px solid #24c943 !important;
+    outline-offset: 4px;
+}
+
+/* انتخاب متن */
+.player-page-hero ::selection,
+.edit-list ::selection,
+.edit-item ::selection,
+footer ::selection {
+    color: #ffffff !important;
+    background-color: #168b30 !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+    .player-page-hero {
+        min-height: 300px;
+        padding: 50px 16px;
+
+        background-position: center 20% !important;
+    }
+
+    .edit-list {
+        padding: 20px 14px 45px;
+    }
+
+    .edit-item {
+        padding: 18px;
+        background-color: #ffffff !important;
+    }
+}
+
+/* کاهش حرکت برای افرادی که این گزینه را فعال کرده‌اند */
+@media (prefers-reduced-motion: reduce) {
+    .edit-item,
+    .player-page-hero button,
+    .edit-list button,
+    .edit-item button {
+        transition: none !important;
+    }
+
+    .edit-item:hover,
+    .player-page-hero button:hover,
+    .edit-list button:hover,
+    .edit-item button:hover {
+        transform: none !important;
+    }
+}

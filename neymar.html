@@ -1,0 +1,310 @@
+```html
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ادیت‌های نیمار | MJ FOOTBALL EDITS</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .neymar-hero {
+            max-width: 1100px;
+            margin: 25px auto;
+            padding: 60px 20px;
+            border-radius: 22px;
+            text-align: center;
+            color: white;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0, 80, 40, 0.78),
+                    rgba(30, 130, 65, 0.52)
+                ),
+                url("images/neymar.jpg") center 30% / cover no-repeat;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .neymar-hero h1 {
+            font-size: clamp(30px, 5vw, 48px);
+            margin: 0 0 12px;
+        }
+
+        .neymar-hero p {
+            font-size: 17px;
+            line-height: 2;
+        }
+
+        .neymar-profile {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .neymar-profile img {
+            display: block;
+            width: 250px;
+            max-width: 100%;
+            border-radius: 16px;
+            object-fit: cover;
+        }
+
+        .neymar-profile h2 {
+            color: #168443;
+            margin-top: 0;
+        }
+
+        .neymar-profile p {
+            color: #333;
+            line-height: 2.1;
+        }
+
+        .edit-list {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 25px;
+        }
+
+        .edit-list > h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        #player-edits {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(260px, 1fr)
+            );
+            gap: 22px;
+        }
+
+        .edit-item {
+            min-width: 0;
+            padding: 18px;
+            border-radius: 18px;
+            background: white;
+            box-shadow: 0 5px 22px rgba(0, 0, 0, 0.09);
+            overflow: hidden;
+        }
+
+        .edit-item h2 {
+            font-size: 19px;
+            color: #168443;
+            overflow-wrap: anywhere;
+        }
+
+        .edit-item video {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            border-radius: 12px;
+            background: #111;
+        }
+
+        .edit-item p {
+            color: #666;
+            font-size: 13px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 15px 25px;
+            text-decoration: none;
+        }
+
+        .loading-message {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 25px;
+            line-height: 2;
+        }
+
+        @media (max-width: 650px) {
+            .neymar-profile {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .neymar-profile img {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .neymar-hero {
+                margin: 15px;
+                padding: 45px 15px;
+            }
+
+            .edit-list {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <a class="logo" href="index.html">
+            MJ <span>FOOTBALL EDITS</span>
+        </a>
+
+        <p>ادیت‌های اختصاصی بازیکن محبوبت</p>
+    </header>
+
+    <a class="back-link" href="index.html">
+        → برگشت به صفحه اصلی
+    </a>
+
+    <main>
+
+        <section class="neymar-hero">
+            <h1 id="player-name">نیمار جونیور 🇧🇷</h1>
+            <p id="player-description">
+                تمام ادیت‌های نیمار در یک جا
+            </p>
+        </section>
+
+        <section class="neymar-profile">
+            <img
+                src="images/neymar.jpg"
+                alt="عکس نیمار جونیور"
+                onerror="this.alt='عکس نیمار پیدا نشد'; this.style.display='none';"
+            >
+
+            <div>
+                <h2>درباره نیمار جونیور</h2>
+
+                <p>
+                    نیمار دا سیلوا سانتوس جونیور، فوتبالیست برزیلی،
+                    در ۵ فوریهٔ ۱۹۹۲ به دنیا آمد. او به خاطر دریبل‌های
+                    تکنیکی، حرکات نمایشی و خلاقیت در حمله شناخته می‌شود.
+                </p>
+
+                <p>
+                    نیمار در دوران حرفه‌ای خود برای سانتوس،
+                    بارسلونا، پاری‌سن‌ژرمن و الهلال بازی کرده است
+                    و سابقه درخشانی در تیم ملی برزیل دارد.
+                </p>
+
+                <p>
+                    او در کنار لیونل مسی و لوئیس سوارز، عضو مثلث
+                    هجومی معروف بارسلونا بود و در سال ۲۰۱۵ قهرمان
+                    لیگ قهرمانان اروپا شد.
+                </p>
+
+                <p>
+                    اینجا می‌تونی ادیت‌های فوتبالی نیمار رو ببینی
+                    و از دریبل‌ها و لحظه‌های جذابش لذت ببری! 🔥
+                </p>
+            </div>
+        </section>
+
+        <section class="edit-list">
+            <h2>🔥 ادیت‌های نیمار ⚽</h2>
+
+            <div id="player-edits">
+                <p class="loading-message">
+                    در حال بارگذاری ادیت‌ها...
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 MJ FOOTBALL EDITS</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+        const SUPABASE_URL =
+            "https://prgdwprzvgtrlkemmuoc.supabase.co";
+
+        const SUPABASE_KEY =
+            "sb_publishable_0y5J9h5NnN-7G0rtsG_RTA_xo4mFP8T";
+
+        const supabaseClient = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
+
+        async function loadNeymarEdits() {
+            const container =
+                document.getElementById("player-edits");
+
+            try {
+                const { data, error } = await supabaseClient
+                    .from("videos")
+                    .select("id, title, video_url, created_at")
+                    .eq("player", "neymar")
+                    .order("created_at", { ascending: false });
+
+                if (error) {
+                    throw error;
+                }
+
+                container.replaceChildren();
+
+                if (!data || data.length === 0) {
+                    container.textContent =
+                        "هنوز ادیتی برای نیمار منتشر نشده.";
+
+                    return;
+                }
+
+                data.forEach((video) => {
+                    const card = document.createElement("div");
+                    card.className = "edit-item";
+
+                    const title = document.createElement("h2");
+                    title.textContent =
+                        video.title || "ادیت نیمار";
+
+                    const videoElement =
+                        document.createElement("video");
+
+                    videoElement.controls = true;
+                    videoElement.preload = "metadata";
+                    videoElement.playsInline = true;
+                    videoElement.src = video.video_url;
+
+                    const date = document.createElement("p");
+
+                    date.textContent = video.created_at
+                        ? "تاریخ انتشار: " +
+                          new Date(video.created_at)
+                              .toLocaleDateString("fa-IR")
+                        : "تاریخ انتشار نامشخص";
+
+                    card.append(title, videoElement, date);
+                    container.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error(
+                    "خطا در دریافت ادیت‌های نیمار:",
+                    error
+                );
+
+                container.textContent =
+                    "بارگذاری ادیت‌ها ناموفق بود. اتصال دیتابیس رو بررسی کن.";
+            }
+        }
+
+        loadNeymarEdits();
+    </script>
+
+</body>
+</html>
+```

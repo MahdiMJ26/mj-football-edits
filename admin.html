@@ -1,0 +1,120 @@
+```html
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>پنل مدیریت | MJ Football Edits</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>MJ <span>FOOTBALL EDITS</span></h1>
+        <p>پنل مدیریت ادیت‌های فوتبالی</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>ورود مدیر</h2>
+            <p>برای آپلود و مدیریت ادیت‌ها وارد حساب مدیر شو.</p>
+
+            <form id="login-form">
+                <label for="email">ایمیل مدیر</label>
+                <input
+                    id="email"
+                    type="email"
+                    autocomplete="username"
+                    required
+                >
+
+                <label for="password">رمز عبور</label>
+                <input
+                    id="password"
+                    type="password"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <button type="submit">ورود به پنل</button>
+            </form>
+
+            <section id="upload-panel" hidden>
+                <h2>آپلود ادیت جدید ⚽</h2>
+
+                <form id="upload-form">
+                    <label for="video-title">عنوان ویدیو</label>
+                    <input
+                        id="video-title"
+                        type="text"
+                        placeholder="مثلاً ادیت خفن مسی"
+                        maxlength="120"
+                        required
+                    >
+
+                    <label for="video-player">انتخاب بازیکن</label>
+                    <select id="video-player" required>
+                        <option value="">بازیکن رو انتخاب کن</option>
+                        <option value="messi">لیونل مسی</option>
+                        <option value="ronaldo">کریستیانو رونالدو</option>
+                        <option value="neymar">نیمار</option>
+                        <option value="mbappe">کیلیان امباپه</option>
+                        <option value="haaland">ارلینگ هالند</option>
+                        <option value="bellingham">جود بلینگام</option>
+                    </select>
+
+                    <label for="video-file">انتخاب ویدیو (MP4)</label>
+                    <input
+                        id="video-file"
+                        type="file"
+                        accept=".mp4,video/mp4"
+                        required
+                    >
+
+                    <p>حداکثر حجم فایل: ۵۰ مگابایت</p>
+
+                    <button type="submit">
+                        آپلود و انتشار ویدیو
+                    </button>
+                </form>
+
+                <hr>
+
+                <section id="manage-videos">
+                    <h2>مدیریت ویدیوهای منتشرشده 🎬</h2>
+                    <p>
+                        ویدیوهای منتشرشده رو ببین و در صورت نیاز حذف کن.
+                    </p>
+
+                    <button id="refresh-videos" type="button">
+                        🔄 بارگذاری دوباره فهرست
+                    </button>
+
+                    <div id="video-management-list" aria-live="polite">
+                        <p>فهرست ویدیوها پس از ورود مدیر نمایش داده می‌شه.</p>
+                    </div>
+                </section>
+
+                <hr>
+
+                <button id="logout-button" type="button">
+                    خروج از حساب مدیر
+                </button>
+            </section>
+
+            <p id="status" role="status" aria-live="polite"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 MJ Football Edits</p>
+        <a href="index.html">بازگشت به صفحه اصلی</a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="admin.js"></script>
+
+</body>
+</html>
+```

@@ -1,0 +1,900 @@
+```html
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ادیت‌های رونالدو | MJ FOOTBALL EDITS</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --mj-green: #24c943;
+            --mj-green-dark: #168b30;
+            --mj-bg: #e8f5e9;
+            --mj-white: #ffffff;
+            --mj-text: #174d25;
+            --mj-muted: #598061;
+            --mj-border: #c6edce;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--mj-bg) !important;
+            color: var(--mj-text) !important;
+            font-family: Tahoma, Arial, sans-serif;
+        }
+
+        /* Header */
+        .site-header {
+            padding: 24px 16px !important;
+            text-align: center;
+            background: linear-gradient(135deg, #ffffff, #d8f5dd) !important;
+            border-bottom: 2px solid var(--mj-green) !important;
+        }
+
+        .site-header .logo {
+            display: inline-block;
+            color: var(--mj-green-dark) !important;
+            font-size: clamp(22px, 4vw, 34px);
+            font-weight: 900;
+            text-decoration: none;
+        }
+
+        .site-header .logo span {
+            color: var(--mj-green) !important;
+        }
+
+        .site-header p {
+            margin-bottom: 0;
+            color: #467a50 !important;
+            line-height: 1.9;
+        }
+
+        /* Back button */
+        .back-link {
+            display: inline-block;
+            margin: 20px;
+            padding: 11px 18px;
+            border-radius: 12px;
+            background: #ffffff !important;
+            border: 1px solid #b8e8c0;
+            color: var(--mj-green-dark) !important;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .back-link:hover {
+            background: #e0f8e4 !important;
+            transform: translateX(3px);
+        }
+
+        /* Ronaldo hero */
+        .player-page-hero {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 10px 20px 30px;
+            min-height: 360px;
+            padding: 60px 20px;
+            border: 2px solid rgba(36, 201, 67, 0.45);
+            border-radius: 24px;
+            background-color: #244c2c;
+            background-image: url("images/ronaldo.jpg");
+            background-position: center 25%;
+            background-size: cover;
+            box-shadow: 0 12px 30px rgba(20, 100, 35, 0.15);
+        }
+
+        .player-page-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(
+                90deg,
+                rgba(5, 25, 10, 0.78),
+                rgba(5, 25, 10, 0.35),
+                rgba(5, 25, 10, 0.78)
+            );
+            pointer-events: none;
+        }
+
+        .player-page-hero h1 {
+            margin: 0 0 12px;
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+            font-size: clamp(27px, 5vw, 48px);
+            font-weight: 900;
+            line-height: 1.5;
+            text-shadow: 0 3px 15px #000000;
+        }
+
+        .player-page-hero p {
+            max-width: 650px;
+            margin: 0;
+            color: #e6ffe9 !important;
+            -webkit-text-fill-color: #e6ffe9 !important;
+            font-size: 17px;
+            line-height: 2;
+            text-shadow: 0 2px 8px #000000;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 9px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            border-radius: 30px;
+            background: rgba(36, 201, 67, 0.92);
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        /* Biography */
+        .ronaldo-bio {
+            display: grid;
+            grid-template-columns: minmax(240px, 0.85fr) minmax(0, 1.15fr);
+            align-items: stretch;
+            gap: 28px;
+            max-width: 1100px;
+            margin: 35px auto;
+            padding: 25px;
+            background: linear-gradient(135deg, #ffffff, #e1f7e5);
+            border: 1px solid #b8e8c0;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(20, 100, 35, 0.10);
+        }
+
+        .bio-image {
+            position: relative;
+            min-height: 390px;
+            overflow: hidden;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #d8f5dd, #7bd88d);
+        }
+
+        .bio-image img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 390px;
+            object-fit: cover;
+            object-position: center top;
+            transition: transform 0.4s ease;
+        }
+
+        .bio-image:hover img {
+            transform: scale(1.04);
+        }
+
+        .bio-image-caption {
+            position: absolute;
+            right: 12px;
+            bottom: 12px;
+            left: 12px;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            border-radius: 12px;
+            background: rgba(10, 40, 17, 0.78);
+            color: #ffffff;
+            text-align: center;
+            font-weight: bold;
+            line-height: 1.8;
+        }
+
+        .bio-content {
+            min-width: 0;
+            align-self: center;
+        }
+
+        .bio-label {
+            display: inline-block;
+            padding: 7px 12px;
+            border-radius: 20px;
+            background: #d8f5dd;
+            color: var(--mj-green-dark);
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .bio-content h2 {
+            margin: 14px 0 8px;
+            color: var(--mj-green-dark) !important;
+            -webkit-text-fill-color: var(--mj-green-dark) !important;
+            font-size: clamp(25px, 4vw, 35px);
+            line-height: 1.6;
+        }
+
+        .bio-subtitle {
+            margin: 0 0 18px;
+            color: var(--mj-muted);
+            direction: ltr;
+            text-align: right;
+            line-height: 1.8;
+            overflow-wrap: anywhere;
+            font-size: 14px;
+        }
+
+        .bio-description {
+            margin: 0;
+            color: #315c39;
+            line-height: 2.2;
+            font-size: 14px;
+        }
+
+        .bio-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            margin: 23px 0;
+        }
+
+        .bio-stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            min-width: 0;
+            padding: 14px 5px;
+            text-align: center;
+            background: #ffffff;
+            border: 1px solid var(--mj-border);
+            border-radius: 13px;
+        }
+
+        .bio-stat span {
+            color: var(--mj-green);
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        .bio-stat strong {
+            color: var(--mj-green-dark);
+            font-size: 13px;
+        }
+
+        .bio-stat small {
+            color: var(--mj-muted);
+            font-size: 11px;
+        }
+
+        .bio-quote {
+            margin-top: 20px;
+            padding: 16px;
+            border-right: 4px solid var(--mj-green);
+            border-radius: 12px;
+            background: #d5f4db;
+            color: var(--mj-green-dark);
+            line-height: 2;
+        }
+
+        .bio-quote strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .bio-quote p {
+            margin: 0;
+            color: #315c39;
+            font-size: 13px;
+        }
+
+        /* Section headings */
+        .section-heading {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .section-heading h2 {
+            margin: 0 0 8px;
+            color: var(--mj-green-dark) !important;
+            -webkit-text-fill-color: var(--mj-green-dark) !important;
+            font-size: clamp(24px, 4vw, 34px);
+            line-height: 1.6;
+        }
+
+        .section-heading p {
+            margin: 0;
+            color: #467a50 !important;
+            line-height: 1.9;
+        }
+
+        /* Edits section */
+        .edit-list {
+            max-width: 1100px;
+            margin: 0 auto 40px;
+            padding: 25px 20px 50px;
+            background: transparent;
+        }
+
+        /* Edit counter */
+        .edit-stats {
+            display: flex;
+            justify-content: center;
+            margin: 25px 0;
+        }
+
+        .stat-box {
+            min-width: 170px;
+            padding: 18px 28px;
+            text-align: center;
+            background: #ffffff;
+            border: 1px solid var(--mj-border);
+            border-radius: 18px;
+            box-shadow: 0 6px 18px rgba(20, 100, 35, 0.07);
+        }
+
+        .stat-number {
+            display: block;
+            color: var(--mj-green-dark);
+            font-size: 32px;
+            font-weight: 900;
+        }
+
+        .stat-label {
+            display: block;
+            margin-top: 6px;
+            color: #467a50;
+            font-size: 14px;
+        }
+
+        /* Video cards */
+        .edits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 22px;
+            margin-top: 25px;
+        }
+
+        .edits-grid .edit-item {
+            min-width: 0;
+            margin: 0;
+            padding: 18px;
+            overflow: hidden;
+            background: #ffffff;
+            border: 1px solid var(--mj-border);
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(20, 100, 35, 0.08);
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .edits-grid .edit-item:hover {
+            border-color: var(--mj-green);
+            box-shadow: 0 12px 28px rgba(36, 201, 67, 0.16);
+            transform: translateY(-5px);
+        }
+
+        .edit-card-label {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 6px 11px;
+            border-radius: 8px;
+            background: #e5f9e9;
+            color: var(--mj-green-dark);
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .edits-grid .edit-item h2 {
+            color: var(--mj-green-dark);
+            font-size: 19px;
+            line-height: 1.8;
+            overflow-wrap: anywhere;
+        }
+
+        .edit-video {
+            display: block;
+            width: 100%;
+            max-height: 420px;
+            aspect-ratio: 16 / 9;
+            margin: 14px auto;
+            object-fit: contain;
+            background: #edf5ee;
+            border: 1px solid #d6ead9;
+            border-radius: 14px;
+        }
+
+        .edit-date {
+            margin-top: 14px;
+            color: #467a50;
+            font-size: 13px;
+        }
+
+        .edit-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .edit-actions button {
+            flex: 1;
+            min-width: 110px;
+            padding: 11px 12px;
+            border: 0;
+            border-radius: 10px;
+            background: var(--mj-green);
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .edit-actions button:hover {
+            background: var(--mj-green-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Loading and empty states */
+        .edits-message {
+            grid-column: 1 / -1;
+            padding: 35px 20px;
+            text-align: center;
+            background: #ffffff;
+            border: 1px dashed #9edcab;
+            border-radius: 20px;
+            color: #467a50;
+            line-height: 2;
+        }
+
+        .empty-icon {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 42px;
+        }
+
+        .edits-message strong {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--mj-green-dark);
+            font-size: 20px;
+        }
+
+        .loading-dot {
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            margin: 0 3px;
+            border-radius: 50%;
+            background: var(--mj-green);
+            animation: mjPulse 0.8s infinite alternate;
+        }
+
+        @keyframes mjPulse {
+            from {
+                opacity: 0.3;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1.15);
+            }
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 30px;
+            padding: 25px 15px;
+            text-align: center;
+            background: #d8f0dc;
+            border-top: 1px solid #b8e8c0;
+            color: var(--mj-text);
+        }
+
+        footer p {
+            margin: 0;
+            color: var(--mj-text);
+            line-height: 1.9;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 760px) {
+            .ronaldo-bio {
+                grid-template-columns: 1fr;
+                margin: 22px 12px;
+                padding: 15px;
+                gap: 20px;
+            }
+
+            .bio-image,
+            .bio-image img {
+                min-height: 320px;
+                max-height: 480px;
+            }
+
+            .bio-content {
+                padding: 3px 2px 5px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .player-page-hero {
+                margin: 8px 12px 24px;
+                min-height: 290px;
+                padding: 45px 15px;
+                border-radius: 18px;
+            }
+
+            .player-page-hero p {
+                font-size: 15px;
+            }
+
+            .edit-list {
+                padding: 18px 12px 35px;
+            }
+
+            .edits-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .stat-box {
+                width: 100%;
+                max-width: 230px;
+            }
+
+            .bio-stats {
+                gap: 7px;
+            }
+
+            .bio-stat {
+                padding: 12px 3px;
+            }
+
+            .bio-stat strong {
+                font-size: 12px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="player-ronaldo">
+
+    <header class="site-header">
+        <a class="logo" href="index.html">
+            MJ <span>FOOTBALL EDITS</span>
+        </a>
+        <p>دنیای ادیت‌های فوتبالی 💚</p>
+    </header>
+
+    <a class="back-link" href="index.html">→ برگشت به صفحه اصلی</a>
+
+    <main>
+
+        <!-- Ronaldo hero -->
+        <section class="player-page-hero">
+            <h1 id="player-name">CRISTIANO RONALDO 🇵🇹</h1>
+
+            <p id="player-description">
+                لحظه‌های فراموش‌نشدنی اسطوره فوتبال؛ همه در یک جا!
+            </p>
+
+            <span class="hero-badge">SIUUU! ⚽</span>
+        </section>
+
+        <!-- Ronaldo biography -->
+        <section class="ronaldo-bio" aria-labelledby="ronaldo-bio-title">
+
+            <div class="bio-image">
+                <img
+                    src="images/ronaldo.jpg"
+                    alt="تصویر کریستیانو رونالدو"
+                    loading="lazy"
+                    onerror="this.style.display='none';"
+                >
+
+                <div class="bio-image-caption">
+                    CRISTIANO RONALDO · CR7
+                </div>
+            </div>
+
+            <div class="bio-content">
+                <span class="bio-label">THE LEGEND 🇵🇹</span>
+
+                <h2 id="ronaldo-bio-title">کریستیانو رونالدو</h2>
+
+                <p class="bio-subtitle">
+                    Cristiano Ronaldo dos Santos Aveiro
+                </p>
+
+                <p class="bio-description">
+                    کریستیانو رونالدو در ۵ فوریهٔ ۱۹۸۵ در فونشال پرتغال به دنیا آمد.
+                    او یکی از شناخته‌شده‌ترین فوتبالیست‌های جهان است و به خاطر قدرت
+                    گل‌زنی، ضربات سر، سرعت، آمادگی بدنی و تلاش فراوانش شناخته می‌شود.
+
+                    <br><br>
+
+                    رونالدو فوتبال حرفه‌ای خود را در اسپورتینگ آغاز کرد و سپس در
+                    منچستریونایتد، رئال مادرید، یوونتوس و النصر بازی کرد. او با تیم
+                    ملی پرتغال نیز به افتخارات مهمی رسید و نام CR7 را در فوتبال
+                    جهان مشهور کرد.
+                </p>
+
+                <div class="bio-stats">
+                    <div class="bio-stat">
+                        <span>🇵🇹</span>
+                        <strong>پرتغال</strong>
+                        <small>ملیت</small>
+                    </div>
+
+                    <div class="bio-stat">
+                        <span>⚽</span>
+                        <strong>مهاجم</strong>
+                        <small>پست بازی</small>
+                    </div>
+
+                    <div class="bio-stat">
+                        <span>7</span>
+                        <strong>CR7</strong>
+                        <small>شماره معروف</small>
+                    </div>
+                </div>
+
+                <div class="bio-quote">
+                    <strong>یک اسطوره، هزاران خاطره! ⚡</strong>
+                    <p>
+                        لحظه‌های تاریخی رونالدو رو در MJ FOOTBALL EDITS ببین.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Ronaldo edits -->
+        <section class="edit-list" id="edits">
+
+            <div class="section-heading">
+                <h2>ادیت‌های رونالدو ⚽</h2>
+                <p>
+                    ویدیوها رو تماشا کن و از لحظه‌های جذاب رونالدو لذت ببر.
+                </p>
+            </div>
+
+            <div class="edit-stats">
+                <div class="stat-box">
+                    <span class="stat-number" id="edit-count">۰</span>
+                    <span class="stat-label">ادیت منتشرشده</span>
+                </div>
+            </div>
+
+            <div id="player-edits" class="edits-grid">
+                <div class="edits-message">
+                    <span class="loading-dot"></span>
+                    <span class="loading-dot"></span>
+                    <span class="loading-dot"></span>
+
+                    <strong>در حال آماده‌سازی ادیت‌ها...</strong>
+                    چند لحظه صبر کن.
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            © 2026 MJ FOOTBALL EDITS | ساخته‌شده برای طرفداران فوتبال 💚
+        </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+        const SUPABASE_URL =
+            "https://prgdwprzvgtrlkemmuoc.supabase.co";
+
+        const SUPABASE_KEY =
+            "sb_publishable_0y5J9h5NnN-7G0rtsG_RTA_xo4mFP8T";
+
+        const supabaseClient = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
+
+        const container = document.getElementById("player-edits");
+        const countElement = document.getElementById("edit-count");
+
+        function showMessage(icon, title, message) {
+            container.replaceChildren();
+
+            const box = document.createElement("div");
+            box.className = "edits-message";
+
+            const symbol = document.createElement("span");
+            symbol.className = "empty-icon";
+            symbol.textContent = icon;
+
+            const heading = document.createElement("strong");
+            heading.textContent = title;
+
+            const paragraph = document.createElement("p");
+            paragraph.textContent = message;
+
+            box.append(symbol, heading, paragraph);
+            container.appendChild(box);
+        }
+
+        async function loadRonaldoEdits() {
+            try {
+                const { data, error } = await supabaseClient
+                    .from("videos")
+                    .select("id, title, video_url, created_at")
+                    .eq("player", "ronaldo")
+                    .order("created_at", { ascending: false });
+
+                if (error) {
+                    throw error;
+                }
+
+                container.replaceChildren();
+
+                if (!data || data.length === 0) {
+                    countElement.textContent = "۰";
+
+                    showMessage(
+                        "🎬",
+                        "هنوز ادیتی منتشر نشده!",
+                        "به‌زودی ادیت‌های خفن رونالدو اینجا قرار می‌گیرن. دوباره سر بزن!"
+                    );
+
+                    return;
+                }
+
+                countElement.textContent =
+                    data.length.toLocaleString("fa-IR");
+
+                data.forEach((video, index) => {
+                    const card = document.createElement("article");
+                    card.className = "edit-item";
+
+                    const label = document.createElement("span");
+                    label.className = "edit-card-label";
+                    label.textContent =
+                        "ادیت شماره " +
+                        (index + 1).toLocaleString("fa-IR");
+
+                    const title = document.createElement("h2");
+                    title.textContent = video.title || "ادیت رونالدو";
+
+                    const videoElement = document.createElement("video");
+                    videoElement.className = "edit-video";
+                    videoElement.controls = true;
+                    videoElement.preload = "metadata";
+                    videoElement.playsInline = true;
+                    videoElement.src = video.video_url;
+                    videoElement.setAttribute(
+                        "aria-label",
+                        title.textContent
+                    );
+
+                    videoElement.addEventListener("error", () => {
+                        console.error(
+                            "ویدیو بارگذاری نشد:",
+                            video.video_url
+                        );
+                    });
+
+                    const date = document.createElement("p");
+                    date.className = "edit-date";
+
+                    const parsedDate = new Date(video.created_at);
+
+                    date.textContent = "📅 تاریخ انتشار: " +
+                        (
+                            Number.isNaN(parsedDate.getTime())
+                                ? "نامشخص"
+                                : parsedDate.toLocaleDateString("fa-IR")
+                        );
+
+                    const actions = document.createElement("div");
+                    actions.className = "edit-actions";
+
+                    const fullscreenButton =
+                        document.createElement("button");
+
+                    fullscreenButton.type = "button";
+                    fullscreenButton.textContent = "⛶ تمام‌صفحه";
+
+                    fullscreenButton.addEventListener("click", async () => {
+                        try {
+                            if (videoElement.requestFullscreen) {
+                                await videoElement.requestFullscreen();
+                            } else if (videoElement.webkitEnterFullscreen) {
+                                videoElement.webkitEnterFullscreen();
+                            } else {
+                                alert(
+                                    "برای تمام‌صفحه شدن از دکمه داخل خود ویدیو استفاده کن."
+                                );
+                            }
+                        } catch (error) {
+                            console.error("خطا در تمام‌صفحه:", error);
+                        }
+                    });
+
+                    const copyButton = document.createElement("button");
+                    copyButton.type = "button";
+                    copyButton.textContent = "🔗 کپی لینک ویدیو";
+
+                    copyButton.addEventListener("click", async () => {
+                        try {
+                            await navigator.clipboard.writeText(
+                                video.video_url
+                            );
+
+                            copyButton.textContent = "✅ لینک کپی شد!";
+                        } catch (error) {
+                            prompt("لینک ویدیو:", video.video_url);
+                        }
+
+                        setTimeout(() => {
+                            copyButton.textContent = "🔗 کپی لینک ویدیو";
+                        }, 1800);
+                    });
+
+                    actions.append(fullscreenButton, copyButton);
+
+                    card.append(
+                        label,
+                        title,
+                        videoElement,
+                        date,
+                        actions
+                    );
+
+                    container.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error(
+                    "خطا در دریافت ادیت‌های رونالدو:",
+                    error
+                );
+
+                countElement.textContent = "۰";
+
+                showMessage(
+                    "⚠️",
+                    "بارگذاری ادیت‌ها ناموفق بود",
+                    "اتصال اینترنت، تنظیمات Supabase و دسترسی جدول videos رو بررسی کن."
+                );
+            }
+        }
+
+        loadRonaldoEdits();
+    </script>
+
+</body>
+</html>
+```
