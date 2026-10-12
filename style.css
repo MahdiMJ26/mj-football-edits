@@ -1,3 +1,4 @@
+```css
 /* ========================================
    MJ FOOTBALL EDITS
    LIGHT GREEN + WHITE + PLAYER PHOTOS
@@ -25,6 +26,7 @@ body {
 
 /* ========================================
    PLAYER HERO BACKGROUND PHOTOS
+   عکس‌ها در ریشه مخزن GitHub هستند
 ======================================== */
 
 .player-page-hero {
@@ -49,27 +51,27 @@ body {
 
 /* عکس مخصوص صفحه هر بازیکن */
 body.player-ronaldo .player-page-hero {
-    background-image: url("images/ronaldo.jpg") !important;
+    background-image: url("./ronaldo.jpg") !important;
 }
 
 body.player-messi .player-page-hero {
-    background-image: url("images/messi.jpg") !important;
+    background-image: url("./messi.jpg") !important;
 }
 
 body.player-mbappe .player-page-hero {
-    background-image: url("images/mbappe.jpg") !important;
+    background-image: url("./mbappe.jpg") !important;
 }
 
 body.player-neymar .player-page-hero {
-    background-image: url("images/neymar.jpg") !important;
+    background-image: url("./neymar.jpg") !important;
 }
 
 body.player-haaland .player-page-hero {
-    background-image: url("images/haaland.jpg") !important;
+    background-image: url("./haaland.jpg") !important;
 }
 
 body.player-bellingham .player-page-hero {
-    background-image: url("images/bellingham.jpg") !important;
+    background-image: url("./bellingham.jpg") !important;
 }
 
 /* لایه روشن روی عکس برای خوانایی متن */
@@ -354,3 +356,4 @@ footer ::selection {
         transform: none !important;
     }
 }
+```
