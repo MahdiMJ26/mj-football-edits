@@ -17,16 +17,132 @@
     --glow: rgba(36, 201, 67, 0.15);
 }
 
-/* پس‌زمینه کلی صفحه */
+/* تنظیمات پایه */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 20px;
+}
+
 html,
 body {
-    background-color: #e8f5e9 !important;
-    color: #174d25 !important;
+    background-color: var(--bg) !important;
+    color: var(--text) !important;
+    overflow-x: hidden;
+}
+
+/* ========================================
+   PLAYER CARDS - HOME PAGE
+   عکس‌ها در ریشه مخزن GitHub هستند
+======================================== */
+
+.player-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    background-color: var(--card-bg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+
+    color: #ffffff !important;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* عکس اختصاصی هر بازیکن */
+.messi-card {
+    background-image: url("./messi.jpg") !important;
+}
+
+.ronaldo-card {
+    background-image: url("./ronaldo.jpg") !important;
+}
+
+.mbappe-card {
+    background-image: url("./mbappe.jpg") !important;
+    background-size: contain !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+}
+
+.neymar-card {
+    background-image: url("./neymar.jpg") !important;
+}
+
+.haaland-card {
+    background-image: url("./haaland.jpg") !important;
+    background-size: auto 145% !important;
+    background-position: center 15% !important;
+}
+
+.bellingham-card {
+    background-image: url("./bellingham.jpg") !important;
+}
+
+/* لایه تیره برای خوانایی نوشته روی کارت‌ها */
+.player-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background: linear-gradient(
+        to top,
+        rgba(3, 20, 7, 0.9) 0%,
+        rgba(3, 20, 7, 0.4) 48%,
+        rgba(3, 20, 7, 0.03) 100%
+    );
+
+    pointer-events: none;
+}
+
+/* افکت کارت‌ها */
+.player-card:hover {
+    border-color: var(--neon);
+    box-shadow:
+        0 0 12px rgba(36, 201, 67, 0.25),
+        0 8px 24px rgba(20, 100, 35, 0.12);
+
+    transform: translateY(-5px);
+}
+
+/* نوشته‌های روی کارت بازیکن */
+.player-card .player-number,
+.player-card .player-info {
+    position: relative;
+    z-index: 1;
+}
+
+.player-card .player-number {
+    color: var(--neon-light) !important;
+}
+
+.player-card .player-info h3 {
+    color: #ffffff !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.player-card .player-info p {
+    color: #f0fff1 !important;
+}
+
+.player-card .player-info span {
+    color: var(--neon-light) !important;
 }
 
 /* ========================================
    PLAYER HERO BACKGROUND PHOTOS
-   عکس‌ها در ریشه مخزن GitHub هستند
+   عکس‌های پس‌زمینه صفحات بازیکنان
 ======================================== */
 
 .player-page-hero {
@@ -95,6 +211,7 @@ body.player-bellingham .player-page-hero {
 .player-page-hero h1,
 .player-page-hero p {
     position: relative;
+
     color: #ffffff !important;
     background: transparent !important;
 
@@ -118,6 +235,7 @@ body.player-bellingham .player-page-hero {
     display: block;
     width: min(280px, 80%);
     max-height: 350px;
+
     object-fit: contain;
     margin: 0 auto 20px;
 
@@ -139,10 +257,10 @@ body.player-bellingham .player-page-hero {
     margin: auto;
     padding: 25px 20px 60px;
 
-    background-color: #e8f5e9 !important;
+    background-color: var(--bg) !important;
     background-image: none !important;
 
-    color: #174d25 !important;
+    color: var(--text) !important;
     text-shadow: none !important;
     box-shadow: none !important;
 }
@@ -160,10 +278,10 @@ body.player-bellingham .player-page-hero {
 /* پیام نبودن ادیت */
 .edit-list p,
 .edit-list .videos-status {
-    color: #467a50 !important;
+    color: var(--muted) !important;
     background: transparent !important;
     text-shadow: none !important;
-    -webkit-text-fill-color: #467a50 !important;
+    -webkit-text-fill-color: var(--muted) !important;
 }
 
 /* ========================================
@@ -177,9 +295,9 @@ body.player-bellingham .player-page-hero {
     background-color: #ffffff !important;
     background-image: none !important;
 
-    color: #174d25 !important;
+    color: var(--text) !important;
 
-    border: 1px solid rgba(36, 201, 67, 0.4) !important;
+    border: 1px solid var(--border) !important;
     border-radius: 16px;
 
     box-shadow: 0 5px 18px rgba(20, 100, 35, 0.08) !important;
@@ -202,16 +320,16 @@ body.player-bellingham .player-page-hero {
 
 /* متن داخل کارت */
 .edit-item p {
-    color: #467a50 !important;
+    color: var(--muted) !important;
     background: transparent !important;
     text-shadow: none !important;
-    -webkit-text-fill-color: #467a50 !important;
+    -webkit-text-fill-color: var(--muted) !important;
 }
 
 /* افکت هنگام رفتن موس روی کارت */
 .edit-item:hover {
     background-color: #f7fff8 !important;
-    border-color: #24c943 !important;
+    border-color: var(--neon) !important;
     box-shadow: 0 9px 24px rgba(36, 201, 67, 0.17) !important;
     transform: translateY(-3px);
 }
@@ -241,7 +359,7 @@ footer {
     background-color: #d8f0dc !important;
     background-image: none !important;
 
-    color: #174d25 !important;
+    color: var(--text) !important;
     border-top: 1px solid rgba(36, 201, 67, 0.3) !important;
 
     text-shadow: none !important;
@@ -265,7 +383,7 @@ footer a {
 .edit-item a {
     color: #168b30 !important;
     background-color: transparent !important;
-    text-decoration-color: #24c943 !important;
+    text-decoration-color: var(--neon) !important;
     text-shadow: none !important;
 }
 
@@ -273,7 +391,7 @@ footer a {
 .edit-list button,
 .edit-item button {
     color: #ffffff !important;
-    background-color: #24c943 !important;
+    background-color: var(--neon) !important;
 
     border: 1px solid #1db63a !important;
     border-radius: 10px;
@@ -304,7 +422,7 @@ footer a {
 .edit-list a:focus-visible,
 .edit-list button:focus-visible,
 .edit-item button:focus-visible {
-    outline: 2px solid #24c943 !important;
+    outline: 2px solid var(--neon) !important;
     outline-offset: 4px;
 }
 
@@ -326,7 +444,6 @@ footer ::selection {
     .player-page-hero {
         min-height: 300px;
         padding: 50px 16px;
-
         background-position: center 20% !important;
     }
 
@@ -338,18 +455,30 @@ footer ::selection {
         padding: 18px;
         background-color: #ffffff !important;
     }
+
+    .mbappe-card {
+        background-size: contain !important;
+        background-position: center top !important;
+    }
 }
 
 /* کاهش حرکت برای افرادی که این گزینه را فعال کرده‌اند */
 @media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important;
+    }
+
     .edit-item,
+    .player-card,
     .player-page-hero button,
     .edit-list button,
     .edit-item button {
         transition: none !important;
+        animation: none !important;
     }
 
     .edit-item:hover,
+    .player-card:hover,
     .player-page-hero button:hover,
     .edit-list button:hover,
     .edit-item button:hover {
