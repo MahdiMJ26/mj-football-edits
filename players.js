@@ -1,14 +1,16 @@
+// ==========================================
+// MJ FOOTBALL EDITS - Players Database
+// نسخه اصلاح‌شده
+// ==========================================
 
 const playerRows = [
-  // ۶ بازیکن فعلی
+  // بازیکنان ۱ تا ۲۰
   ["messi","لیونل مسی","Lionel Messi","آرژانتین 🇦🇷","اینتر میامی","مهاجم","۱۰"],
   ["ronaldo","کریستیانو رونالدو","Cristiano Ronaldo","پرتغال 🇵🇹","النصر","مهاجم","۷"],
   ["bellingham","جود بلینگام","Jude Bellingham","انگلیس 🏴","رئال مادرید","هافبک","۵"],
   ["mbappe","کیلیان امباپه","Kylian Mbappe","فرانسه 🇫🇷","رئال مادرید","مهاجم","۹"],
   ["neymar","نیمار","Neymar","برزیل 🇧🇷","سانتوس","مهاجم","۱۰"],
   ["haaland","ارلینگ هالند","Erling Haaland","نروژ 🇳🇴","منچسترسیتی","مهاجم","۹"],
-
-  // بازیکنان ۷ تا ۲۰
   ["vinicius-jr","وینیسیوس جونیور","Vinicius Junior","برزیل 🇧🇷","رئال مادرید","وینگر","۷"],
   ["rodri","رودری","Rodri","اسپانیا 🇪🇸","منچسترسیتی","هافبک دفاعی","۱۶"],
   ["lamine-yamal","لامین یامال","Lamine Yamal","اسپانیا 🇪🇸","بارسلونا","وینگر","۱۰"],
@@ -37,7 +39,7 @@ const playerRows = [
   ["julian-alvarez","خولیان آلوارز","Julian Alvarez","آرژانتین 🇦🇷","اتلتیکو مادرید","مهاجم","۱۹"],
   ["lautaro","لائوتارو مارتینز","Lautaro Martinez","آرژانتین 🇦🇷","اینتر میلان","مهاجم","۱۰"],
   ["barella","نیکولو بارلا","Nicolo Barella","ایتالیا 🇮🇹","اینتر میلان","هافبک","۲۳"],
-  ["donnarumma","جان‌لوئیجی دوناروما","Gianluigi Donnarumma","ایتالیا 🇮🇹","دروازه‌بان","دروازه‌بان","۹۹"],
+  ["donnarumma","جان‌لوئیجی دوناروما","Gianluigi Donnarumma","ایتالیا 🇮🇹","پاری سن ژرمن","دروازه‌بان","۹۹"],
   ["hakimi","اشرف حکیمی","Achraf Hakimi","مراکش 🇲🇦","پاری سن ژرمن","مدافع راست","۲"],
   ["dembele","عثمان دمبله","Ousmane Dembele","فرانسه 🇫🇷","پاری سن ژرمن","وینگر","۱۰"],
   ["vitinha","ویتینیا","Vitinha","پرتغال 🇵🇹","پاری سن ژرمن","هافبک","۱۷"],
@@ -49,15 +51,15 @@ const playerRows = [
   // بازیکنان ۴۱ تا ۶۰
   ["tchouameni","اورلین شوامنی","Aurelien Tchouameni","فرانسه 🇫🇷","رئال مادرید","هافبک دفاعی","۱۴"],
   ["camavinga","ادواردو کاماوینگا","Eduardo Camavinga","فرانسه 🇫🇷","رئال مادرید","هافبک","۶"],
-  ["araujο","رونالد آرائوخو","Ronald Araujo","اروگوئه 🇺🇾","بارسلونا","مدافع","۴"],
+  ["araujo","رونالد آرائوخو","Ronald Araujo","اروگوئه 🇺🇾","بارسلونا","مدافع","۴"],
   ["ter-stegen","مارک آندره تراشتگن","Marc-Andre ter Stegen","آلمان 🇩🇪","بارسلونا","دروازه‌بان","۱"],
-  ["cancelo","ژائو کانسلو","Joao Cancelo","پرتغال 🇵🇹","مدافع","مدافع","۲"],
+  ["cancelo","ژائو کانسلو","Joao Cancelo","پرتغال 🇵🇹","الهلال","مدافع راست","۲"],
   ["bruno-fernandes","برونو فرناندز","Bruno Fernandes","پرتغال 🇵🇹","منچستریونایتد","هافبک","۸"],
-  ["rashford","مارکوس رشفورد","Marcus Rashford","انگلیس 🏴","مهاجم","مهاجم","۱۰"],
-  ["garnacho","الخاندرو گارناچو","Alejandro Garnacho","آرژانتین 🇦🇷","وینگر","وینگر","۱۷"],
-  ["casemiro","کاسمیرو","Casemiro","برزیل 🇧🇷","هافبک دفاعی","هافبک دفاعی","۱۸"],
-  ["martinez","لیساندرو مارتینز","Lisandro Martinez","آرژانتین 🇦🇷","مدافع","مدافع","۶"],
-  ["isak","الکساندر ایساک","Alexander Isak","سوئد 🇸🇪","مهاجم","مهاجم","۱۴"],
+  ["rashford","مارکوس رشفورد","Marcus Rashford","انگلیس 🏴","بارسلونا","مهاجم","۱۰"],
+  ["garnacho","الخاندرو گارناچو","Alejandro Garnacho","آرژانتین 🇦🇷","چلسی","وینگر","۱۷"],
+  ["casemiro","کاسمیرو","Casemiro","برزیل 🇧🇷","منچستریونایتد","هافبک دفاعی","۱۸"],
+  ["martinez","لیساندرو مارتینز","Lisandro Martinez","آرژانتین 🇦🇷","منچستریونایتد","مدافع","۶"],
+  ["isak","الکساندر ایساک","Alexander Isak","سوئد 🇸🇪","نیوکاسل","مهاجم","۱۴"],
   ["gordon","آنتونی گوردون","Anthony Gordon","انگلیس 🏴","نیوکاسل","وینگر","۱۰"],
   ["tonali","ساندرو تونالی","Sandro Tonali","ایتالیا 🇮🇹","نیوکاسل","هافبک","۸"],
   ["palmer","کول پالمر","Cole Palmer","انگلیس 🏴","چلسی","هافبک هجومی","۲۰"],
@@ -76,10 +78,10 @@ const playerRows = [
   ["mac-allister","الکسیس مک‌آلیستر","Alexis Mac Allister","آرژانتین 🇦🇷","لیورپول","هافبک","۱۰"],
   ["szoboszlai","دومینیک سوبوسلای","Dominik Szoboszlai","مجارستان 🇭🇺","لیورپول","هافبک","۸"],
   ["diaz","لوئیس دیاز","Luis Diaz","کلمبیا 🇨🇴","بایرن مونیخ","وینگر","۱۴"],
-  ["nunez","داروین نونیز","Darwin Nunez","اروگوئه 🇺🇾","مهاجم","مهاجم","۹"],
+  ["nunez","داروین نونیز","Darwin Nunez","اروگوئه 🇺🇾","الهلال","مهاجم","۹"],
   ["alisson","آلیسون بکر","Alisson Becker","برزیل 🇧🇷","لیورپول","دروازه‌بان","۱"],
   ["trent","ترنت الکساندر آرنولد","Trent Alexander-Arnold","انگلیس 🏴","رئال مادرید","مدافع راست","۱۲"],
-  ["rashford","مارکوس رشفورد","Marcus Rashford","انگلیس 🏴","مهاجم","مهاجم","۱۰"],
+  ["kimmich","یوشوا کیمیش","Joshua Kimmich","آلمان 🇩🇪","بایرن مونیخ","هافبک","۶"],
   ["frenkie-de-jong","فرنکی دی‌یونگ","Frenkie de Jong","هلند 🇳🇱","بارسلونا","هافبک","۲۱"],
   ["ferran-torres","فران تورس","Ferran Torres","اسپانیا 🇪🇸","بارسلونا","مهاجم","۷"],
   ["olmo","دنی اولمو","Dani Olmo","اسپانیا 🇪🇸","بارسلونا","هافبک هجومی","۲۰"],
@@ -99,21 +101,24 @@ const playerRows = [
   ["martinelli","گابریل مارتینلی","Gabriel Martinelli","برزیل 🇧🇷","آرسنال","وینگر","۱۱"],
   ["trossard","لئاندرو تروسار","Leandro Trossard","بلژیک 🇧🇪","آرسنال","وینگر","۱۹"],
   ["ederson","ادرسون","Ederson","برزیل 🇧🇷","منچسترسیتی","دروازه‌بان","۳۱"],
-  ["gundogan","ایلکای گوندوغان","Ilkay Gundogan","آلمان 🇩🇪","هافبک","هافبک","۲۲"],
+  ["gundogan","ایلکای گوندوغان","Ilkay Gundogan","آلمان 🇩🇪","منچسترسیتی","هافبک","۲۲"],
   ["bernardo-silva","برناردو سیلوا","Bernardo Silva","پرتغال 🇵🇹","منچسترسیتی","هافبک","۲۰"],
   ["savinho","ساوینیو","Savinho","برزیل 🇧🇷","منچسترسیتی","وینگر","۲۶"],
   ["doku","جرمی دوکو","Jeremy Doku","بلژیک 🇧🇪","منچسترسیتی","وینگر","۱۱"],
   ["kovacic","ماتئو کواچیچ","Mateo Kovacic","کرواسی 🇭🇷","منچسترسیتی","هافبک","۸"],
-  ["wirtz","فلوریان ویرتز","Florian Wirtz","آلمان 🇩🇪","هافبک","هافبک هجومی","۱۰"],
-  ["frimpong","جرمی فریمپونگ","Jeremie Frimpong","هلند 🇳🇱","مدافع راست","مدافع راست","۳۰"],
-  ["boniface","ویکتور بونیفیس","Victor Boniface","نیجریه 🇳🇬","مهاجم","مهاجم","۲۲"],
+  ["wirtz","فلوریان ویرتز","Florian Wirtz","آلمان 🇩🇪","لیورپول","هافبک هجومی","۱۰"],
+  ["frimpong","جرمی فریمپونگ","Jeremie Frimpong","هلند 🇳🇱","لیورپول","مدافع راست","۳۰"],
+  ["boniface","ویکتور بونیفیس","Victor Boniface","نیجریه 🇳🇬","بایر لورکوزن","مهاجم","۲۲"],
   ["schlotterbeck","نیکو شلوتربک","Nico Schlotterbeck","آلمان 🇩🇪","دورتموند","مدافع","۴"],
-  ["ade yemi","کریم آدیمی","Karim Adeyemi","آلمان 🇩🇪","دورتموند","وینگر","۲۷"],
+  ["adeyemi","کریم آدیمی","Karim Adeyemi","آلمان 🇩🇪","دورتموند","وینگر","۲۷"],
   ["reus","مارکو رویس","Marco Reus","آلمان 🇩🇪","لس‌آنجلس گلکسی","هافبک هجومی","۱۱"],
-  ["terzic","مارکو وراتی","Marco Verratti","ایتالیا 🇮🇹","الدوحیل","هافبک","۷"]
+  ["verratti","مارکو وراتی","Marco Verratti","ایتالیا 🇮🇹","الدوحیل","هافبک","۷"]
 ];
 
-// اطلاعات تکمیلی بازیکنان
+// ==========================================
+// اطلاعات تکمیلی بازیکنان اصلی
+// ==========================================
+
 const extraInfo = {
   messi: {
     birth: "۲۴ ژوئن ۱۹۸۷",
@@ -134,7 +139,7 @@ const extraInfo = {
   bellingham: {
     birth: "۲۹ ژوئن ۲۰۰۳",
     badge: "STAR",
-    description: "ستاره جوان خط میانی",
+    description: "ستاره خط میانی",
     bio: "جود بلینگام به خاطر تکنیک، قدرت بدنی و بازی‌سازی‌اش شناخته می‌شود.",
     honours: ["قهرمانی لیگ قهرمانان اروپا ۲۰۲۴"],
     timeline: ["شروع در بیرمنگام", "درخشش در دورتموند", "انتقال به رئال مادرید"]
@@ -165,6 +170,10 @@ const extraInfo = {
   }
 };
 
+// ==========================================
+// عکس‌های محلی شش بازیکن اصلی
+// ==========================================
+
 const localImages = {
   messi: "./messi.jpg",
   ronaldo: "./ronaldo.jpg",
@@ -174,56 +183,116 @@ const localImages = {
   haaland: "./haaland.jpg"
 };
 
+// ==========================================
+// ساخت فهرست نهایی بازیکنان
+// ==========================================
+
 const players = playerRows.map((row, index) => {
   const [id, name, englishName, nationality, club, position, number] = row;
   const extra = extraInfo[id] || {};
 
   return {
-    id: id === "ade yemi" ? "adeyemi" : id,
+    id,
     name,
     englishName,
     image: localImages[id] || "",
     nationality,
-    birth: extra.birth || "برای اطلاعات دقیق، صفحه بازیکن را ببینید",
+    birth: extra.birth || "اطلاعات تاریخ تولد در حال تکمیل است",
     position,
     club,
     number,
     badge: extra.badge || (index < 20 ? "STAR" : "PLAYER"),
     description: extra.description || `بازیکن فوتبال در پست ${position}`,
-    bio: extra.bio || `${name} بازیکن فوتبال ${nationality} است که در پست ${position} بازی می‌کند. این صفحه برای معرفی بازیکن و نمایش ادیت‌های فوتبالی او ساخته شده است.`,
+    bio: extra.bio ||
+      `${name} بازیکن فوتبال ${nationality} است که در پست ${position} بازی می‌کند. این صفحه برای معرفی بازیکن و نمایش ادیت‌های فوتبالی او ساخته شده است.`,
     honours: extra.honours || ["اطلاعات افتخارات در حال تکمیل است"],
-    timeline: extra.timeline || [`شروع فعالیت حرفه‌ای ${name}`, `حضور در فوتبال سطح بالا`]
+    timeline: extra.timeline || [
+      `شروع فعالیت حرفه‌ای ${name}`,
+      "حضور در فوتبال سطح بالا"
+    ]
   };
 });
 
-// سایت از این فهرست استفاده می‌کند.
+// در دسترس قراردادن اطلاعات برای سایر فایل‌های سایت
 window.MJ_PLAYERS = players;
 window.players = players;
 
-// دریافت عکس‌های واقعی از ویکی‌پدیای انگلیسی
+// ==========================================
+// به‌روزرسانی عکس کارت بازیکن
+// ==========================================
+
+function updatePlayerImage(player) {
+  if (!player || !player.image) return;
+
+  // کارت بازیکنی را پیدا می‌کنیم که شناسه‌اش با بازیکن برابر باشد.
+  const cards = document.querySelectorAll(".player-card");
+
+  cards.forEach(card => {
+    let cardId = "";
+
+    try {
+      const cardUrl = new URL(card.href, window.location.href);
+      cardId = cardUrl.searchParams.get("id") || "";
+    } catch (error) {
+      return;
+    }
+
+    if (cardId !== player.id) return;
+
+    let img = card.querySelector(".player-photo");
+
+    // اگر عکس در کارت وجود ندارد، آن را می‌سازیم.
+    if (!img) {
+      img = document.createElement("img");
+      img.className = "player-photo";
+      img.loading = "eager";
+      img.decoding = "async";
+      img.alt = player.englishName || player.name || "Football player";
+      img.dataset.playerId = player.id;
+
+      card.insertBefore(img, card.firstChild);
+    }
+
+    if (img.getAttribute("src") !== player.image) {
+      img.src = player.image;
+    }
+  });
+}
+
+// ==========================================
+// دریافت عکس بازیکنان از ویکی‌پدیا
+// ==========================================
+
 async function loadWikipediaImages() {
   const needsImage = players.filter(player => !player.image);
 
-  for (let i = 0; i < needsImage.length; i += 50) {
-    const batch = needsImage.slice(i, i + 50);
-    const titles = batch.map(p => p.englishName).join("|");
+  for (let i = 0; i < needsImage.length; i += 20) {
+    const batch = needsImage.slice(i, i + 20);
+    const titles = batch.map(player => player.englishName).join("|");
 
     try {
-      const url = "https://en.wikipedia.org/w/api.php?" +
-        new URLSearchParams({
-          action: "query",
-          titles,
-          prop: "pageimages",
-          format: "json",
-          pithumbsize: "500",
-          redirects: "1",
-          origin: "*"
-        });
+      const params = new URLSearchParams({
+        action: "query",
+        titles,
+        prop: "pageimages",
+        format: "json",
+        pithumbsize: "600",
+        redirects: "1",
+        origin: "*"
+      });
 
-      const response = await fetch(url);
-      if (!response.ok) continue;
+      const response = await fetch(
+        `https://en.wikipedia.org/w/api.php?${params.toString()}`
+      );
+
+      if (!response.ok) {
+        console.warn("دریافت عکس این گروه ناموفق بود:", response.status);
+        continue;
+      }
 
       const data = await response.json();
+
+      // ساخت نقشه برای تبدیل عنوان‌های تغییرکرده به عنوان نهایی
       const titleMap = {};
 
       (data.query?.normalized || []).forEach(item => {
@@ -234,7 +303,9 @@ async function loadWikipediaImages() {
         titleMap[item.from.toLowerCase()] = item.to;
       });
 
+      // نگهداری عکس هر صفحه بر اساس عنوان آن
       const pageMap = {};
+
       Object.values(data.query?.pages || {}).forEach(page => {
         if (page.thumbnail?.source) {
           pageMap[page.title.toLowerCase()] = page.thumbnail.source;
@@ -251,32 +322,31 @@ async function loadWikipediaImages() {
         }
 
         const image = pageMap[title.toLowerCase()];
+
         if (image) {
           player.image = image;
+
+          // عکس همان لحظه در کارت نمایش داده می‌شود؛
+          // لازم نیست کاربر جست‌وجو کند.
           updatePlayerImage(player);
         }
       }
+
+      // به صفحه اطلاع می‌دهیم که این گروه پردازش شده است.
+      window.dispatchEvent(new CustomEvent("mjPlayersBatchReady", {
+        detail: { players, start: i, count: batch.length }
+      }));
+
     } catch (error) {
       console.warn("دریافت عکس بازیکنان با مشکل مواجه شد:", error);
     }
   }
 
+  // اعلام پایان دریافت همه گروه‌ها
   window.dispatchEvent(new CustomEvent("mjPlayersReady", {
     detail: { players }
   }));
 }
 
-function updatePlayerImage(player) {
-  // اگر کارت‌ها قبلاً نمایش داده شده باشند، عکسشان را هم به‌روز می‌کنیم.
-  document.querySelectorAll("img[alt]").forEach(img => {
-    const alt = (img.alt || "").trim().toLowerCase();
-    if (
-      alt === player.name.toLowerCase() ||
-      alt === player.englishName.toLowerCase()
-    ) {
-      img.src = player.image;
-    }
-  });
-}
-
+// شروع دریافت عکس‌ها
 loadWikipediaImages();
