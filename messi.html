@@ -1,574 +1,439 @@
-```html
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لیونل مسی | MJ FOOTBALL EDITS</title>
+  <meta name="description" content="بهترین ادیت‌های لیونل مسی در MJ FOOTBALL EDITS">
+  <link rel="stylesheet" href="style.css">
 
-    <title>ادیت‌های لیونل مسی | MJ FOOTBALL EDITS</title>
+  <style>
+    :root {
+      --bg: #070b09;
+      --panel: #101813;
+      --green: #39ff88;
+      --green2: #14c96b;
+      --text: #f4fff8;
+      --muted: #a6b7ac;
+      --border: rgba(57,255,136,.19);
+    }
 
-    <link rel="stylesheet" href="style.css">
+    * { box-sizing: border-box; }
 
-    <style>
-        .messi-hero {
-            max-width: 1100px;
-            margin: 25px auto;
-            padding: 60px 20px;
-            border-radius: 22px;
-            text-align: center;
-            color: white;
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(10, 25, 75, 0.78),
-                    rgba(30, 100, 180, 0.55)
-                ),
-                url("images/messi.jpg") center 30% / cover no-repeat;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Tahoma, Arial, sans-serif;
+    }
 
-        .messi-hero h1 {
-            font-size: clamp(30px, 5vw, 48px);
-            margin: 0 0 12px;
-        }
+    a { color: inherit; text-decoration: none; }
 
-        .messi-hero p {
-            font-size: 17px;
-            line-height: 2;
-        }
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 20px 7%;
+      background: #0b120e;
+      border-bottom: 1px solid var(--border);
+    }
 
-        .messi-profile {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px;
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
-        }
+    .logo {
+      color: white;
+      font-size: 22px;
+      font-weight: 900;
+    }
 
-        .messi-profile img {
-            display: block;
-            width: 250px;
-            max-width: 100%;
-            border-radius: 16px;
-            object-fit: cover;
-        }
+    .logo span { color: var(--green); }
 
-        .messi-profile h2 {
-            color: #2459a9;
-            margin-top: 0;
-        }
+    .site-header p {
+      color: var(--muted);
+      margin: 7px 0 0;
+      font-size: 12px;
+    }
 
-        .messi-profile p {
-            color: #333;
-            line-height: 2.1;
-        }
+    main {
+      width: min(1100px, 92%);
+      margin: 30px auto 60px;
+    }
 
-        .edit-list {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px;
-        }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--green);
+    }
 
-        .edit-list > h2 {
-            text-align: center;
-            margin-bottom: 25px;
-        }
+    .messi-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 55px 25px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background:
+        radial-gradient(ellipse at 85% 20%, rgba(57,255,136,.18), transparent 40%),
+        linear-gradient(135deg, #15251b, #090e0b 65%);
+    }
 
-        #messi-edits {
-            display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(260px, 1fr)
-            );
-            gap: 22px;
-        }
+    .hero-label {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 30px;
+      color: var(--green);
+      background: rgba(57,255,136,.09);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
 
-        .edit-item {
-            min-width: 0;
-            padding: 18px;
-            border-radius: 18px;
-            background: white;
-            box-shadow: 0 5px 22px rgba(0, 0, 0, 0.09);
-            overflow: hidden;
-        }
+    .messi-hero h1 {
+      margin: 20px 0 10px;
+      font-size: clamp(32px, 6vw, 58px);
+      font-weight: 900;
+    }
 
-        .edit-item h2 {
-            font-size: 19px;
-            color: #2459a9;
-            overflow-wrap: anywhere;
-        }
+    .messi-hero h1 span { color: var(--green); }
 
-        .edit-item video {
-            display: block;
-            width: 100%;
-            max-width: 100%;
-            border-radius: 12px;
-            background: #111;
-        }
+    .messi-hero p {
+      color: var(--muted);
+      line-height: 2;
+      max-width: 600px;
+    }
 
-        .edit-item p {
-            color: #666;
-            font-size: 13px;
-        }
+    .hero-tags {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
 
-        .video-stats {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 10px;
-            margin-top: 14px;
-        }
+    .hero-tags span {
+      padding: 8px 13px;
+      background: #15221a;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      font-size: 13px;
+    }
 
-        .stat-button {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            gap: 7px;
-            padding: 9px 13px;
-            border: 1px solid #dbe3ef;
-            border-radius: 12px;
-            background: #f5f8fc;
-            color: #17243a;
-            font: inherit;
-            font-size: 14px;
-            cursor: pointer;
-            transition: transform 0.2s, background 0.2s;
-        }
+    .section-title {
+      margin: 35px 0 18px;
+      font-size: 23px;
+    }
 
-        .stat-button:hover {
-            transform: translateY(-2px);
-            background: #eaf1fb;
-        }
+    .section-title span { color: var(--green); }
 
-        .stat-button:disabled {
-            opacity: 0.65;
-            cursor: wait;
-            transform: none;
-        }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
 
-        .like-button.liked {
-            color: #c62848;
-            background: #fff0f3;
-            border-color: #ffc5d1;
-        }
+    .stat-card, .content-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
 
-        .stat-message {
-            width: 100%;
-            margin: 2px 0 0;
-            color: #666;
-            font-size: 12px;
-            line-height: 1.8;
-        }
+    .stat-card strong {
+      display: block;
+      color: var(--green);
+      font-size: clamp(24px, 4vw, 36px);
+      margin-bottom: 9px;
+    }
 
-        .back-link {
-            display: inline-block;
-            margin: 15px 25px;
-            text-decoration: none;
-        }
+    .stat-card span {
+      color: var(--muted);
+      font-size: 13px;
+    }
 
-        .loading-message {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 25px;
-            line-height: 2;
-        }
+    .content-card p {
+      color: var(--muted);
+      line-height: 2.1;
+      margin: 8px 0;
+    }
 
-        @media (max-width: 650px) {
-            .messi-profile {
-                flex-direction: column;
-                text-align: center;
-            }
+    .honors-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 13px;
+    }
 
-            .messi-profile img {
-                width: 100%;
-                max-width: 320px;
-            }
+    .honor {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 17px;
+      border-radius: 14px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+    }
 
-            .messi-hero {
-                margin: 15px;
-                padding: 45px 15px;
-            }
+    .honor-icon {
+      font-size: 27px;
+    }
 
-            .edit-list {
-                padding: 15px;
-            }
-        }
-    </style>
+    .honor strong { display: block; margin-bottom: 5px; }
+    .honor small { color: var(--muted); }
+
+    #messi-edits {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .edit-item {
+      min-width: 0;
+      overflow: hidden;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 15px;
+    }
+
+    .edit-item video {
+      display: block;
+      width: 100%;
+      max-height: 380px;
+      background: #000;
+      border-radius: 10px;
+    }
+
+    .edit-item h3 { margin: 14px 0; }
+
+    .video-stats {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 12px;
+    }
+
+    .stat-button, .like-button {
+      cursor: pointer;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: #16231a;
+      color: white;
+      font: inherit;
+    }
+
+    .like-button.liked {
+      color: var(--green);
+      border-color: var(--green);
+    }
+
+    .stat-message, .loading-message {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    footer {
+      padding: 25px 15px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .honors-grid, #messi-edits { grid-template-columns: 1fr; }
+      .messi-hero { padding: 35px 20px; }
+      .site-header { padding: 18px 5%; }
+    }
+  </style>
 </head>
 
 <body>
+  <header class="site-header">
+    <div>
+      <a class="logo" href="index.html">MJ <span>FOOTBALL</span> EDITS</a>
+      <p>FOOTBALL • SKILLS • EDITS</p>
+    </div>
+    <span class="hero-label">PLAYER PROFILE</span>
+  </header>
 
-    <header class="site-header">
-        <a class="logo" href="index.html">
-            MJ <span>FOOTBALL EDITS</span>
-        </a>
+  <main>
+    <a class="back-link" href="index.html">→ برگشت به صفحه اصلی</a>
 
-        <p>ادیت‌های اختصاصی بازیکن محبوبت</p>
-    </header>
+    <section class="messi-hero">
+      <span class="hero-label">THE GOAT 🐐</span>
+      <h1>لیونل <span>مسی</span></h1>
+      <p>
+        جادوگر آرژانتینی فوتبال؛ نابغه‌ای با دریبل‌های تماشایی،
+        پاس‌های دقیق و گل‌هایی که فراموش نمی‌شوند.
+      </p>
+      <div class="hero-tags">
+        <span>🇦🇷 آرژانتین</span>
+        <span>🔟 شماره ۱۰</span>
+        <span>⚽ مهاجم</span>
+        <span>✨ اسطوره فوتبال</span>
+      </div>
+    </section>
 
-    <a class="back-link" href="index.html">
-        → برگشت به صفحه اصلی
-    </a>
+    <h2 class="section-title">📊 آمار و افتخارات <span>مسی</span></h2>
+    <section class="stats-grid">
+      <div class="stat-card">
+        <strong>8</strong>
+        <span>توپ طلای جهان</span>
+      </div>
+      <div class="stat-card">
+        <strong>2022</strong>
+        <span>قهرمانی جام جهانی</span>
+      </div>
+      <div class="stat-card">
+        <strong>10</strong>
+        <span>قهرمانی لالیگا</span>
+      </div>
+      <div class="stat-card">
+        <strong>4</strong>
+        <span>قهرمانی لیگ قهرمانان اروپا</span>
+      </div>
+    </section>
 
-    <main>
+    <h2 class="section-title">👑 درباره <span>مسی</span></h2>
+    <section class="content-card">
+      <p>
+        لیونل آندرس مسی در ۲۴ ژوئن ۱۹۸۷ در شهر روزاریو آرژانتین متولد شد.
+        او از نوجوانی به بارسلونا پیوست و به یکی از بزرگ‌ترین بازیکنان تاریخ فوتبال تبدیل شد.
+      </p>
+      <p>
+        مسی به خاطر کنترل توپ فوق‌العاده، دریبل‌های سریع، دید بازی،
+        پاس‌های خلاقانه و ضربات آزاد تماشایی شناخته می‌شود.
+      </p>
+      <p>
+        او با تیم ملی آرژانتین قهرمان کوپا آمریکا در سال ۲۰۲۱ و جام جهانی ۲۰۲۲ شد.
+        پس از سال‌ها حضور در بارسلونا و بازی در پاری‌سن‌ژرمن، در سال ۲۰۲۳ به اینتر میامی پیوست.
+      </p>
+    </section>
 
-        <section class="messi-hero">
-            <h1>لیونل مسی ⚽</h1>
-            <p>تمام ادیت‌های لیونل مسی در یک جا</p>
-        </section>
+    <h2 class="section-title">🏆 افتخارات <span>مهم</span></h2>
+    <section class="honors-grid">
+      <div class="honor">
+        <span class="honor-icon">🌎</span>
+        <div>
+          <strong>جام جهانی ۲۰۲۲</strong>
+          <small>قهرمان با تیم ملی آرژانتین</small>
+        </div>
+      </div>
+      <div class="honor">
+        <span class="honor-icon">🥇</span>
+        <div>
+          <strong>۸ توپ طلا</strong>
+          <small>رکورددار دریافت توپ طلا</small>
+        </div>
+      </div>
+      <div class="honor">
+        <span class="honor-icon">🏆</span>
+        <div>
+          <strong>کوپا آمریکا</strong>
+          <small>قهرمانی در سال‌های ۲۰۲۱ و ۲۰۲۴</small>
+        </div>
+      </div>
+      <div class="honor">
+        <span class="honor-icon">🔵🔴</span>
+        <div>
+          <strong>بارسلونا</strong>
+          <small>۴ قهرمانی لیگ قهرمانان اروپا</small>
+        </div>
+      </div>
+    </section>
 
-        <section class="messi-profile">
-            <img
-                src="images/messi.jpg"
-                alt="عکس لیونل مسی"
-                onerror="this.alt='عکس مسی پیدا نشد'; this.style.display='none';"
-            >
+    <h2 class="section-title">🎬 ادیت‌های <span>مسی</span></h2>
+    <section class="edit-list">
+      <div id="messi-edits">
+        <p class="loading-message">در حال بارگذاری ادیت‌های مسی...</p>
+      </div>
+    </section>
+  </main>
 
-            <div>
-                <h2>درباره لیونل مسی</h2>
+  <footer>
+    © 2026 MJ FOOTBALL EDITS — ساخته‌شده برای عاشقان فوتبال ⚽
+  </footer>
 
-                <p>
-                    لیونل مسی، فوتبالیست آرژانتینی، در ۲۴ ژوئن ۱۹۸۷
-                    در شهر روزاریو به دنیا آمد. او به خاطر دریبل‌های
-                    تماشایی، پاس‌های دقیق و گل‌های فوق‌العاده‌اش شناخته می‌شود.
-                </p>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = "https://prgdwprzvgtrlkemmuoc.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_0y5J9h5NnN-7G0rtsG_RTA_xo4mFP8T";
 
-                <p>
-                    مسی سال‌های زیادی برای بارسلونا بازی کرد و سپس
-                    به پاری‌سن‌ژرمن پیوست. او از سال ۲۰۲۳ برای
-                    اینتر میامی در آمریکا بازی می‌کند.
-                </p>
+    const supabaseClient = window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
+    );
 
-                <p>
-                    او کاپیتان تیم ملی آرژانتین بود و همراه این تیم
-                    قهرمان جام جهانی ۲۰۲۲ شد. مسی همچنین چندین بار
-                    جایزه توپ طلا را به دست آورده است.
-                </p>
+    const editsContainer = document.getElementById("messi-edits");
 
-                <p>
-                    اینجا می‌تونی ادیت‌های فوتبالی مسی رو ببینی
-                    و از لحظه‌های فراموش‌نشدنی این اسطوره لذت ببری!
-                </p>
-            </div>
-        </section>
+    async function loadMessiEdits() {
+      try {
+        const { data, error } = await supabaseClient
+          .from("videos")
+          .select("id, title, video_url, created_at, likes_count, views_count")
+          .eq("player", "messi")
+          .order("created_at", { ascending: false });
 
-        <section class="edit-list">
-            <h2>🔥 ادیت‌های مسی</h2>
+        if (error) throw error;
 
-            <div id="messi-edits">
-                <p class="loading-message">
-                    در حال بارگذاری ادیت‌ها...
-                </p>
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>© 2026 MJ FOOTBALL EDITS</p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-    <script>
-        const SUPABASE_URL =
-            "https://prgdwprzvgtrlkemmuoc.supabase.co";
-
-        const SUPABASE_KEY =
-            "sb_publishable_0y5J9h5NnN-7G0rtsG_RTA_xo4mFP8T";
-
-        const supabaseClient = window.supabase.createClient(
-            SUPABASE_URL,
-            SUPABASE_KEY
-        );
-
-        const container = document.getElementById("messi-edits");
-
-        // برای جلوگیری از افزایش چندباره بازدید در یک بار نمایش صفحه
-        const viewedVideoIds = new Set();
-
-        function formatNumber(value) {
-            return new Intl.NumberFormat("fa-IR").format(
-                Number(value) || 0
-            );
+        if (!data || data.length === 0) {
+          editsContainer.innerHTML =
+            '<p class="loading-message">هنوز ادیتی برای مسی منتشر نشده است.</p>';
+          return;
         }
 
-        function showMessage(element, message) {
-            element.textContent = message;
+        editsContainer.innerHTML = "";
+
+        for (const video of data) {
+          const item = document.createElement("article");
+          item.className = "edit-item";
+
+          const title = document.createElement("h3");
+          title.textContent = video.title || "ادیت لیونل مسی";
+
+          const player = document.createElement("video");
+          player.controls = true;
+          player.preload = "metadata";
+          player.src = video.video_url;
+
+          const stats = document.createElement("div");
+          stats.className = "video-stats";
+
+          const views = document.createElement("span");
+          views.className = "stat-button";
+          views.textContent = "👁 " + (video.views_count || 0) + " بازدید";
+
+          const like = document.createElement("button");
+          like.className = "like-button";
+          like.type = "button";
+          like.textContent = "❤️ " + (video.likes_count || 0) + " لایک";
+
+          const message = document.createElement("p");
+          message.className = "stat-message";
+
+          like.addEventListener("click", async () => {
+            message.textContent =
+              "برای ثبت لایک، باید سیستم ورود و جدول لایک‌ها در پروژه فعال باشد.";
+          });
+
+          stats.append(views, like);
+          item.append(title, player, stats, message);
+          editsContainer.appendChild(item);
         }
+      } catch (error) {
+        console.error("Error loading Messi edits:", error);
+        editsContainer.innerHTML =
+          '<p class="loading-message">بارگذاری ادیت‌ها ناموفق بود. اتصال و تنظیمات Supabase را بررسی کن.</p>';
+      }
+    }
 
-        async function getCurrentUser() {
-            const { data, error } =
-                await supabaseClient.auth.getUser();
-
-            if (error) {
-                console.error("خطا در بررسی کاربر:", error);
-                return null;
-            }
-
-            return data.user || null;
-        }
-
-        async function incrementViews(videoId, countElement, messageElement) {
-            const id = String(videoId);
-
-            if (viewedVideoIds.has(id)) {
-                return;
-            }
-
-            // فقط یک بار در این بارگذاری صفحه درخواست ارسال می‌شود.
-            viewedVideoIds.add(id);
-
-            const { data, error } = await supabaseClient.rpc(
-                "increment_video_views",
-                { p_video_id: videoId }
-            );
-
-            if (error) {
-                console.error("خطا در ثبت بازدید:", error);
-                viewedVideoIds.delete(id);
-
-                showMessage(
-                    messageElement,
-                    "ثبت بازدید انجام نشد؛ دسترسی تابع دیتابیس را بررسی کن."
-                );
-                return;
-            }
-
-            if (data !== null && data !== undefined) {
-                countElement.textContent = formatNumber(data);
-            }
-        }
-
-        async function toggleLike(video, button, countElement, messageElement) {
-            button.disabled = true;
-
-            try {
-                const user = await getCurrentUser();
-
-                if (!user) {
-                    showMessage(
-                        messageElement,
-                        "برای ثبت لایک دائمی، ابتدا باید سیستم ورود کاربران به سایت اضافه شود."
-                    );
-                    return;
-                }
-
-                const { data: existingLike, error: findError } =
-                    await supabaseClient
-                        .from("video_likes")
-                        .select("id")
-                        .eq("video_id", video.id)
-                        .eq("user_id", user.id)
-                        .maybeSingle();
-
-                if (findError) {
-                    throw findError;
-                }
-
-                if (existingLike) {
-                    const { error: deleteError } =
-                        await supabaseClient
-                            .from("video_likes")
-                            .delete()
-                            .eq("id", existingLike.id)
-                            .eq("user_id", user.id);
-
-                    if (deleteError) {
-                        throw deleteError;
-                    }
-
-                    button.classList.remove("liked");
-                    button.setAttribute("aria-pressed", "false");
-                    button.querySelector(".like-label").textContent = "لایک";
-                } else {
-                    const { error: insertError } =
-                        await supabaseClient
-                            .from("video_likes")
-                            .insert({
-                                video_id: video.id,
-                                user_id: user.id
-                            });
-
-                    if (insertError) {
-                        throw insertError;
-                    }
-
-                    button.classList.add("liked");
-                    button.setAttribute("aria-pressed", "true");
-                    button.querySelector(".like-label").textContent = "لایک‌شده";
-                }
-
-                // شمارش مستقیم از جدول لایک‌ها؛ نیازی به حدس‌زدن عدد نیست.
-                const { count, error: countError } =
-                    await supabaseClient
-                        .from("video_likes")
-                        .select("id", { count: "exact", head: true })
-                        .eq("video_id", video.id);
-
-                if (countError) {
-                    throw countError;
-                }
-
-                countElement.textContent = formatNumber(count);
-                showMessage(messageElement, "لایک با موفقیت به‌روزرسانی شد.");
-
-            } catch (error) {
-                console.error("خطا در ثبت لایک:", error);
-
-                showMessage(
-                    messageElement,
-                    "ثبت لایک ناموفق بود؛ تنظیمات دسترسی Supabase را بررسی کن."
-                );
-            } finally {
-                button.disabled = false;
-            }
-        }
-
-        async function loadMessiEdits() {
-            try {
-                const { data, error } = await supabaseClient
-                    .from("videos")
-                    .select(
-                        "id, title, video_url, created_at, likes_count, views_count"
-                    )
-                    .eq("player", "messi")
-                    .order("created_at", { ascending: false });
-
-                if (error) {
-                    throw error;
-                }
-
-                container.replaceChildren();
-
-                if (!data || data.length === 0) {
-                    const emptyMessage = document.createElement("p");
-                    emptyMessage.className = "loading-message";
-                    emptyMessage.textContent =
-                        "هنوز ادیتی برای مسی منتشر نشده.";
-                    container.appendChild(emptyMessage);
-                    return;
-                }
-
-                for (const video of data) {
-                    const card = document.createElement("article");
-                    card.className = "edit-item";
-
-                    const title = document.createElement("h2");
-                    title.textContent =
-                        video.title || "ادیت لیونل مسی";
-
-                    const videoPlayer = document.createElement("video");
-                    videoPlayer.controls = true;
-                    videoPlayer.preload = "metadata";
-                    videoPlayer.playsInline = true;
-                    videoPlayer.src = video.video_url;
-
-                    const date = document.createElement("p");
-                    date.textContent = video.created_at
-                        ? "تاریخ انتشار: " +
-                          new Date(video.created_at).toLocaleDateString("fa-IR")
-                        : "تاریخ انتشار نامشخص";
-
-                    const stats = document.createElement("div");
-                    stats.className = "video-stats";
-
-                    const likeButton = document.createElement("button");
-                    likeButton.type = "button";
-                    likeButton.className = "stat-button like-button";
-                    likeButton.setAttribute("aria-pressed", "false");
-
-                    const heart = document.createElement("span");
-                    heart.textContent = "❤️";
-                    heart.setAttribute("aria-hidden", "true");
-
-                    const likeLabel = document.createElement("span");
-                    likeLabel.className = "like-label";
-                    likeLabel.textContent = "لایک";
-
-                    const likeCount = document.createElement("span");
-                    likeCount.textContent = formatNumber(video.likes_count);
-
-                    likeButton.append(heart, likeLabel, likeCount);
-
-                    const viewButton = document.createElement("div");
-                    viewButton.className = "stat-button";
-                    viewButton.setAttribute("aria-label", "تعداد بازدید");
-
-                    const eye = document.createElement("span");
-                    eye.textContent = "👁️";
-                    eye.setAttribute("aria-hidden", "true");
-
-                    const viewLabel = document.createElement("span");
-                    viewLabel.textContent = "بازدید";
-
-                    const viewCount = document.createElement("span");
-                    viewCount.textContent = formatNumber(video.views_count);
-
-                    viewButton.append(eye, viewLabel, viewCount);
-
-                    const message = document.createElement("p");
-                    message.className = "stat-message";
-                    message.setAttribute("aria-live", "polite");
-
-                    likeButton.addEventListener("click", () => {
-                        toggleLike(video, likeButton, likeCount, message);
-                    });
-
-                    videoPlayer.addEventListener("play", () => {
-                        incrementViews(video.id, viewCount, message);
-                    });
-
-                    stats.append(likeButton, viewButton, message);
-                    card.append(title, videoPlayer, date, stats);
-                    container.appendChild(card);
-
-                    // اگر کاربر قبلاً وارد شده باشد، وضعیت لایک او را بارگذاری کن.
-                    const user = await getCurrentUser();
-
-                    if (user) {
-                        const { data: existingLike, error: likeError } =
-                            await supabaseClient
-                                .from("video_likes")
-                                .select("id")
-                                .eq("video_id", video.id)
-                                .eq("user_id", user.id)
-                                .maybeSingle();
-
-                        if (likeError) {
-                            console.error(
-                                "خطا در بارگذاری وضعیت لایک:",
-                                likeError
-                            );
-                        } else if (existingLike) {
-                            likeButton.classList.add("liked");
-                            likeButton.setAttribute("aria-pressed", "true");
-                            likeLabel.textContent = "لایک‌شده";
-                        }
-                    }
-                }
-
-            } catch (error) {
-                console.error("خطا در دریافت ادیت‌ها:", error);
-
-                container.replaceChildren();
-
-                const errorMessage = document.createElement("p");
-                errorMessage.className = "loading-message";
-                errorMessage.textContent =
-                    "بارگذاری ادیت‌ها ناموفق بود. اتصال و دسترسی دیتابیس رو بررسی کن.";
-
-                container.appendChild(errorMessage);
-            }
-        }
-
-        loadMessiEdits();
-    </script>
-
+    loadMessiEdits();
+  </script>
 </body>
 </html>
-```
