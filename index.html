@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -19,8 +19,8 @@
             --green: #39ff88;
             --text: #f6f5ff;
             --muted: #aaa9c5;
-            --border: rgba(168, 85, 247, 0.25);
-            --glow: 0 0 30px rgba(168, 85, 247, 0.16);
+            --border: rgba(168, 85, 247, .25);
+            --glow: 0 0 30px rgba(168, 85, 247, .16);
             --radius: 20px;
         }
 
@@ -66,7 +66,8 @@
         }
 
         a:focus-visible,
-        button:focus-visible {
+        button:focus-visible,
+        input:focus-visible {
             outline: 2px solid var(--blue);
             outline-offset: 4px;
         }
@@ -450,6 +451,41 @@
             font-size: 14px;
         }
 
+        /* جست‌وجو */
+
+        .players-search {
+            max-width: 650px;
+            margin: 0 auto 25px;
+            text-align: center;
+        }
+
+        #player-search {
+            width: 100%;
+            padding: 14px 17px;
+            color: var(--text);
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-family: Tahoma, Arial, sans-serif;
+            font-size: 14px;
+            outline: none;
+        }
+
+        #player-search:focus {
+            border-color: var(--purple);
+            box-shadow: 0 0 18px rgba(168, 85, 247, .15);
+        }
+
+        #player-search::placeholder {
+            color: var(--muted);
+        }
+
+        #player-count {
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
         /* کارت‌های بازیکن */
 
         .players-grid {
@@ -491,7 +527,6 @@
                 rgba(8, 8, 18, .72) 64%,
                 rgba(8, 8, 18, .98) 100%
             );
-            transition: opacity .3s ease;
         }
 
         .player-card::after {
@@ -515,41 +550,6 @@
             opacity: 1;
         }
 
-        .player-card:nth-child(2) { animation-delay: .07s; }
-        .player-card:nth-child(3) { animation-delay: .14s; }
-        .player-card:nth-child(4) { animation-delay: .21s; }
-        .player-card:nth-child(5) { animation-delay: .28s; }
-        .player-card:nth-child(6) { animation-delay: .35s; }
-
-        .messi-card {
-            background-image: url("./messi.jpg");
-        }
-
-        .ronaldo-card {
-            background-image: url("./ronaldo.jpg");
-        }
-
-        .mbappe-card {
-            background-image: url("./mbappe.jpg");
-            background-position: center 15%;
-        }
-
-        .neymar-card {
-            background-image: url("./neymar.jpg");
-        }
-
-        .haaland-card {
-            background-image: url("./haaland.jpg");
-        }
-
-        .bellingham-card {
-            background-image: url("./bellingham.jpg");
-        }
-
-        .player-info {
-            width: 100%;
-        }
-
         .player-tag {
             display: inline-block;
             margin-bottom: 8px;
@@ -559,6 +559,10 @@
             background: rgba(56, 189, 248, .09);
             color: #9de5ff;
             font-size: 10px;
+        }
+
+        .player-info {
+            width: 100%;
         }
 
         .player-info h3 {
@@ -593,7 +597,17 @@
             color: var(--blue);
         }
 
-        /* جدیدترین ادیت‌ها */
+        .player-empty {
+            grid-column: 1 / -1;
+            padding: 30px;
+            text-align: center;
+            color: var(--muted);
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+        }
+
+        /* ادیت‌ها */
 
         .edits-section {
             position: relative;
@@ -678,7 +692,7 @@
             border-color: var(--blue);
         }
 
-        /* بنر ویژه */
+        /* بخش ویژه */
 
         .premium-section {
             position: relative;
@@ -772,10 +786,7 @@
         /* واکنش‌گرایی */
 
         @media (max-width: 900px) {
-            .players-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
+            .players-grid,
             .edits-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
@@ -911,7 +922,6 @@
                 <a class="button button-primary" href="#players">
                     کشف ستاره‌ها <span aria-hidden="true">←</span>
                 </a>
-
                 <a class="button button-secondary" href="#edits">
                     دیدن ادیت‌ها <span aria-hidden="true">▶</span>
                 </a>
@@ -919,7 +929,7 @@
 
             <div class="hero-stats">
                 <div class="stat">
-                    <strong>06</strong>
+                    <strong id="player-total">06</strong>
                     <span>ستاره فوتبالی</span>
                 </div>
                 <div class="stat">
@@ -943,69 +953,17 @@
                 </p>
             </div>
 
-            <div class="players-grid">
-
-                <a class="player-card messi-card" href="./messi.html"
-                   aria-label="صفحه لیونل مسی">
-                    <div class="player-info">
-                        <span class="player-tag">THE GOAT</span>
-                        <h3>LIONEL MESSI</h3>
-                        <p>جادوگر آرژانتینی؛ استاد دریبل و بازی‌سازی</p>
-                        <span class="player-link">مشاهده صفحه بازیکن ←</span>
-                    </div>
-                </a>
-
-                <a class="player-card ronaldo-card" href="./ronaldo.html"
-                   aria-label="صفحه کریستیانو رونالدو">
-                    <div class="player-info">
-                        <span class="player-tag">SIUUU!</span>
-                        <h3>CRISTIANO RONALDO</h3>
-                        <p>اسطوره پرتغالی؛ قدرت، پرش و گل‌زنی</p>
-                        <span class="player-link">مشاهده صفحه بازیکن ←</span>
-                    </div>
-                </a>
-
-                <a class="player-card mbappe-card" href="./mbappe.html"
-                   aria-label="صفحه کیلیان امباپه">
-                    <div class="player-info">
-                        <span class="player-tag">SPEED KING</span>
-                        <h3>KYLIAN MBAPPE</h3>
-                        <p>سرعت انفجاری و تمام‌کنندگی فوق‌العاده</p>
-                        <span class="player-link">مشاهده صفحه بازیکن ←</span>
-                    </div>
-                </a>
-
-                <a class="player-card neymar-card" href="./neymar.html"
-                   aria-label="صفحه نیمار">
-                    <div class="player-info">
-                        <span class="player-tag">SKILL MASTER</span>
-                        <h3>NEYMAR JR</h3>
-                        <p>هنرمند دریبل‌ها و حرکات تکنیکی</p>
-                        <span class="player-link">مشاهده صفحه بازیکن ←</span>
-                    </div>
-                </a>
-
-                <a class="player-card haaland-card" href="./haaland.html"
-                   aria-label="صفحه ارلینگ هالند">
-                    <div class="player-info">
-                        <span class="player-tag">GOAL MACHINE</span>
-                        <h3>ERLING HAALAND</h3>
-                        <p>مهاجم قدرتمند و ماشین گل‌زنی نروژی</p>
-                        <span class="player-link">مشاهده صفحه بازیکن ←</span>
-                    </div>
-                </a>
-
-                <a class="player-card bellingham-card" href="./bellingham.html"
-                   aria-label="صفحه جود بلینگام">
-                    <div class="player-info">
-                        <span class="player-tag">NEXT GENERATION</span>
-                        <h3>JUDE BELLINGHAM</h3>
-                        <p>ستاره انگلیسی؛ تکنیک، قدرت و هوش بازی</p>
-                        <span class="player-link">مشاهده صفحه بازیکن ←</span>
-                    </div>
-                </a>
-
+            <div class="players-search">
+                <input
+                    type="search"
+                    id="player-search"
+                    placeholder="🔍 جست‌وجوی نام بازیکن..."
+                    aria-label="جست‌وجوی بازیکن"
+                >
+                <p id="player-count">در حال بارگذاری بازیکن‌ها...</p>
             </div>
+
+            <div class="players-grid" id="players-grid"></div>
         </section>
 
         <!-- ادیت‌ها -->
@@ -1045,7 +1003,6 @@
         <!-- بخش ویژه -->
         <section class="premium-section" id="premium">
             <span class="premium-badge">✦ MJ EXCLUSIVE</span>
-
             <h2>بخش ویژه <span>MJ</span></h2>
 
             <p>
@@ -1071,39 +1028,122 @@
         <a class="back-top" href="#top">بازگشت به بالای صفحه ↑</a>
     </footer>
 
+    <!-- انیمیشن شروع -->
     <script>
         (() => {
             const intro = document.getElementById("mj-intro");
-
             if (!intro) return;
 
             let closed = false;
 
             function closeIntro() {
                 if (closed) return;
-
                 closed = true;
                 intro.classList.add("hide");
 
-                window.setTimeout(() => {
-                    intro.remove();
-                }, 700);
+                window.setTimeout(() => intro.remove(), 700);
             }
 
             intro.addEventListener("click", closeIntro);
 
-            intro.addEventListener("keydown", (event) => {
+            intro.addEventListener("keydown", event => {
                 if (event.key === "Enter" || event.key === " ") {
                     event.preventDefault();
                     closeIntro();
                 }
             });
 
-            // اگر کاربر کلیک نکند، صفحه شروع خودکار بسته می‌شود.
             window.setTimeout(closeIntro, 3500);
+        })();
+    </script>
+
+    <!-- سیستم خودکار بازیکن‌ها -->
+    <script src="./players.js"></script>
+    <script>
+        (() => {
+            const grid = document.getElementById("players-grid");
+            const search = document.getElementById("player-search");
+            const count = document.getElementById("player-count");
+            const total = document.getElementById("player-total");
+
+            if (!grid || !search || !count) return;
+
+            if (typeof players === "undefined" || !Array.isArray(players)) {
+                count.textContent = "فایل players.js بارگذاری نشد. نام و مسیر فایل را بررسی کن.";
+                grid.innerHTML =
+                    '<div class="player-empty">اطلاعات بازیکن‌ها در دسترس نیست.</div>';
+                return;
+            }
+
+            function escapeHTML(value) {
+                return String(value ?? "").replace(/[&<>"']/g, char => ({
+                    "&": "&amp;",
+                    "<": "&lt;",
+                    ">": "&gt;",
+                    '"': "&quot;",
+                    "'": "&#39;"
+                })[char]);
+            }
+
+            function renderPlayers() {
+                const query = search.value.trim().toLowerCase();
+
+                const filtered = players.filter(player => {
+                    const searchable = [
+                        player.name,
+                        player.englishName,
+                        player.club,
+                        player.nationality,
+                        player.position
+                    ];
+
+                    return searchable.some(value =>
+                        String(value ?? "").toLowerCase().includes(query)
+                    );
+                });
+
+                count.textContent = `${filtered.length} بازیکن پیدا شد`;
+
+                if (total) {
+                    total.textContent = String(players.length).padStart(2, "0");
+                }
+
+                if (filtered.length === 0) {
+                    grid.innerHTML =
+                        '<div class="player-empty">بازیکنی با این نام پیدا نشد!</div>';
+                    return;
+                }
+
+                grid.innerHTML = filtered.map((player, index) => {
+                    const imagePath = String(player.image ?? "")
+                        .replace(/\\/g, "/");
+
+                    const imageURL = encodeURI(imagePath)
+                        .replace(/'/g, "%27")
+                        .replace(/"/g, "%22");
+
+                    return `
+                        <a
+                            class="player-card"
+                            href="./player.html?id=${encodeURIComponent(player.id)}"
+                            aria-label="صفحه ${escapeHTML(player.name)}"
+                            style="background-image: url('${imageURL}'); animation-delay: ${Math.min(index, 6) * 0.05}s;"
+                        >
+                            <div class="player-info">
+                                <span class="player-tag">${escapeHTML(player.badge)}</span>
+                                <h3>${escapeHTML(player.englishName || player.name)}</h3>
+                                <p>${escapeHTML(player.description)}</p>
+                                <span class="player-link">مشاهده صفحه بازیکن ←</span>
+                            </div>
+                        </a>
+                    `;
+                }).join("");
+            }
+
+            search.addEventListener("input", renderPlayers);
+            renderPlayers();
         })();
     </script>
 
 </body>
 </html>
-```
