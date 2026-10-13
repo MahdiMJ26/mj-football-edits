@@ -1,151 +1,549 @@
-```html
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>ادیت‌های جود بلینگام | MJ FOOTBALL EDITS</title>
+    <meta name="theme-color" content="#07150e">
+    <meta name="description" content="بیوگرافی جود بلینگام، دوران حرفه‌ای، افتخارات و تماشای ادیت‌های فوتبالی در MJ FOOTBALL EDITS">
+    <title>جود بلینگام | MJ FOOTBALL EDITS</title>
 
     <link rel="stylesheet" href="style.css">
 
     <style>
-        .bellingham-hero {
-            max-width: 1100px;
-            margin: 25px auto;
-            padding: 60px 20px;
-            border-radius: 22px;
-            text-align: center;
+        :root {
+            --bg: #07150e;
+            --surface: #102219;
+            --surface-light: #162d20;
+            --green: #39e982;
+            --green-dark: #16a653;
+            --text: #f3fff6;
+            --muted: #b5c8bb;
+            --gold: #e6c46b;
+            --border: rgba(255,255,255,.09);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Tahoma, Arial, sans-serif;
+            line-height: 1.9;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .site-header {
+            padding: 18px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            background: rgba(7,21,14,.95);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 20px;
+            color: var(--green);
+        }
+
+        .logo span {
             color: white;
+        }
+
+        .site-header p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 22px 5%;
+            padding: 9px 17px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--green);
+            transition: .2s;
+        }
+
+        .back-link:hover {
+            background: var(--surface-light);
+            transform: translateY(-2px);
+        }
+
+        main {
+            width: min(1150px, 92%);
+            margin: 0 auto;
+        }
+
+        .bellingham-hero {
+            position: relative;
+            min-height: 390px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            overflow: hidden;
+            padding: clamp(28px, 6vw, 70px);
+            border-radius: 28px;
+            border: 1px solid var(--border);
             background:
                 linear-gradient(
-                    135deg,
-                    rgba(20, 15, 5, 0.78),
-                    rgba(160, 120, 35, 0.58)
+                    90deg,
+                    rgba(4,15,9,.95) 0%,
+                    rgba(4,15,9,.76) 48%,
+                    rgba(4,15,9,.22) 100%
                 ),
-                url("images/bellingham.jpg") center 30% / cover no-repeat;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                linear-gradient(
+                    0deg,
+                    rgba(7,21,14,.5),
+                    transparent
+                ),
+                url("images/bellingham.jpg") center 28% / cover no-repeat,
+                #173823;
+            box-shadow: 0 18px 50px rgba(0,0,0,.28);
+        }
+
+        .hero-tag {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 5px 13px;
+            border: 1px solid rgba(57,233,130,.45);
+            border-radius: 50px;
+            color: var(--green);
+            background: rgba(0,0,0,.28);
+            font-size: 12px;
+            font-weight: bold;
         }
 
         .bellingham-hero h1 {
-            font-size: clamp(30px, 5vw, 48px);
-            margin: 0 0 12px;
+            margin: 0;
+            max-width: 650px;
+            font-size: clamp(34px, 6vw, 65px);
+            line-height: 1.4;
+            text-shadow: 0 4px 20px #000;
+        }
+
+        .bellingham-hero h1 span {
+            display: block;
+            color: var(--green);
+            font-size: .52em;
+            letter-spacing: 3px;
+            direction: ltr;
+            text-align: right;
         }
 
         .bellingham-hero p {
-            font-size: 17px;
-            line-height: 2;
+            max-width: 570px;
+            margin: 15px 0 22px;
+            color: #e5f1e8;
+            font-size: 15px;
+            line-height: 2.2;
         }
 
-        .bellingham-profile {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px;
+        .hero-actions {
             display: flex;
-            align-items: center;
-            gap: 25px;
-            background: white;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .action-button {
+            display: inline-block;
+            padding: 11px 19px;
+            border-radius: 12px;
+            background: var(--green);
+            color: #07150e;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .2s;
+        }
+
+        .action-button:hover {
+            background: #8bffb5;
+            transform: translateY(-2px);
+        }
+
+        .action-button.secondary {
+            background: rgba(255,255,255,.09);
+            color: white;
+            border: 1px solid var(--border);
+        }
+
+        .section {
+            margin: 38px 0;
+        }
+
+        .section-heading {
+            margin: 0 0 20px;
+            font-size: clamp(22px, 4vw, 30px);
+        }
+
+        .section-heading span {
+            color: var(--green);
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: minmax(0, .85fr) minmax(0, 1.5fr);
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        .profile-photo-card,
+        .bio-card,
+        .info-card,
+        .honour-card,
+        .edit-item,
+        .timeline-item {
+            border: 1px solid var(--border);
             border-radius: 20px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            background: var(--surface);
         }
 
-        .bellingham-profile img {
+        .profile-photo-card {
+            padding: 12px;
+            overflow: hidden;
+        }
+
+        .profile-photo-card img {
             display: block;
-            width: 250px;
-            max-width: 100%;
-            border-radius: 16px;
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            max-height: 440px;
             object-fit: cover;
+            object-position: center 25%;
+            border-radius: 13px;
+            background: var(--surface-light);
         }
 
-        .bellingham-profile h2 {
-            color: #a17b22;
-            margin-top: 0;
+        .bio-card {
+            padding: clamp(20px, 4vw, 32px);
         }
 
-        .bellingham-profile p {
-            color: #333;
-            line-height: 2.1;
+        .bio-card h3 {
+            margin: 0 0 13px;
+            color: var(--green);
+            font-size: 23px;
         }
 
-        .edit-list {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 25px;
+        .bio-card p {
+            color: #d6e5da;
+            line-height: 2.2;
+            margin: 0 0 15px;
+            font-size: 14px;
         }
 
-        .edit-list > h2 {
+        .bio-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .info-card {
+            padding: 20px 14px;
             text-align: center;
-            margin-bottom: 25px;
+            transition: .2s;
+        }
+
+        .info-card:hover,
+        .honour-card:hover,
+        .edit-item:hover {
+            transform: translateY(-4px);
+            border-color: rgba(57,233,130,.4);
+        }
+
+        .info-icon {
+            display: block;
+            font-size: 27px;
+            margin-bottom: 6px;
+        }
+
+        .info-label {
+            display: block;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .info-value {
+            display: block;
+            margin-top: 5px;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            overflow-wrap: anywhere;
+        }
+
+        .honours-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 15px;
+        }
+
+        .honour-card {
+            padding: 22px 18px;
+            transition: .2s;
+        }
+
+        .honour-card .trophy {
+            font-size: 30px;
+        }
+
+        .honour-card h3 {
+            margin: 8px 0 5px;
+            color: var(--gold);
+            font-size: 17px;
+        }
+
+        .honour-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .timeline {
+            display: grid;
+            gap: 14px;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 100px minmax(0, 1fr);
+            gap: 15px;
+            padding: 19px;
+            align-items: start;
+        }
+
+        .timeline-year {
+            color: var(--green);
+            font-size: 17px;
+            font-weight: bold;
+            direction: ltr;
+            text-align: center;
+        }
+
+        .timeline-item h3 {
+            margin: 0 0 5px;
+            font-size: 16px;
+        }
+
+        .timeline-item p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .edits-intro {
+            color: var(--muted);
+            font-size: 14px;
+            margin-top: -10px;
+            margin-bottom: 22px;
         }
 
         #player-edits {
             display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(260px, 1fr)
-            );
-            gap: 22px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
         }
 
         .edit-item {
             min-width: 0;
-            padding: 18px;
-            border-radius: 18px;
-            background: white;
-            box-shadow: 0 5px 22px rgba(0, 0, 0, 0.09);
+            padding: 13px;
             overflow: hidden;
+            transition: .2s;
         }
 
-        .edit-item h2 {
-            font-size: 19px;
-            color: #a17b22;
+        .edit-item h3 {
+            margin: 0 0 10px;
+            color: var(--green);
+            font-size: 16px;
             overflow-wrap: anywhere;
         }
 
         .edit-item video {
             display: block;
             width: 100%;
-            max-width: 100%;
+            aspect-ratio: 9 / 16;
+            max-height: 430px;
             border-radius: 12px;
-            background: #111;
+            background: #020604;
+            object-fit: contain;
         }
 
-        .edit-item p {
-            color: #666;
-            font-size: 13px;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin: 15px 25px;
-            text-decoration: none;
+        .edit-date {
+            margin: 10px 0 0;
+            color: var(--muted);
+            font-size: 12px;
         }
 
         .loading-message {
             grid-column: 1 / -1;
+            padding: 30px 20px;
+            border-radius: 18px;
+            background: var(--surface);
             text-align: center;
-            padding: 25px;
-            line-height: 2;
+            color: var(--muted);
         }
 
-        @media (max-width: 650px) {
-            .bellingham-profile {
-                flex-direction: column;
-                text-align: center;
+        .loading-message::before {
+            content: "⚽";
+            display: block;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .loading-message.error {
+            color: #ffc5c5;
+        }
+
+        .about-banner {
+            padding: 26px;
+            border: 1px solid rgba(57,233,130,.22);
+            border-radius: 20px;
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(57,233,130,.12),
+                    transparent 55%
+                ),
+                var(--surface);
+        }
+
+        .about-banner h2 {
+            margin: 0 0 8px;
+            color: var(--green);
+        }
+
+        .about-banner p {
+            margin: 0;
+            color: #d6e5da;
+            font-size: 14px;
+            line-height: 2.2;
+        }
+
+        footer {
+            margin-top: 55px;
+            padding: 26px 15px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: var(--green);
+        }
+
+        @media (max-width: 850px) {
+            .profile-grid {
+                grid-template-columns: 1fr;
             }
 
-            .bellingham-profile img {
-                width: 100%;
-                max-width: 320px;
+            .profile-photo-card img {
+                height: 350px;
+                min-height: 0;
+            }
+
+            .info-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .honours-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            #player-edits {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
             .bellingham-hero {
-                margin: 15px;
-                padding: 45px 15px;
+                background-position: center, center, 58% 25%, center;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .site-header {
+                align-items: flex-start;
+                flex-direction: column;
             }
 
-            .edit-list {
-                padding: 15px;
+            .bellingham-hero {
+                min-height: 350px;
+                padding: 27px 20px;
+                border-radius: 20px;
+                background:
+                    linear-gradient(
+                        90deg,
+                        rgba(4,15,9,.91),
+                        rgba(4,15,9,.52)
+                    ),
+                    url("images/bellingham.jpg") center 25% / cover no-repeat,
+                    #173823;
+            }
+
+            .bellingham-hero p {
+                font-size: 13px;
+            }
+
+            .info-grid {
+                gap: 10px;
+            }
+
+            .info-card {
+                padding: 15px 8px;
+            }
+
+            .honours-grid,
+            #player-edits {
+                grid-template-columns: 1fr;
+            }
+
+            .edit-item video {
+                max-height: 520px;
+            }
+
+            .timeline-item {
+                grid-template-columns: 72px minmax(0, 1fr);
+                gap: 10px;
+                padding: 14px;
+            }
+
+            .section {
+                margin: 28px 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
             }
         }
     </style>
@@ -157,71 +555,291 @@
         <a class="logo" href="index.html">
             MJ <span>FOOTBALL EDITS</span>
         </a>
-
-        <p>ادیت‌های اختصاصی بازیکن محبوبت</p>
+        <p>دنیای ستاره‌ها و ادیت‌های فوتبالی ⚽</p>
     </header>
 
     <a class="back-link" href="index.html">
-        → برگشت به صفحه اصلی
+        <span aria-hidden="true">→</span>
+        برگشت به صفحه اصلی
     </a>
 
     <main>
 
+        <!-- Hero -->
         <section class="bellingham-hero">
-            <h1 id="player-name">جود بلینگام ⚽</h1>
-            <p id="player-description">
-                تمام ادیت‌های جود بلینگام در یک جا
+            <span class="hero-tag">PLAYER PROFILE · 2026</span>
+
+            <h1>
+                جود بلینگام
+                <span>JUDE BELLINGHAM</span>
+            </h1>
+
+            <p>
+                از شروع فوتبال در انگلیس تا درخشش در بزرگ‌ترین رقابت‌های اروپا؛
+                با زندگی فوتبالی، افتخارات و ادیت‌های اختصاصی یکی از ستاره‌های
+                نسل جدید فوتبال آشنا شو.
             </p>
+
+            <div class="hero-actions">
+                <a class="action-button" href="#player-edits">
+                    🎬 تماشای ادیت‌ها
+                </a>
+
+                <a class="action-button secondary" href="#biography">
+                    📖 بیوگرافی کامل
+                </a>
+            </div>
         </section>
 
-        <section class="bellingham-profile">
-            <img
-                src="images/bellingham.jpg"
-                alt="عکس جود بلینگام"
-                onerror="this.alt='عکس بلینگام پیدا نشد'; this.style.display='none';"
-            >
+        <!-- Player profile -->
+        <section class="section" id="biography">
+            <h2 class="section-heading">
+                👤 درباره <span>جود بلینگام</span>
+            </h2>
 
-            <div>
-                <h2>درباره جود بلینگام</h2>
+            <div class="profile-grid">
+                <div class="profile-photo-card">
+                    <img
+                        src="images/bellingham.jpg"
+                        alt="تصویر جود بلینگام"
+                        loading="lazy"
+                        onerror="this.style.display='none'; this.parentElement.innerHTML='<p style=&quot;text-align:center;padding:35px;color:#b5c8bb&quot;>عکس بازیکن پیدا نشد.<br>مسیر images/bellingham.jpg را بررسی کن.</p>';"
+                    >
+                </div>
 
-                <p>
-                    جود بلینگام، فوتبالیست انگلیسی، در ۲۹ ژوئن ۲۰۰۳
-                    به دنیا آمد. او به‌خاطر تکنیک، قدرت بدنی،
-                    پاس‌های دقیق و حضور مؤثر در خط میانی شناخته می‌شود.
-                </p>
+                <article class="bio-card">
+                    <h3>داستان یک هافبک خاص</h3>
 
-                <p>
-                    بلینگام فوتبال حرفه‌ای خود را در بیرمنگام سیتی آغاز کرد،
-                    سپس برای بوروسیا دورتموند بازی کرد و در سال ۲۰۲۳
-                    به رئال مادرید پیوست.
-                </p>
+                    <p>
+                        جود ویکتور ویلیام بلینگام، معروف به جود بلینگام،
+                        فوتبالیست انگلیسی است که در ۲۹ ژوئن ۲۰۰۳ متولد شد.
+                        او به‌عنوان هافبکی چندکاره شناخته می‌شود؛ بازیکنی که
+                        می‌تواند در پیش‌بردن توپ، ساختن موقعیت، پرس‌کردن
+                        و حضور در نزدیکی محوطه جریمه به تیمش کمک کند.
+                    </p>
 
-                <p>
-                    او همچنین برای تیم ملی انگلیس بازی می‌کند
-                    و در رقابت‌های مهم بین‌المللی حضور داشته است.
-                </p>
+                    <p>
+                        بلینگام فوتبال حرفه‌ای خود را در باشگاه بیرمنگام سیتی
+                        آغاز کرد. او با وجود سن کم، در ترکیب تیم بزرگسالان
+                        فرصت بازی پیدا کرد و خیلی زود توجه علاقه‌مندان فوتبال
+                        را به خودش جلب کرد.
+                    </p>
 
-                <p>
-                    اینجا می‌تونی ادیت‌های فوتبالی بلینگام رو ببینی
-                    و از لحظه‌های جذاب بازی‌هاش لذت ببری! 🔥
+                    <p>
+                        در سال ۲۰۲۰ به بوروسیا دورتموند آلمان پیوست.
+                        حضور در بوندس‌لیگا به او کمک کرد تجربه بیشتری در
+                        فوتبال سطح بالا به دست بیاورد و در رقابت‌های داخلی
+                        و اروپایی نقش مهمی داشته باشد.
+                    </p>
+
+                    <p>
+                        تابستان ۲۰۲۳، بلینگام راهی رئال مادرید شد.
+                        او در نخستین فصل حضورش در این باشگاه، در قهرمانی
+                        رئال مادرید در لالیگا و لیگ قهرمانان اروپا نقش داشت.
+                        توانایی گل‌زنی از خط میانی و حضور در لحظات حساس،
+                        او را به یکی از چهره‌های مهم تیم تبدیل کرد.
+                    </p>
+
+                    <p>
+                        بلینگام همچنین عضو تیم ملی انگلیس است و در تورنمنت‌های
+                        بزرگی مانند جام جهانی ۲۰۲۲ و یورو ۲۰۲۴ به میدان رفت.
+                        گل تماشایی او مقابل اسلواکی در یورو ۲۰۲۴ یکی از
+                        لحظه‌های به‌یادماندنی دوران ملی اوست.
+                    </p>
+
+                    <p>
+                        چیزی که سبک بازی او را جذاب می‌کند، ترکیب قدرت بدنی،
+                        کنترل توپ، دید بازی، حرکت بدون توپ و اعتمادبه‌نفس
+                        در لحظات پرفشار است. همین ویژگی‌ها باعث شده‌اند
+                        بلینگام انتخاب محبوبی برای ادیت‌های فوتبالی باشد. 🔥
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Quick facts -->
+        <section class="section">
+            <h2 class="section-heading">
+                📌 اطلاعات <span>بازیکن</span>
+            </h2>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <span class="info-icon">🎂</span>
+                    <span class="info-label">تاریخ تولد</span>
+                    <span class="info-value">۲۹ ژوئن ۲۰۰۳</span>
+                </div>
+
+                <div class="info-card">
+                    <span class="info-icon">🏴</span>
+                    <span class="info-label">ملیت</span>
+                    <span class="info-value">انگلیسی</span>
+                </div>
+
+                <div class="info-card">
+                    <span class="info-icon">⚽</span>
+                    <span class="info-label">پست اصلی</span>
+                    <span class="info-value">هافبک</span>
+                </div>
+
+                <div class="info-card">
+                    <span class="info-icon">👑</span>
+                    <span class="info-label">باشگاه</span>
+                    <span class="info-value">رئال مادرید</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Honours -->
+        <section class="section">
+            <h2 class="section-heading">
+                🏆 افتخارات مهم <span>بلینگام</span>
+            </h2>
+
+            <div class="honours-grid">
+                <article class="honour-card">
+                    <span class="trophy">🏆</span>
+                    <h3>لیگ قهرمانان اروپا</h3>
+                    <p>قهرمانی با رئال مادرید در فصل ۲۰۲۳–۲۰۲۴</p>
+                </article>
+
+                <article class="honour-card">
+                    <span class="trophy">🥇</span>
+                    <h3>لالیگا</h3>
+                    <p>قهرمانی با رئال مادرید در فصل ۲۰۲۳–۲۰۲۴</p>
+                </article>
+
+                <article class="honour-card">
+                    <span class="trophy">🏅</span>
+                    <h3>سوپرجام اسپانیا</h3>
+                    <p>قهرمانی با رئال مادرید در سال ۲۰۲۴</p>
+                </article>
+
+                <article class="honour-card">
+                    <span class="trophy">🏴</span>
+                    <h3>تیم ملی انگلیس</h3>
+                    <p>حضور در جام جهانی ۲۰۲۲ و یورو ۲۰۲۴</p>
+                </article>
+
+                <article class="honour-card">
+                    <span class="trophy">🌟</span>
+                    <h3>جایزه کوپا</h3>
+                    <p>برنده جایزه بهترین بازیکن جوان سال ۲۰۲۳</p>
+                </article>
+
+                <article class="honour-card">
+                    <span class="trophy">⚪</span>
+                    <h3>رئال مادرید</h3>
+                    <p>قهرمانی در رقابت‌های داخلی و اروپایی</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Career timeline -->
+        <section class="section">
+            <h2 class="section-heading">
+                🛤️ مسیر <span>حرفه‌ای</span>
+            </h2>
+
+            <div class="timeline">
+                <article class="timeline-item">
+                    <div class="timeline-year">2019</div>
+                    <div>
+                        <h3>شروع در بیرمنگام سیتی</h3>
+                        <p>
+                            بلینگام در سن کم وارد تیم بزرگسالان شد و
+                            نخستین قدم‌های فوتبال حرفه‌ای خود را برداشت.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="timeline-item">
+                    <div class="timeline-year">2020</div>
+                    <div>
+                        <h3>انتقال به بوروسیا دورتموند</h3>
+                        <p>
+                            با پیوستن به باشگاه آلمانی، وارد مرحله تازه‌ای
+                            از دوران حرفه‌ای خود شد و در رقابت‌های اروپایی
+                            تجربه بیشتری کسب کرد.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="timeline-item">
+                    <div class="timeline-year">2022</div>
+                    <div>
+                        <h3>حضور در جام جهانی</h3>
+                        <p>
+                            بلینگام برای تیم ملی انگلیس در جام جهانی قطر
+                            بازی کرد و در چند مسابقه مهم به میدان رفت.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div>
+                        <h3>پیوستن به رئال مادرید</h3>
+                        <p>
+                            انتقال به یکی از پرافتخارترین باشگاه‌های جهان
+                            و آغاز فصل تازه‌ای در دوران بازی او.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <div>
+                        <h3>فصل درخشان در مادرید</h3>
+                        <p>
+                            قهرمانی در لالیگا و لیگ قهرمانان اروپا با
+                            رئال مادرید و حضور در فینال یورو با انگلیس.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Edits -->
+        <section class="section" id="player-edits">
+            <h2 class="section-heading">
+                🎬 ادیت‌های <span>جود بلینگام</span>
+            </h2>
+
+            <p class="edits-intro">
+                ادیت‌های بارگذاری‌شده برای این بازیکن از دیتابیس دریافت می‌شوند.
+            </p>
+
+            <div id="player-edits-list">
+                <p class="loading-message">
+                    در حال دریافت ادیت‌ها...
                 </p>
             </div>
         </section>
 
-        <section class="edit-list">
-            <h2>🔥 ادیت‌های بلینگام ⚽</h2>
-
-            <div id="player-edits">
-                <p class="loading-message">
-                    در حال بارگذاری ادیت‌ها...
+        <!-- About -->
+        <section class="section">
+            <div class="about-banner">
+                <h2>💚 MJ FOOTBALL EDITS</h2>
+                <p>
+                    این صفحه برای طرفداران جود بلینگام ساخته شده است.
+                    ادیت‌ها را تماشا کن، از لحظه‌های جذاب فوتبال لذت ببر
+                    و برای دیدن بازیکن‌های بیشتر به صفحه اصلی برگرد.
                 </p>
+                <br>
+                <a class="action-button" href="index.html">
+                    دیدن بازیکن‌های بیشتر ←
+                </a>
             </div>
         </section>
 
     </main>
 
     <footer>
-        <p>© 2026 MJ FOOTBALL EDITS</p>
+        <p>
+            © 2026 <strong>MJ FOOTBALL EDITS</strong>
+            — ساخته‌شده برای طرفداران فوتبال ⚽
+        </p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -233,16 +851,20 @@
         const SUPABASE_KEY =
             "sb_publishable_0y5J9h5NnN-7G0rtsG_RTA_xo4mFP8T";
 
-        const supabaseClient = window.supabase.createClient(
-            SUPABASE_URL,
-            SUPABASE_KEY
-        );
+        const container =
+            document.getElementById("player-edits-list");
 
         async function loadBellinghamEdits() {
-            const container =
-                document.getElementById("player-edits");
-
             try {
+                if (!window.supabase) {
+                    throw new Error("کتابخانه Supabase بارگذاری نشد.");
+                }
+
+                const supabaseClient = window.supabase.createClient(
+                    SUPABASE_URL,
+                    SUPABASE_KEY
+                );
+
                 const { data, error } = await supabaseClient
                     .from("videos")
                     .select("id, title, video_url, created_at")
@@ -256,29 +878,46 @@
                 container.replaceChildren();
 
                 if (!data || data.length === 0) {
-                    container.textContent =
-                        "هنوز ادیتی برای جود بلینگام منتشر نشده.";
-
+                    showMessage(
+                        "هنوز ادیتی برای جود بلینگام منتشر نشده است."
+                    );
                     return;
                 }
 
                 data.forEach((video) => {
-                    const card = document.createElement("div");
+                    const card = document.createElement("article");
                     card.className = "edit-item";
 
-                    const title = document.createElement("h2");
+                    const title = document.createElement("h3");
                     title.textContent =
                         video.title || "ادیت جود بلینگام";
 
-                    const videoElement =
-                        document.createElement("video");
+                    card.appendChild(title);
 
-                    videoElement.controls = true;
-                    videoElement.preload = "metadata";
-                    videoElement.playsInline = true;
-                    videoElement.src = video.video_url;
+                    if (video.video_url) {
+                        const player = document.createElement("video");
+
+                        player.controls = true;
+                        player.preload = "metadata";
+                        player.playsInline = true;
+                        player.src = video.video_url;
+                        player.setAttribute(
+                            "aria-label",
+                            video.title || "ادیت جود بلینگام"
+                        );
+
+                        card.appendChild(player);
+                    } else {
+                        const missingVideo = document.createElement("p");
+                        missingVideo.className = "edit-date";
+                        missingVideo.textContent =
+                            "آدرس ویدیو برای این ادیت ثبت نشده است.";
+
+                        card.appendChild(missingVideo);
+                    }
 
                     const date = document.createElement("p");
+                    date.className = "edit-date";
 
                     date.textContent = video.created_at
                         ? "تاریخ انتشار: " +
@@ -286,7 +925,7 @@
                               .toLocaleDateString("fa-IR")
                         : "تاریخ انتشار نامشخص";
 
-                    card.append(title, videoElement, date);
+                    card.appendChild(date);
                     container.appendChild(card);
                 });
 
@@ -296,9 +935,22 @@
                     error
                 );
 
-                container.textContent =
-                    "بارگذاری ادیت‌ها ناموفق بود. اتصال دیتابیس رو بررسی کن.";
+                showMessage(
+                    "بارگذاری ادیت‌ها ناموفق بود. اتصال اینترنت، تنظیمات دیتابیس و دسترسی جدول videos را بررسی کن.",
+                    true
+                );
             }
+        }
+
+        function showMessage(message, isError = false) {
+            container.replaceChildren();
+
+            const paragraph = document.createElement("p");
+            paragraph.className =
+                "loading-message" + (isError ? " error" : "");
+
+            paragraph.textContent = message;
+            container.appendChild(paragraph);
         }
 
         loadBellinghamEdits();
@@ -306,4 +958,3 @@
 
 </body>
 </html>
-```
