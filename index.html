@@ -5,8 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080711">
+
   <title>MJ FOOTBALL EDITS | دنیای ادیت‌های فوتبال</title>
-  <meta name="description" content="اسطوره‌های فوتبال را بشناس و ادیت‌های فوتبالی را کشف کن.">
+  <meta name="description" content="اسطوره‌های فوتبال را بشناس، آمار بازیکنان را ببین و دنیای ادیت‌های فوتبالی را کشف کن.">
 
   <style>
     :root {
@@ -33,14 +34,14 @@
 
     body {
       font-family: Tahoma, Arial, sans-serif;
-      background:
-        radial-gradient(circle at 15% 5%, #241044 0, transparent 30%),
-        radial-gradient(circle at 90% 30%, #101c40 0, transparent 28%),
-        var(--bg);
       color: var(--text);
       min-height: 100vh;
       overflow-x: hidden;
       line-height: 1.8;
+      background:
+        radial-gradient(circle at 15% 5%, #241044 0, transparent 30%),
+        radial-gradient(circle at 90% 30%, #101c40 0, transparent 28%),
+        var(--bg);
     }
 
     a {
@@ -52,6 +53,10 @@
       font: inherit;
     }
 
+    button, a, input {
+      -webkit-tap-highlight-color: transparent;
+    }
+
     .container {
       width: min(1180px, 92%);
       margin: auto;
@@ -61,7 +66,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(8, 7, 17, .9);
+      background: rgba(8, 7, 17, .90);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
@@ -99,7 +104,8 @@
       transition: color .2s;
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
       color: var(--blue);
     }
 
@@ -217,7 +223,8 @@
     }
 
     .players-search {
-      width: min(100%, 420px);
+      position: relative;
+      width: min(100%, 450px);
       margin-bottom: 26px;
     }
 
@@ -247,7 +254,7 @@
     }
 
     .player-card {
-      min-height: 310px;
+      min-height: 330px;
       position: relative;
       display: flex;
       align-items: end;
@@ -266,7 +273,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
+      object-position: center 20%;
       transition: transform .35s;
     }
 
@@ -278,8 +285,8 @@
       background: linear-gradient(
         0deg,
         rgba(8, 7, 17, .98) 0%,
-        rgba(8, 7, 17, .48) 48%,
-        rgba(8, 7, 17, .02) 100%
+        rgba(8, 7, 17, .58) 48%,
+        rgba(8, 7, 17, .04) 100%
       );
     }
 
@@ -289,7 +296,7 @@
     }
 
     .player-card:hover .player-photo {
-      transform: scale(1.04);
+      transform: scale(1.05);
     }
 
     .player-info {
@@ -469,6 +476,16 @@
         font-size: 12px;
       }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition-duration: .01ms !important;
+      }
+    }
   </style>
 </head>
 
@@ -523,13 +540,13 @@
           <input
             type="search"
             id="player-search"
-            placeholder="نام بازیکن را وارد کن..."
+            placeholder="نام بازیکن، باشگاه یا کشور..."
             aria-label="جست‌وجوی بازیکن"
             autocomplete="off"
           >
         </div>
 
-        <div class="players-grid" id="players-grid">
+        <div class="players-grid" id="players-grid" aria-live="polite">
           <div class="status-message">در حال بارگذاری بازیکنان...</div>
         </div>
       </div>
@@ -592,6 +609,7 @@
     </div>
   </footer>
 
+  <!-- فایل اطلاعات بازیکنان باید کنار index.html باشد. -->
   <script src="./players.js"></script>
 
   <script>
@@ -600,10 +618,19 @@
 
       const playersGrid = document.getElementById("players-grid");
       const playerSearch = document.getElementById("player-search");
-      const imageCache = new Map();
 
       document.getElementById("current-year").textContent =
         new Date().getFullYear();
+
+      // نام‌های فارسی و انگلیسی برای جست‌وجو یکسان‌سازی می‌شوند.
+      function normalizeText(value) {
+        return String(value ?? "")
+          .toLocaleLowerCase("fa")
+          .replace(/ي/g, "ی")
+          .replace(/ك/g, "ک")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
 
       function escapeHTML(value) {
         return String(value ?? "").replace(/[&<>"']/g, character => ({
@@ -627,51 +654,29 @@
         return [];
       }
 
-      function getImage(player) {
-        const id = String(player.id || player.englishName || player.name || "");
-
-        // آدرسی که قبلاً با موفقیت بارگذاری شده، در جست‌وجو هم حفظ می‌شود.
-        if (imageCache.has(id)) {
-          return imageCache.get(id);
-        }
-
-        return player.image || "";
-      }
-
-      function rememberImage(image, playerId) {
-        image.addEventListener("load", () => {
-          if (image.currentSrc || image.src) {
-            imageCache.set(playerId, image.currentSrc || image.src);
-          }
-        });
-
-        image.addEventListener("error", () => {
-          console.warn("عکس بازیکن بارگذاری نشد:", image.src);
-        });
-      }
-
       function renderPlayers(searchTerm = "") {
         const allPlayers = getPlayersList();
-        const query = searchTerm.trim().toLocaleLowerCase();
+        const query = normalizeText(searchTerm);
 
         if (!allPlayers.length) {
           playersGrid.innerHTML = `
             <div class="status-message">
-              اطلاعات بازیکنان هنوز بارگذاری نشده است.
-              چند لحظه صبر کن؛ اگر مشکل ادامه داشت، فایل players.js را بررسی می‌کنیم.
+              اطلاعات بازیکنان بارگذاری نشد.
+              مطمئن شو فایل <b>players.js</b> کنار <b>index.html</b> قرار دارد
+              و اطلاعات بازیکنان در آرایه MJ_PLAYERS یا players تعریف شده‌اند.
             </div>
           `;
           return;
         }
 
         const filteredPlayers = allPlayers.filter(player => {
-          const searchableText = [
+          const searchableText = normalizeText([
             player.name,
             player.englishName,
             player.club,
             player.position,
             player.nationality
-          ].filter(Boolean).join(" ").toLocaleLowerCase();
+          ].filter(Boolean).join(" "));
 
           return searchableText.includes(query);
         });
@@ -679,42 +684,42 @@
         if (!filteredPlayers.length) {
           playersGrid.innerHTML = `
             <div class="status-message">
-              بازیکنی با این نام پیدا نشد؛ عبارت دیگری را امتحان کن.
+              بازیکنی با این نام پیدا نشد؛ نام فارسی یا انگلیسی دیگری را امتحان کن.
             </div>
           `;
           return;
         }
 
-        playersGrid.innerHTML = filteredPlayers.map(player => {
-          const id = String(player.id || "");
+        playersGrid.innerHTML = filteredPlayers.map((player, index) => {
+          const rawId = player.id ?? player.englishName ?? player.name ?? index;
+          const id = String(rawId);
           const safeId = encodeURIComponent(id);
+
           const name = escapeHTML(
             player.name || player.englishName || "بازیکن فوتبال"
           );
+
           const englishName = escapeHTML(
             player.englishName || player.name || "Football player"
           );
+
           const club = escapeHTML(player.club || "ستاره فوتبال");
           const position = escapeHTML(player.position || "بازیکن فوتبال");
-          const image = escapeHTML(getImage(player));
-          const cacheKey = escapeHTML(id || player.englishName || player.name);
+          const image = escapeHTML(player.image || "");
 
           return `
             <a class="player-card"
                href="./player.html?id=${safeId}"
                aria-label="مشاهده پروفایل ${name}">
 
-              ${image ? `
-                <img
-                  class="player-photo"
-                  src="${image}"
-                  alt="${englishName}"
-                  data-player-id="${cacheKey}"
-                  loading="eager"
-                  decoding="async"
-                  fetchpriority="auto"
-                >
-              ` : ""}
+              <img
+                class="player-photo"
+                src="${image || "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="}"
+                alt="${englishName}"
+                loading="${index < 3 ? "eager" : "lazy"}"
+                decoding="async"
+                data-fallback="true"
+              >
 
               <div class="player-info">
                 <span class="player-tag">${position}</span>
@@ -726,8 +731,16 @@
           `;
         }).join("");
 
+        // اگر عکس خراب بود، کارت و اطلاعات بازیکن همچنان نمایش داده می‌شوند.
         playersGrid.querySelectorAll(".player-photo").forEach(image => {
-          rememberImage(image, image.dataset.playerId);
+          image.addEventListener("error", () => {
+            image.style.display = "none";
+          }, { once: true });
+
+          if (!image.getAttribute("src") ||
+              image.getAttribute("src").startsWith("data:image/gif")) {
+            image.style.display = "none";
+          }
         });
       }
 
@@ -735,23 +748,14 @@
         renderPlayers(playerSearch.value);
       });
 
-      // ابتدا کارت‌ها را می‌سازیم تا فایل players.js بتواند عکس‌ها را پیدا کند.
-      renderPlayers();
-
-      // اگر اطلاعات یا عکس‌ها بعداً آماده شدند، فقط در صورت نیاز کارت‌ها را می‌سازیم.
       window.addEventListener("mjPlayersReady", () => {
-        const hasCards = playersGrid.querySelector(".player-card");
-
-        if (!hasCards) {
-          renderPlayers(playerSearch.value);
-        }
+        renderPlayers(playerSearch.value);
       });
 
-      // پشتیبانی از رویداد آماده‌شدن اطلاعات بازیکنان.
+      renderPlayers();
+
       window.addEventListener("load", () => {
-        if (!playersGrid.querySelector(".player-card")) {
-          renderPlayers(playerSearch.value);
-        }
+        renderPlayers(playerSearch.value);
       });
     })();
   </script>
