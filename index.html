@@ -1,10 +1,11 @@
-```html
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#050805">
+    <meta name="description" content="MJ Football Edits - ادیت‌های فوتبالی">
     <title>MJ FOOTBALL EDITS</title>
 
     <style>
@@ -33,6 +34,17 @@
             background: var(--bg);
             color: var(--text);
             font-family: Tahoma, Arial, sans-serif;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
         }
 
         /* صفحه شروع */
@@ -64,9 +76,655 @@
             font-weight: 900;
             letter-spacing: 8px;
             color: var(--neon);
-            text-shadow: 0 0 10px var(--neon),
-                         0 0 30px rgba(57,255,20,.8),
-                         0 0 70px rgba(57,255,20,.4);
-            animation: logoReveal 1s ease both,
-                       logoPulse 1.2s ease-in-out 1s infinite alternate;
-       
+            text-shadow:
+                0 0 10px var(--neon),
+                0 0 30px rgba(57, 255, 20, 0.8),
+                0 0 70px rgba(57, 255, 20, 0.4);
+            animation:
+                logoReveal 1s ease both,
+                logoPulse 1.2s ease-in-out 1s infinite alternate;
+        }
+
+        .intro-title {
+            direction: ltr;
+            text-align: center;
+            font-size: clamp(17px, 4vw, 28px);
+            font-weight: 900;
+            letter-spacing: 3px;
+            margin-top: 5px;
+            animation: fadeUp 0.8s ease 0.3s both;
+        }
+
+        .intro-title span {
+            color: var(--neon);
+        }
+
+        .intro-hint {
+            color: var(--muted);
+            margin-top: 24px;
+            font-size: 13px;
+            animation: fadeUp 0.8s ease 0.6s both;
+        }
+
+        @keyframes logoReveal {
+            from {
+                opacity: 0;
+                transform: scale(0.6);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes logoPulse {
+            from {
+                text-shadow: 0 0 10px var(--neon), 0 0 25px rgba(57,255,20,.4);
+            }
+            to {
+                text-shadow: 0 0 18px var(--neon), 0 0 55px rgba(57,255,20,.8);
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes cardAppear {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* سربرگ */
+
+        .site-header {
+            text-align: center;
+            padding: 30px 16px;
+            background: #080d08;
+            border-bottom: 1px solid var(--border);
+            animation: fadeUp 0.7s ease both;
+        }
+
+        .site-logo {
+            display: inline-block;
+            direction: ltr;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: clamp(24px, 4vw, 34px);
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .site-logo span {
+            color: var(--neon);
+            text-shadow: 0 0 14px rgba(57, 255, 20, 0.4);
+        }
+
+        .site-header p {
+            color: var(--muted);
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        /* منو */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            padding: 13px 12px;
+            background: rgba(5, 8, 5, 0.96);
+            border-bottom: 1px solid rgba(57, 255, 20, 0.15);
+            backdrop-filter: blur(12px);
+        }
+
+        nav a {
+            color: #dce9d9;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.25s ease;
+        }
+
+        nav a:hover {
+            color: var(--neon);
+        }
+
+        /* بخش اصلی */
+
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 85px 20px;
+            overflow: hidden;
+            background: radial-gradient(ellipse at top, #142817, #050805 72%);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--neon);
+            opacity: 0.08;
+            filter: blur(90px);
+            pointer-events: none;
+        }
+
+        .eyebrow {
+            color: var(--neon);
+            direction: ltr;
+            letter-spacing: 4px;
+            font-size: 12px;
+        }
+
+        .hero h1 {
+            position: relative;
+            margin: 12px 0;
+            font-size: clamp(29px, 5vw, 47px);
+        }
+
+        .hero h1 span {
+            color: var(--neon);
+            text-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
+        }
+
+        .hero > p:not(.eyebrow) {
+            color: #b5c5b1;
+            margin: 0 auto 26px;
+            max-width: 600px;
+        }
+
+        /* دکمه‌ها */
+
+        .button {
+            display: inline-block;
+            padding: 10px 24px;
+            background: var(--neon);
+            color: #061006;
+            border: 1px solid var(--neon);
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.25s ease;
+        }
+
+        .button:hover {
+            background: transparent;
+            color: var(--neon);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* بخش‌ها */
+
+        .section {
+            width: 100%;
+            max-width: 1250px;
+            margin: auto;
+            padding: 58px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--neon);
+            font-size: clamp(24px, 4vw, 31px);
+        }
+
+        .section-description {
+            color: var(--muted);
+            text-align: center;
+            margin: 8px 0 30px;
+        }
+
+        /* کارت بازیکن‌ها */
+
+        .players-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .player-card {
+            position: relative;
+            isolation: isolate;
+            min-height: 280px;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            padding: 20px;
+            background: var(--card);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            text-decoration: none;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            animation: cardAppear 0.6s ease both;
+        }
+
+        .player-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(
+                to top,
+                rgba(2, 5, 2, 0.98),
+                rgba(2, 5, 2, 0.55) 48%,
+                rgba(2, 5, 2, 0.02)
+            );
+        }
+
+        .player-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--neon);
+            box-shadow: 0 0 22px rgba(57, 255, 20, 0.14);
+        }
+
+        .player-card:nth-child(2) {
+            animation-delay: 0.08s;
+        }
+
+        .player-card:nth-child(3) {
+            animation-delay: 0.16s;
+        }
+
+        .player-card:nth-child(4) {
+            animation-delay: 0.24s;
+        }
+
+        .player-card:nth-child(5) {
+            animation-delay: 0.32s;
+        }
+
+        .player-card:nth-child(6) {
+            animation-delay: 0.4s;
+        }
+
+        .player-info {
+            width: 100%;
+        }
+
+        .player-info h3 {
+            direction: ltr;
+            text-align: right;
+            font-family: Arial, Tahoma, sans-serif;
+            font-size: 22px;
+            overflow-wrap: anywhere;
+        }
+
+        .player-info p {
+            color: #c5d5c1;
+            font-size: 13px;
+            margin: 5px 0 10px;
+        }
+
+        .player-info span {
+            color: var(--neon);
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* تصویر بازیکن‌ها: عکس‌ها کنار index.html قرار دارند */
+
+        .messi-card {
+            background-image: url("./messi.jpg");
+        }
+
+        .ronaldo-card {
+            background-image: url("./ronaldo.jpg");
+        }
+
+        .mbappe-card {
+            background-image: url("./mbappe.jpg");
+            background-size: contain;
+            background-position: center top;
+            background-repeat: no-repeat;
+        }
+
+        .neymar-card {
+            background-image: url("./neymar.jpg");
+        }
+
+        .haaland-card {
+            background-image: url("./haaland.jpg");
+        }
+
+        .bellingham-card {
+            background-image: url("./bellingham.jpg");
+        }
+
+        /* جدیدترین ادیت‌ها */
+
+        .edits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .edit-card {
+            padding: 22px;
+            background: linear-gradient(145deg, #101810, #080c08);
+            border: 1px solid var(--border);
+            border-radius: 13px;
+            transition: border-color 0.25s ease, transform 0.25s ease;
+        }
+
+        .edit-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--neon);
+        }
+
+        .edit-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .edit-card p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .small-button {
+            display: inline-block;
+            padding: 7px 14px;
+            border: 1px solid var(--neon);
+            border-radius: 7px;
+            color: var(--neon);
+            text-decoration: none;
+            font-size: 13px;
+            transition: 0.2s ease;
+        }
+
+        .small-button:hover {
+            background: var(--neon);
+            color: #061006;
+        }
+
+        /* اشتراک ویژه */
+
+        .premium-section {
+            padding: 55px 20px;
+            text-align: center;
+            background: #080d08;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .premium-section h2 {
+            color: var(--neon);
+            font-size: clamp(24px, 4vw, 31px);
+        }
+
+        .premium-section p {
+            max-width: 650px;
+            margin: 12px auto 22px;
+            color: #bdccba;
+        }
+
+        .small-note {
+            display: block;
+            margin-top: 12px;
+            color: #82927f;
+            font-size: 12px;
+        }
+
+        /* پاورقی */
+
+        footer {
+            padding: 25px 15px;
+            text-align: center;
+            color: #82927f;
+            font-size: 13px;
+        }
+
+        /* تمرکز کیبورد */
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--neon);
+            outline-offset: 4px;
+        }
+
+        /* موبایل و تبلت */
+
+        @media (max-width: 850px) {
+            .players-grid,
+            .edits-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .section {
+                padding: 45px 4%;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .players-grid,
+            .edits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 65px 16px;
+            }
+
+            nav {
+                gap: 14px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .player-card {
+                min-height: 250px;
+            }
+
+            .section {
+                padding: 38px 16px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation: none !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- صفحه شروع -->
+    <div id="mj-intro" role="button" tabindex="0" aria-label="ورود به سایت">
+        <div class="mj-logo">MJ</div>
+        <div class="intro-title">FOOTBALL <span>EDITS</span></div>
+        <p class="intro-hint">برای ورود به سایت کلیک کن</p>
+    </div>
+
+    <!-- سربرگ -->
+    <header class="site-header">
+        <a class="site-logo" href="./index.html">
+            MJ <span>FOOTBALL EDITS</span>
+        </a>
+        <p>بهترین ادیت‌های فوتبالی برای طرفداران واقعی فوتبال</p>
+    </header>
+
+    <!-- منو -->
+    <nav aria-label="منوی اصلی">
+        <a href="#home">صفحه اصلی</a>
+        <a href="#players">بازیکن‌ها</a>
+        <a href="#edits">ادیت‌ها</a>
+        <a href="#premium">اشتراک ویژه</a>
+    </nav>
+
+    <main>
+        <!-- بخش اصلی -->
+        <section class="hero" id="home">
+            <p class="eyebrow">WELCOME TO MJ</p>
+            <h1>دنیای <span>ادیت‌های فوتبالی!</span></h1>
+            <p>
+                ادیت‌های جذاب فوتبالی رو ببین و از لحظه‌های خفن
+                ستاره‌های فوتبال لذت ببر.
+            </p>
+            <a class="button" href="#players">مشاهده بازیکن‌ها</a>
+        </section>
+
+        <!-- بازیکن‌ها -->
+        <section class="section" id="players">
+            <h2 class="section-title">ستاره‌های فوتبال</h2>
+            <p class="section-description">
+                بازیکن موردعلاقه‌ات رو انتخاب کن و صفحه مخصوصش رو ببین.
+            </p>
+
+            <div class="players-grid">
+
+                <a class="player-card messi-card" href="./messi.html">
+                    <div class="player-info">
+                        <h3>LIONEL MESSI</h3>
+                        <p>جادوگر دنیای فوتبال</p>
+                        <span>مشاهده ادیت‌ها ←</span>
+                    </div>
+                </a>
+
+                <a class="player-card ronaldo-card" href="./ronaldo.html">
+                    <div class="player-info">
+                        <h3>CRISTIANO RONALDO</h3>
+                        <p>اسطوره پرتغالی</p>
+                        <span>مشاهده ادیت‌ها ←</span>
+                    </div>
+                </a>
+
+                <a class="player-card mbappe-card" href="./mbappe.html">
+                    <div class="player-info">
+                        <h3>KYLIAN MBAPPE</h3>
+                        <p>سرعت و تکنیک</p>
+                        <span>مشاهده ادیت‌ها ←</span>
+                    </div>
+                </a>
+
+                <a class="player-card neymar-card" href="./neymar.html">
+                    <div class="player-info">
+                        <h3>NEYMAR JR</h3>
+                        <p>مهارت و دریبل‌های تماشایی</p>
+                        <span>مشاهده ادیت‌ها ←</span>
+                    </div>
+                </a>
+
+                <a class="player-card haaland-card" href="./haaland.html">
+                    <div class="player-info">
+                        <h3>ERLING HAALAND</h3>
+                        <p>ماشین گل‌زنی</p>
+                        <span>مشاهده ادیت‌ها ←</span>
+                    </div>
+                </a>
+
+                <a class="player-card bellingham-card" href="./bellingham.html">
+                    <div class="player-info">
+                        <h3>JUDE BELLINGHAM</h3>
+                        <p>ستاره نسل جدید</p>
+                        <span>مشاهده ادیت‌ها ←</span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- ادیت‌ها -->
+        <section class="section" id="edits">
+            <h2 class="section-title">جدیدترین ادیت‌ها</h2>
+            <p class="section-description">
+                ادیت‌های جدید MJ Football Edits
+            </p>
+
+            <div class="edits-grid">
+                <article class="edit-card">
+                    <h3>ادیت فوتبالی شماره ۱</h3>
+                    <p>پیش‌نمایش این ادیت به‌زودی اضافه می‌شه.</p>
+                    <a class="small-button" href="#players">انتخاب بازیکن</a>
+                </article>
+
+                <article class="edit-card">
+                    <h3>ادیت فوتبالی شماره ۲</h3>
+                    <p>منتظر ادیت‌های جدید و جذاب باش!</p>
+                    <a class="small-button" href="#players">انتخاب بازیکن</a>
+                </article>
+
+                <article class="edit-card">
+                    <h3>ادیت فوتبالی شماره ۳</h3>
+                    <p>ویدیوهای جدید به‌مرور اضافه می‌شن.</p>
+                    <a class="small-button" href="#players">انتخاب بازیکن</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- اشتراک ویژه -->
+        <section class="premium-section" id="premium">
+            <h2>اشتراک ویژه MJ</h2>
+            <p>
+                این بخش برای معرفی ادیت‌های اختصاصی و امکانات ویژه در نظر گرفته شده.
+                جزئیات اشتراک و روش خرید بعداً اضافه می‌شن.
+            </p>
+            <a class="button" href="#edits">مشاهده ادیت‌ها</a>
+            <span class="small-note">
+                در حال حاضر خرید آنلاین در سایت فعال نیست.
+            </span>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 MJ Football Edits | تمام حقوق محفوظ است.</p>
+    </footer>
+
+    <script>
+        (() => {
+            const intro = document.getElementById("mj-intro");
+
+            function closeIntro() {
+                intro.classList.add("hide");
+            }
+
+            intro.addEventListener("click", closeIntro);
+
+            intro.addEventListener("keydown", (event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    closeIntro();
+                }
+            });
+
+            // اگر کاربر کلیک نکرد، صفحه شروع بعد از 4 ثانیه کنار می‌رود.
+            window.setTimeout(closeIntro, 4000);
+        })();
+    </script>
+
+</body>
+</html>
