@@ -1,120 +1,395 @@
-```html
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090817">
 
-    <title>پنل مدیریت | MJ Football Edits</title>
-    <link rel="stylesheet" href="style.css">
+  <title>پنل مدیریت | MJ Football Edits</title>
+
+  <link rel="stylesheet" href="./style.css">
+
+  <style>
+    :root {
+      --admin-bg: #090817;
+      --admin-panel: #14112a;
+      --admin-purple: #a855f7;
+      --admin-blue: #38bdf8;
+      --admin-text: #f8f7ff;
+      --admin-muted: #b6b0ce;
+      --admin-border: rgba(168, 85, 247, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--admin-text);
+      background:
+        radial-gradient(circle at top right, #261044 0, transparent 35%),
+        radial-gradient(circle at bottom left, #10213e 0, transparent 30%),
+        var(--admin-bg);
+      font-family: Tahoma, Arial, sans-serif;
+      line-height: 1.8;
+    }
+
+    .admin-header {
+      text-align: center;
+      padding: 36px 18px 28px;
+      border-bottom: 1px solid var(--admin-border);
+      background: rgba(9, 8, 23, 0.85);
+    }
+
+    .admin-logo {
+      margin: 0;
+      font-size: clamp(24px, 5vw, 38px);
+      font-weight: 900;
+      direction: ltr;
+    }
+
+    .admin-logo span {
+      color: var(--admin-blue);
+    }
+
+    .admin-header p {
+      margin: 8px 0 0;
+      color: var(--admin-muted);
+    }
+
+    .admin-main {
+      width: min(760px, 92%);
+      margin: 40px auto;
+    }
+
+    .admin-card {
+      padding: clamp(20px, 5vw, 36px);
+      background: rgba(20, 17, 42, 0.94);
+      border: 1px solid var(--admin-border);
+      border-radius: 20px;
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.25);
+    }
+
+    .admin-card h2 {
+      margin: 0 0 8px;
+      font-size: 23px;
+    }
+
+    .admin-description {
+      color: var(--admin-muted);
+      margin: 0 0 24px;
+    }
+
+    .admin-form {
+      display: grid;
+      gap: 10px;
+    }
+
+    .admin-form label {
+      margin-top: 8px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .admin-form input,
+    .admin-form select {
+      width: 100%;
+      min-height: 46px;
+      padding: 11px 13px;
+      color: var(--admin-text);
+      background: #0c0a1b;
+      border: 1px solid var(--admin-border);
+      border-radius: 10px;
+      font: inherit;
+      outline: none;
+    }
+
+    .admin-form input:focus,
+    .admin-form select:focus {
+      border-color: var(--admin-blue);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+    }
+
+    .admin-form input[type="file"] {
+      padding: 9px;
+    }
+
+    .admin-form input[type="file"]::file-selector-button {
+      margin-left: 10px;
+      padding: 7px 12px;
+      color: white;
+      background: #30204b;
+      border: 0;
+      border-radius: 7px;
+      cursor: pointer;
+    }
+
+    .admin-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 45px;
+      padding: 10px 17px;
+      color: white;
+      background: linear-gradient(100deg, #9333ea, #2563eb);
+      border: 0;
+      border-radius: 10px;
+      font: inherit;
+      font-weight: bold;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .admin-button:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .admin-button:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .admin-button-secondary {
+      background: #28213f;
+      border: 1px solid var(--admin-border);
+    }
+
+    .admin-button-danger {
+      background: #991b1b;
+    }
+
+    .admin-form .admin-button {
+      margin-top: 14px;
+    }
+
+    .admin-hint {
+      color: var(--admin-muted);
+      font-size: 12px;
+      margin: 2px 0;
+    }
+
+    .admin-divider {
+      border: 0;
+      border-top: 1px solid var(--admin-border);
+      margin: 30px 0;
+    }
+
+    #upload-panel[hidden] {
+      display: none !important;
+    }
+
+    #upload-panel h2 {
+      margin-bottom: 10px;
+    }
+
+    #status {
+      min-height: 28px;
+      margin: 18px 0 0;
+      color: var(--admin-blue);
+      overflow-wrap: anywhere;
+    }
+
+    #video-management-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .admin-video-item {
+      padding: 15px;
+      background: #0c0a1b;
+      border: 1px solid var(--admin-border);
+      border-radius: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .admin-video-item h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .admin-video-item p {
+      margin: 4px 0;
+      color: var(--admin-muted);
+      font-size: 13px;
+    }
+
+    .admin-video-item .admin-button {
+      margin-top: 12px;
+    }
+
+    .admin-footer {
+      padding: 25px 16px;
+      text-align: center;
+      color: var(--admin-muted);
+      border-top: 1px solid var(--admin-border);
+    }
+
+    .admin-footer p {
+      margin: 0 0 8px;
+    }
+
+    .admin-footer a {
+      color: var(--admin-blue);
+      text-decoration: none;
+    }
+
+    .admin-footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 520px) {
+      .admin-main {
+        margin: 24px auto;
+      }
+
+      .admin-card {
+        border-radius: 14px;
+      }
+
+      .admin-card h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <header class="admin-header">
+    <h1 class="admin-logo">MJ <span>FOOTBALL EDITS</span></h1>
+    <p>پنل مدیریت ادیت‌های فوتبالی</p>
+  </header>
 
-    <header>
-        <h1>MJ <span>FOOTBALL EDITS</span></h1>
-        <p>پنل مدیریت ادیت‌های فوتبالی</p>
-    </header>
+  <main class="admin-main">
+    <section class="admin-card">
+      <section id="login-panel">
+        <h2>🔐 ورود مدیر</h2>
+        <p class="admin-description">
+          برای مدیریت ویدیوهای سایت وارد حساب مدیر شو.
+        </p>
 
-    <main>
-        <section>
-            <h2>ورود مدیر</h2>
-            <p>برای آپلود و مدیریت ادیت‌ها وارد حساب مدیر شو.</p>
+        <form id="login-form" class="admin-form">
+          <label for="email">ایمیل مدیر</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="username"
+            placeholder="ایمیل حساب مدیر"
+            required
+          >
 
-            <form id="login-form">
-                <label for="email">ایمیل مدیر</label>
-                <input
-                    id="email"
-                    type="email"
-                    autocomplete="username"
-                    required
-                >
+          <label for="password">رمز عبور</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            placeholder="رمز عبور"
+            required
+          >
 
-                <label for="password">رمز عبور</label>
-                <input
-                    id="password"
-                    type="password"
-                    autocomplete="current-password"
-                    required
-                >
+          <button class="admin-button" type="submit">
+            ورود به پنل
+          </button>
+        </form>
+      </section>
 
-                <button type="submit">ورود به پنل</button>
-            </form>
+      <section id="upload-panel" hidden>
+        <h2>⚽ آپلود ادیت جدید</h2>
+        <p class="admin-description">
+          اطلاعات ویدیو رو وارد کن و فایل MP4 رو انتخاب کن.
+        </p>
 
-            <section id="upload-panel" hidden>
-                <h2>آپلود ادیت جدید ⚽</h2>
+        <form id="upload-form" class="admin-form">
+          <label for="video-title">عنوان ویدیو</label>
+          <input
+            id="video-title"
+            name="title"
+            type="text"
+            placeholder="مثلاً ادیت خفن مسی"
+            maxlength="120"
+            required
+          >
 
-                <form id="upload-form">
-                    <label for="video-title">عنوان ویدیو</label>
-                    <input
-                        id="video-title"
-                        type="text"
-                        placeholder="مثلاً ادیت خفن مسی"
-                        maxlength="120"
-                        required
-                    >
+          <label for="video-player">انتخاب بازیکن</label>
+          <select id="video-player" name="player" required>
+            <option value="">بازیکن رو انتخاب کن</option>
+            <option value="messi">لیونل مسی</option>
+            <option value="ronaldo">کریستیانو رونالدو</option>
+            <option value="neymar">نیمار</option>
+            <option value="mbappe">کیلیان امباپه</option>
+            <option value="haaland">ارلینگ هالند</option>
+            <option value="bellingham">جود بلینگام</option>
+          </select>
 
-                    <label for="video-player">انتخاب بازیکن</label>
-                    <select id="video-player" required>
-                        <option value="">بازیکن رو انتخاب کن</option>
-                        <option value="messi">لیونل مسی</option>
-                        <option value="ronaldo">کریستیانو رونالدو</option>
-                        <option value="neymar">نیمار</option>
-                        <option value="mbappe">کیلیان امباپه</option>
-                        <option value="haaland">ارلینگ هالند</option>
-                        <option value="bellingham">جود بلینگام</option>
-                    </select>
+          <label for="video-file">انتخاب ویدیو (MP4)</label>
+          <input
+            id="video-file"
+            name="video"
+            type="file"
+            accept=".mp4,video/mp4"
+            required
+          >
 
-                    <label for="video-file">انتخاب ویدیو (MP4)</label>
-                    <input
-                        id="video-file"
-                        type="file"
-                        accept=".mp4,video/mp4"
-                        required
-                    >
+          <p class="admin-hint">
+            حداکثر حجم فایل: ۵۰ مگابایت
+          </p>
 
-                    <p>حداکثر حجم فایل: ۵۰ مگابایت</p>
+          <button class="admin-button" type="submit">
+            آپلود و انتشار ویدیو
+          </button>
+        </form>
 
-                    <button type="submit">
-                        آپلود و انتشار ویدیو
-                    </button>
-                </form>
+        <hr class="admin-divider">
 
-                <hr>
+        <section id="manage-videos">
+          <h2>🎬 مدیریت ویدیوهای منتشرشده</h2>
+          <p class="admin-description">
+            فهرست ویدیوهای منتشرشده رو ببین و در صورت نیاز حذف کن.
+          </p>
 
-                <section id="manage-videos">
-                    <h2>مدیریت ویدیوهای منتشرشده 🎬</h2>
-                    <p>
-                        ویدیوهای منتشرشده رو ببین و در صورت نیاز حذف کن.
-                    </p>
+          <button
+            id="refresh-videos"
+            class="admin-button admin-button-secondary"
+            type="button"
+          >
+            🔄 بارگذاری دوباره فهرست
+          </button>
 
-                    <button id="refresh-videos" type="button">
-                        🔄 بارگذاری دوباره فهرست
-                    </button>
-
-                    <div id="video-management-list" aria-live="polite">
-                        <p>فهرست ویدیوها پس از ورود مدیر نمایش داده می‌شه.</p>
-                    </div>
-                </section>
-
-                <hr>
-
-                <button id="logout-button" type="button">
-                    خروج از حساب مدیر
-                </button>
-            </section>
-
-            <p id="status" role="status" aria-live="polite"></p>
+          <div id="video-management-list" aria-live="polite">
+            <p class="admin-hint">
+              فهرست ویدیوها پس از ورود مدیر نمایش داده می‌شه.
+            </p>
+          </div>
         </section>
-    </main>
 
-    <footer>
-        <p>© 2026 MJ Football Edits</p>
-        <a href="index.html">بازگشت به صفحه اصلی</a>
-    </footer>
+        <hr class="admin-divider">
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="admin.js"></script>
+        <button
+          id="logout-button"
+          class="admin-button admin-button-danger"
+          type="button"
+        >
+          خروج از حساب مدیر
+        </button>
+      </section>
 
+      <p id="status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="admin-footer">
+    <p>© 2026 MJ Football Edits</p>
+    <a href="./index.html">بازگشت به صفحه اصلی</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./admin.js"></script>
 </body>
 </html>
-```
