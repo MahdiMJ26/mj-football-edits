@@ -1,13 +1,18 @@
-```html
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
+
+  <!-- Google Search Console verification -->
+  <meta name="google-site-verification" content="Ekls8PG8aFodeHB0qaOjWLF4YoEsPY88a96OBA_hnHc" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080711">
 
   <title>MJ FOOTBALL EDITS | دنیای ادیت‌های فوتبال</title>
   <meta name="description" content="اسطوره‌های فوتبال را بشناس، آمار بازیکنان را ببین و دنیای ادیت‌های فوتبالی را کشف کن.">
+  <meta name="robots" content="index, follow">
 
   <style>
     :root {
@@ -609,7 +614,6 @@
     </div>
   </footer>
 
-  <!-- فایل اطلاعات بازیکنان باید کنار index.html باشد. -->
   <script src="./players.js"></script>
 
   <script>
@@ -622,7 +626,6 @@
       document.getElementById("current-year").textContent =
         new Date().getFullYear();
 
-      // نام‌های فارسی و انگلیسی برای جست‌وجو یکسان‌سازی می‌شوند.
       function normalizeText(value) {
         return String(value ?? "")
           .toLocaleLowerCase("fa")
@@ -692,8 +695,7 @@
 
         playersGrid.innerHTML = filteredPlayers.map((player, index) => {
           const rawId = player.id ?? player.englishName ?? player.name ?? index;
-          const id = String(rawId);
-          const safeId = encodeURIComponent(id);
+          const safeId = encodeURIComponent(String(rawId));
 
           const name = escapeHTML(
             player.name || player.englishName || "بازیکن فوتبال"
@@ -718,7 +720,6 @@
                 alt="${englishName}"
                 loading="${index < 3 ? "eager" : "lazy"}"
                 decoding="async"
-                data-fallback="true"
               >
 
               <div class="player-info">
@@ -731,7 +732,6 @@
           `;
         }).join("");
 
-        // اگر عکس خراب بود، کارت و اطلاعات بازیکن همچنان نمایش داده می‌شوند.
         playersGrid.querySelectorAll(".player-photo").forEach(image => {
           image.addEventListener("error", () => {
             image.style.display = "none";
@@ -761,4 +761,3 @@
   </script>
 </body>
 </html>
-```
