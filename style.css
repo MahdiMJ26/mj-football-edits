@@ -1,27 +1,22 @@
 /* ========================================
    MJ FOOTBALL EDITS
-   LIGHT GREEN + WHITE + PLAYER PHOTOS
+   DARK FOOTBALL + NEON GREEN
 ======================================== */
 
-/* رنگ‌های اصلی */
 :root {
-    --neon: #24c943;
-    --neon-light: #42e85c;
-    --green-dark: #168b30;
-    --bg: #e8f5e9;
-    --bg-secondary: #f4fbf4;
-    --card-bg: #ffffff;
-    --text: #174d25;
-    --muted: #467a50;
-    --border: rgba(36, 201, 67, 0.4);
-    --glow: rgba(36, 201, 67, 0.15);
-    --radius: 16px;
-    --shadow: 0 5px 18px rgba(20, 100, 35, 0.09);
+    --neon: #39ff69;
+    --neon-light: #8aff9f;
+    --green-dark: #0d8f37;
+    --bg: #07110b;
+    --bg-secondary: #0c1910;
+    --card-bg: #102117;
+    --text: #f0fff3;
+    --muted: #b1c8b6;
+    --border: rgba(57, 255, 105, 0.22);
+    --glow: rgba(57, 255, 105, 0.13);
+    --radius: 18px;
+    --shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
 }
-
-/* ========================================
-   BASIC SETTINGS
-======================================== */
 
 * {
     box-sizing: border-box;
@@ -29,16 +24,18 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 20px;
+    scroll-padding-top: 24px;
 }
 
 body {
     margin: 0;
     min-height: 100vh;
-    background: var(--bg) !important;
+    background:
+        radial-gradient(ellipse at top, #12331d 0%, transparent 55%),
+        linear-gradient(160deg, #07110b, #050907 75%) !important;
     color: var(--text) !important;
     font-family: Arial, sans-serif;
-    line-height: 1.6;
+    line-height: 1.75;
     overflow-x: hidden;
 }
 
@@ -47,12 +44,12 @@ img {
 }
 
 a {
-    color: var(--green-dark);
-    transition: color 0.2s ease;
+    color: var(--neon);
+    transition: color .2s ease;
 }
 
 a:hover {
-    color: var(--neon);
+    color: var(--neon-light);
 }
 
 button {
@@ -60,16 +57,18 @@ button {
     cursor: pointer;
 }
 
-h1,
-h2,
-h3,
-h4 {
-    color: var(--green-dark);
+h1, h2, h3, h4 {
+    color: var(--neon) !important;
     line-height: 1.3;
 }
 
-p {
+p, li {
     color: var(--muted);
+}
+
+::selection {
+    color: #041008;
+    background: var(--neon);
 }
 
 /* ========================================
@@ -83,23 +82,24 @@ p {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 12px 22px;
-
-    padding: 16px 20px;
-
-    background: #ffffff !important;
+    gap: 12px 24px;
+    padding: 17px 20px;
+    background: rgba(5, 13, 8, .94) !important;
     border-bottom: 1px solid var(--border);
-    box-shadow: 0 3px 12px rgba(20, 100, 35, 0.06);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, .25);
+    backdrop-filter: blur(12px);
 }
 
 .main-nav a {
-    color: var(--green-dark) !important;
+    color: #e5ffeb !important;
     font-weight: 700;
     text-decoration: none;
+    transition: color .2s, transform .2s;
 }
 
 .main-nav a:hover {
     color: var(--neon) !important;
+    transform: translateY(-2px);
 }
 
 /* ========================================
@@ -108,36 +108,32 @@ p {
 
 .hero {
     position: relative;
-    padding: 60px 20px;
+    padding: 75px 20px;
     text-align: center;
-
-    background: linear-gradient(
-        135deg,
-        #ffffff 0%,
-        #e0f5e4 55%,
-        #c8edcf 100%
-    ) !important;
-
+    background:
+        radial-gradient(ellipse at center, rgba(57, 255, 105, .12), transparent 65%),
+        linear-gradient(135deg, #102b19, #07110b 75%) !important;
     color: var(--text) !important;
     border-bottom: 1px solid var(--border);
 }
 
 .hero h1 {
     margin: 0 0 15px;
-    color: var(--green-dark) !important;
-    font-size: clamp(30px, 5vw, 48px);
+    color: var(--neon) !important;
+    font-size: clamp(32px, 5vw, 52px);
     font-weight: 900;
+    text-shadow: 0 0 28px rgba(57, 255, 105, .2);
 }
 
 .hero p {
     max-width: 700px;
     margin: 0 auto;
-    color: var(--muted) !important;
+    color: #d1e8d6 !important;
     font-size: 17px;
 }
 
 /* ========================================
-   GENERAL SECTIONS
+   SECTIONS
 ======================================== */
 
 section {
@@ -146,14 +142,15 @@ section {
 
 .players-section,
 .edits-section {
-    padding: 35px 20px;
+    padding: 42px 20px;
 }
 
 .players-section h2,
 .edits-section h2 {
-    margin: 0 0 25px;
-    color: var(--green-dark) !important;
+    margin: 0 0 28px;
     text-align: center;
+    color: var(--neon) !important;
+    font-size: clamp(24px, 4vw, 32px);
 }
 
 /* ========================================
@@ -164,13 +161,13 @@ section {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 22px;
-
     width: min(1100px, 100%);
     margin: 0 auto;
 }
 
 /* ========================================
-   PLAYER CARDS
+   HOME PLAYER CARDS
+   عکس‌های فعلی کارت‌های صفحه اصلی حفظ می‌شوند
 ======================================== */
 
 .player-card {
@@ -180,30 +177,20 @@ section {
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
-
     min-height: 330px;
     padding: 22px;
-
     overflow: hidden;
-
-    background-color: var(--card-bg) !important;
+    background-color: #102117 !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
-
-    color: #ffffff !important;
+    color: #fff !important;
     border: 1px solid var(--border);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-
     text-decoration: none;
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
+    transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
 }
-
-/* عکس هر بازیکن */
 
 .messi-card {
     background-image: url("./messi.jpg") !important;
@@ -233,25 +220,19 @@ section {
     background-image: url("./bellingham.jpg") !important;
 }
 
-/* لایه تیره برای خوانایی نوشته */
-
 .player-card::before {
     content: "";
     position: absolute;
     inset: 0;
     z-index: 0;
-
     background: linear-gradient(
         to top,
-        rgba(3, 20, 7, 0.92) 0%,
-        rgba(3, 20, 7, 0.48) 48%,
-        rgba(3, 20, 7, 0.03) 100%
+        rgba(2, 10, 5, .97) 0%,
+        rgba(2, 10, 5, .65) 45%,
+        rgba(2, 10, 5, .05) 100%
     );
-
     pointer-events: none;
 }
-
-/* محتوای روی کارت */
 
 .player-card > * {
     position: relative;
@@ -259,8 +240,8 @@ section {
 }
 
 .player-card .player-number {
-    color: var(--neon-light) !important;
-    font-size: 22px;
+    color: var(--neon) !important;
+    font-size: 23px;
     font-weight: 900;
 }
 
@@ -270,29 +251,25 @@ section {
 
 .player-card .player-info h3 {
     margin: 8px 0;
-    color: #ffffff !important;
+    color: #fff !important;
     font-size: 25px;
     font-weight: 900;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 2px 10px #000;
 }
 
 .player-card .player-info p {
     margin: 5px 0;
-    color: #f0fff1 !important;
+    color: #e4f8e8 !important;
 }
 
 .player-card .player-info span {
-    color: var(--neon-light) !important;
+    color: var(--neon) !important;
 }
 
-/* افکت کارت‌ها */
-
 .player-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-7px);
     border-color: var(--neon);
-    box-shadow:
-        0 0 12px rgba(36, 201, 67, 0.25),
-        0 8px 24px rgba(20, 100, 35, 0.12);
+    box-shadow: 0 0 24px rgba(57, 255, 105, .16), var(--shadow);
 }
 
 /* ========================================
@@ -303,34 +280,23 @@ section {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
-
     width: min(1000px, 100%);
     margin: 0 auto;
 }
 
-/* ========================================
-   EDIT CARDS - HOME PAGE
-======================================== */
-
 .edit-card {
-    padding: 22px;
-
-    background: #ffffff !important;
+    padding: 24px;
+    background: linear-gradient(145deg, #12291a, #0b1710) !important;
     color: var(--text) !important;
-
     border: 1px solid var(--border) !important;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-
-    transition:
-        border-color 0.2s ease,
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    transition: border-color .25s, transform .25s, box-shadow .25s;
 }
 
 .edit-card h2,
 .edit-card h3 {
-    color: var(--green-dark) !important;
+    color: var(--neon) !important;
 }
 
 .edit-card p {
@@ -338,143 +304,182 @@ section {
 }
 
 .edit-card a {
-    color: var(--green-dark) !important;
+    color: var(--neon) !important;
     font-weight: 700;
 }
 
 .edit-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-4px);
     border-color: var(--neon) !important;
-    box-shadow: 0 9px 24px rgba(36, 201, 67, 0.17);
+    box-shadow: 0 0 22px var(--glow);
 }
 
 /* ========================================
    PLAYER PAGE HERO
+   پس‌زمینه بدون نیاز به عکس بازیکن
 ======================================== */
 
-.player-page-hero {
+.player-page-hero,
+.bellingham-hero,
+.messi-hero,
+.ronaldo-hero,
+.mbappe-hero,
+.neymar-hero,
+.haaland-hero {
     position: relative;
     isolation: isolate;
     overflow: hidden;
-
-    min-height: 360px;
-    padding: 65px 20px;
-
+    min-height: 300px;
+    padding: 70px 20px;
     text-align: center;
-
-    background-color: #ccebd0 !important;
-    background-size: cover !important;
-    background-position: center 25% !important;
-    background-repeat: no-repeat !important;
-
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(57, 255, 105, .20), transparent 65%),
+        linear-gradient(135deg, #12351e, #08120b 72%) !important;
+    background-image:
+        radial-gradient(ellipse at 50% 0%, rgba(57, 255, 105, .20), transparent 65%),
+        linear-gradient(135deg, #12351e, #08120b 72%) !important;
     border: none !important;
-    box-shadow: none !important;
+    box-shadow: inset 0 -1px 0 var(--border) !important;
     text-shadow: none !important;
 }
 
-/* عکس مخصوص صفحه هر بازیکن */
-
-body.player-ronaldo .player-page-hero {
-    background-image: url("./ronaldo.jpg") !important;
-}
-
-body.player-messi .player-page-hero {
-    background-image: url("./messi.jpg") !important;
-}
-
-body.player-mbappe .player-page-hero {
-    background-image: url("./mbappe.jpg") !important;
-}
-
-body.player-neymar .player-page-hero {
-    background-image: url("./neymar.jpg") !important;
-}
-
-body.player-haaland .player-page-hero {
-    background-image: url("./haaland.jpg") !important;
-}
-
-body.player-bellingham .player-page-hero {
-    background-image: url("./bellingham.jpg") !important;
-}
-
-/* لایه روی عکس سربرگ */
-
-.player-page-hero::before {
+.player-page-hero::before,
+.bellingham-hero::before,
+.messi-hero::before,
+.ronaldo-hero::before,
+.mbappe-hero::before,
+.neymar-hero::before,
+.haaland-hero::before {
     content: "";
     position: absolute;
     inset: 0;
     z-index: 0;
-
-    background: linear-gradient(
-        to bottom,
-        rgba(10, 30, 15, 0.12) 0%,
-        rgba(10, 30, 15, 0.28) 55%,
-        rgba(232, 245, 233, 0.75) 100%
-    );
-
+    background: radial-gradient(ellipse at center, transparent 15%, rgba(0, 0, 0, .22));
     pointer-events: none;
 }
 
-/* محتوای سربرگ */
-
-.player-page-hero > * {
+.player-page-hero > *,
+.bellingham-hero > *,
+.messi-hero > *,
+.ronaldo-hero > *,
+.mbappe-hero > *,
+.neymar-hero > *,
+.haaland-hero > * {
     position: relative;
     z-index: 1;
 }
 
 .player-page-hero h1,
-.player-page-hero p {
-    color: #ffffff !important;
-    background: transparent !important;
-
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
-    -webkit-text-fill-color: #ffffff !important;
+.bellingham-hero h1,
+.messi-hero h1,
+.ronaldo-hero h1,
+.mbappe-hero h1,
+.neymar-hero h1,
+.haaland-hero h1 {
+    color: var(--neon) !important;
+    font-size: clamp(32px, 5vw, 50px);
+    font-weight: 900;
+    text-shadow: 0 0 25px rgba(57, 255, 105, .25) !important;
+    -webkit-text-fill-color: var(--neon) !important;
 }
 
-.player-page-hero h1 {
-    font-size: clamp(30px, 5vw, 44px);
-    direction: ltr;
+.player-page-hero p,
+.bellingham-hero p,
+.messi-hero p,
+.ronaldo-hero p,
+.mbappe-hero p,
+.neymar-hero p,
+.haaland-hero p {
+    color: #e0f5e5 !important;
+    text-shadow: none !important;
+    -webkit-text-fill-color: #e0f5e5 !important;
 }
 
-.player-page-hero p {
-    margin-top: 12px;
+/* جلوگیری از وابستگی سربرگ صفحات به عکس */
+body.player-ronaldo .player-page-hero,
+body.player-messi .player-page-hero,
+body.player-mbappe .player-page-hero,
+body.player-neymar .player-page-hero,
+body.player-haaland .player-page-hero,
+body.player-bellingham .player-page-hero {
+    background-image:
+        radial-gradient(ellipse at 50% 0%, rgba(57, 255, 105, .20), transparent 65%),
+        linear-gradient(135deg, #12351e, #08120b 72%) !important;
 }
 
 /* ========================================
-   PLAYER PHOTO
+   PLAYER PROFILE / BIOGRAPHY
 ======================================== */
 
 .player-photo {
-    display: block;
+    display: none !important;
+}
 
-    width: min(280px, 80%);
-    max-height: 350px;
+.bellingham-profile,
+.player-profile,
+.player-bio,
+.profile-card,
+.bio-card,
+.player-details,
+.player-info-card,
+.player-stats,
+.player-honors,
+.player-timeline,
+.player-section,
+.bellingham-profile,
+.bellingham-facts,
+.bellingham-honors,
+.bellingham-timeline {
+    color: var(--text) !important;
+    background: linear-gradient(145deg, #12291a, #0a160e) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow) !important;
+}
 
-    object-fit: contain;
-    margin: 0 auto 20px;
+.bellingham-profile img,
+.player-profile img,
+.player-bio img,
+.profile-card img {
+    display: none !important;
+}
 
-    background-color: transparent !important;
+.bellingham-profile h2,
+.bellingham-profile h3,
+.player-profile h2,
+.player-profile h3,
+.player-bio h2,
+.player-bio h3,
+.profile-card h2,
+.profile-card h3,
+.player-details h2,
+.player-details h3,
+.player-stats h2,
+.player-honors h2,
+.player-timeline h2 {
+    color: var(--neon) !important;
+}
 
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-    filter: none !important;
-    animation: none !important;
+.bellingham-profile p,
+.player-profile p,
+.player-bio p,
+.profile-card p,
+.player-details p,
+.player-stats p,
+.player-honors p,
+.player-timeline p {
+    color: #c4d9c9 !important;
 }
 
 /* ========================================
-   EDIT LIST - PLAYER PAGES
+   PLAYER EDIT LIST
 ======================================== */
 
 .edit-list {
-    width: min(900px, 100%);
+    width: min(950px, 100%);
     margin: 0 auto;
-    padding: 25px 20px 60px;
-
-    background-color: var(--bg) !important;
-    background-image: none !important;
-
+    padding: 35px 20px 65px;
+    background: transparent !important;
     color: var(--text) !important;
     text-shadow: none !important;
     box-shadow: none !important;
@@ -483,10 +488,10 @@ body.player-bellingham .player-page-hero {
 .edit-list h1,
 .edit-list h2,
 .edit-list h3 {
-    color: var(--green-dark) !important;
+    color: var(--neon) !important;
     background: transparent !important;
-    text-shadow: none !important;
-    -webkit-text-fill-color: var(--green-dark) !important;
+    text-shadow: 0 0 16px rgba(57, 255, 105, .12) !important;
+    -webkit-text-fill-color: var(--neon) !important;
 }
 
 .edit-list p,
@@ -498,50 +503,43 @@ body.player-bellingham .player-page-hero {
 }
 
 /* ========================================
-   EDIT ITEMS
+   EDIT ITEMS / VIDEO CARDS
 ======================================== */
 
 .edit-item {
-    margin-top: 16px;
-    padding: 22px;
-
-    background-color: #ffffff !important;
-    background-image: none !important;
-
+    margin-top: 18px;
+    padding: 24px;
+    background: linear-gradient(145deg, #12291a, #0a160e) !important;
     color: var(--text) !important;
-
     border: 1px solid var(--border) !important;
     border-radius: var(--radius);
-
     box-shadow: var(--shadow) !important;
     text-shadow: none !important;
-
-    transition:
-        border-color 0.2s ease,
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    transition: border-color .25s, transform .25s, box-shadow .25s;
 }
 
-.edit-item h2 {
-    font-size: 19px;
-    color: var(--green-dark) !important;
+.edit-item h2,
+.edit-item h3 {
+    color: var(--neon) !important;
     background: transparent !important;
-    text-shadow: none !important;
-    -webkit-text-fill-color: var(--green-dark) !important;
+    -webkit-text-fill-color: var(--neon) !important;
 }
 
 .edit-item p {
     color: var(--muted) !important;
     background: transparent !important;
-    text-shadow: none !important;
     -webkit-text-fill-color: var(--muted) !important;
 }
 
+.edit-item a {
+    color: var(--neon) !important;
+}
+
 .edit-item:hover {
-    background-color: #f7fff8 !important;
+    background: linear-gradient(145deg, #163722, #0b1b10) !important;
     border-color: var(--neon) !important;
-    box-shadow: 0 9px 24px rgba(36, 201, 67, 0.17) !important;
-    transform: translateY(-3px);
+    box-shadow: 0 0 22px var(--glow) !important;
+    transform: translateY(-4px);
 }
 
 /* ========================================
@@ -553,68 +551,75 @@ body.player-bellingham .player-page-hero {
 .back-link:hover,
 .back-link:active {
     display: inline-block;
-
-    color: var(--green-dark) !important;
-    background-color: #ffffff !important;
-    background-image: none !important;
-
+    padding: 10px 17px;
+    color: var(--neon) !important;
+    background: #102117 !important;
+    border: 1px solid var(--border);
+    border-radius: 10px;
     text-shadow: none !important;
     box-shadow: none !important;
-    -webkit-text-fill-color: var(--green-dark) !important;
-
+    -webkit-text-fill-color: var(--neon) !important;
     text-decoration: none;
     font-weight: 700;
+}
+
+.back-link:hover {
+    border-color: var(--neon);
+    box-shadow: 0 0 15px var(--glow) !important;
 }
 
 /* ========================================
    BUTTONS
 ======================================== */
 
+button,
 .player-page-hero button,
 .edit-list button,
 .edit-item button,
 .edit-card button {
-    padding: 10px 18px;
-
-    color: #ffffff !important;
-    background-color: var(--neon) !important;
-
-    border: 1px solid #1db63a !important;
+    padding: 11px 19px;
+    color: #061109 !important;
+    background: var(--neon) !important;
+    border: 1px solid var(--neon) !important;
     border-radius: 10px;
-
-    box-shadow: 0 4px 12px rgba(36, 201, 67, 0.18) !important;
-    text-shadow: none !important;
-
-    -webkit-text-fill-color: #ffffff !important;
-
-    transition:
-        background-color 0.2s ease,
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    font-weight: 800;
+    box-shadow: 0 4px 16px rgba(57, 255, 105, .13);
+    -webkit-text-fill-color: #061109 !important;
+    transition: background .2s, transform .2s, box-shadow .2s;
 }
 
+button:hover,
 .player-page-hero button:hover,
 .edit-list button:hover,
 .edit-item button:hover,
 .edit-card button:hover {
-    background-color: var(--green-dark) !important;
-    border-color: var(--green-dark) !important;
+    background: var(--neon-light) !important;
+    border-color: var(--neon-light) !important;
     transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(57, 255, 105, .2);
 }
 
 /* ========================================
-   LINKS
+   FORMS / INPUTS
 ======================================== */
 
-.player-page-hero a,
-.edit-list a,
-.edit-item a,
-.edit-card a {
-    text-decoration-color: var(--neon);
+input,
+textarea,
+select {
+    max-width: 100%;
+    padding: 11px 13px;
+    color: var(--text) !important;
+    background: #08140c !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 10px;
+    outline: none;
 }
 
-.player-page-hero a {
-    color: #ffffff;
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--neon) !important;
+    box-shadow: 0 0 0 3px rgba(57, 255, 105, .1);
 }
 
 /* ========================================
@@ -622,14 +627,10 @@ body.player-bellingham .player-page-hero {
 ======================================== */
 
 footer {
-    padding: 22px 18px;
-
-    background-color: #d8f0dc !important;
-    background-image: none !important;
-
-    color: var(--text) !important;
-    border-top: 1px solid rgba(36, 201, 67, 0.3) !important;
-
+    padding: 25px 18px;
+    background: #050b07 !important;
+    color: var(--muted) !important;
+    border-top: 1px solid var(--border) !important;
     text-align: center;
     text-shadow: none !important;
     box-shadow: none !important;
@@ -637,10 +638,10 @@ footer {
 
 footer p,
 footer a {
-    color: #267d39 !important;
+    color: #b8d9c0 !important;
     background: transparent !important;
     text-shadow: none !important;
-    -webkit-text-fill-color: #267d39 !important;
+    -webkit-text-fill-color: #b8d9c0 !important;
 }
 
 footer a {
@@ -648,34 +649,25 @@ footer a {
 }
 
 footer a:hover {
-    color: var(--green-dark) !important;
+    color: var(--neon) !important;
+    -webkit-text-fill-color: var(--neon) !important;
 }
 
 /* ========================================
-   KEYBOARD FOCUS
+   FOCUS ACCESSIBILITY
 ======================================== */
 
 a:focus-visible,
 button:focus-visible,
-.back-link:focus-visible,
-.player-page-hero a:focus-visible,
-.edit-list button:focus-visible,
-.edit-item button:focus-visible {
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
     outline: 2px solid var(--neon) !important;
     outline-offset: 4px;
 }
 
 /* ========================================
-   TEXT SELECTION
-======================================== */
-
-::selection {
-    color: #ffffff;
-    background-color: var(--green-dark);
-}
-
-/* ========================================
-   MOBILE - TABLETS
+   TABLETS
 ======================================== */
 
 @media (max-width: 850px) {
@@ -694,12 +686,12 @@ button:focus-visible,
     }
 
     .hero {
-        padding: 45px 18px;
+        padding: 52px 18px;
     }
 }
 
 /* ========================================
-   MOBILE - PHONES
+   PHONES
 ======================================== */
 
 @media (max-width: 600px) {
@@ -709,7 +701,7 @@ button:focus-visible,
     }
 
     .hero {
-        padding: 38px 16px;
+        padding: 42px 16px;
     }
 
     .hero p {
@@ -718,14 +710,10 @@ button:focus-visible,
 
     .players-section,
     .edits-section {
-        padding: 25px 14px;
+        padding: 28px 14px;
     }
 
-    .players-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
+    .players-grid,
     .edits-grid {
         grid-template-columns: 1fr;
         gap: 16px;
@@ -740,29 +728,24 @@ button:focus-visible,
         font-size: 23px;
     }
 
-    .player-page-hero {
-        min-height: 300px;
-        padding: 50px 16px;
-        background-position: center 20% !important;
+    .player-page-hero,
+    .bellingham-hero,
+    .messi-hero,
+    .ronaldo-hero,
+    .mbappe-hero,
+    .neymar-hero,
+    .haaland-hero {
+        min-height: 250px;
+        padding: 48px 16px;
     }
 
     .edit-list {
-        padding: 20px 14px 45px;
+        padding: 25px 14px 45px;
     }
 
     .edit-item,
     .edit-card {
         padding: 18px;
-        background-color: #ffffff !important;
-    }
-
-    .mbappe-card {
-        background-size: contain !important;
-        background-position: center top !important;
-    }
-
-    .player-photo {
-        width: min(250px, 85%);
     }
 }
 
@@ -797,17 +780,15 @@ button:focus-visible,
     *,
     *::before,
     *::after {
-        animation-duration: 0.01ms !important;
+        animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        transition-duration: .01ms !important;
     }
 
     .edit-item:hover,
     .edit-card:hover,
     .player-card:hover,
-    .player-page-hero button:hover,
-    .edit-list button:hover,
-    .edit-item button:hover {
+    button:hover {
         transform: none !important;
     }
 }
