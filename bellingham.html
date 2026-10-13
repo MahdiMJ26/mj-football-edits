@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#07150e">
-    <meta name="description" content="بیوگرافی جود بلینگام، دوران حرفه‌ای، افتخارات و تماشای ادیت‌های فوتبالی در MJ FOOTBALL EDITS">
-    <title>جود بلینگام | MJ FOOTBALL EDITS</title>
+    <meta name="description" content="بیوگرافی لیونل مسی، دوران حرفه‌ای، افتخارات و تماشای ادیت‌های فوتبالی در MJ FOOTBALL EDITS">
+    <title>لیونل مسی | MJ FOOTBALL EDITS</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -23,13 +23,9 @@
             --border: rgba(255,255,255,.09);
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             margin: 0;
@@ -39,9 +35,7 @@
             line-height: 1.9;
         }
 
-        a {
-            color: inherit;
-        }
+        a { color: inherit; }
 
         .site-header {
             padding: 18px 6%;
@@ -61,9 +55,7 @@
             color: var(--green);
         }
 
-        .logo span {
-            color: white;
-        }
+        .logo span { color: white; }
 
         .site-header p {
             margin: 0;
@@ -94,7 +86,7 @@
             margin: 0 auto;
         }
 
-        .bellingham-hero {
+        .messi-hero {
             position: relative;
             min-height: 390px;
             display: flex;
@@ -117,7 +109,7 @@
                     rgba(7,21,14,.5),
                     transparent
                 ),
-                url("images/bellingham.jpg") center 28% / cover no-repeat,
+                url("images/messi.jpg") center 28% / cover no-repeat,
                 #173823;
             box-shadow: 0 18px 50px rgba(0,0,0,.28);
         }
@@ -134,7 +126,7 @@
             font-weight: bold;
         }
 
-        .bellingham-hero h1 {
+        .messi-hero h1 {
             margin: 0;
             max-width: 650px;
             font-size: clamp(34px, 6vw, 65px);
@@ -142,7 +134,7 @@
             text-shadow: 0 4px 20px #000;
         }
 
-        .bellingham-hero h1 span {
+        .messi-hero h1 span {
             display: block;
             color: var(--green);
             font-size: .52em;
@@ -151,7 +143,7 @@
             text-align: right;
         }
 
-        .bellingham-hero p {
+        .messi-hero p {
             max-width: 570px;
             margin: 15px 0 22px;
             color: #e5f1e8;
@@ -187,18 +179,14 @@
             border: 1px solid var(--border);
         }
 
-        .section {
-            margin: 38px 0;
-        }
+        .section { margin: 38px 0; }
 
         .section-heading {
             margin: 0 0 20px;
             font-size: clamp(22px, 4vw, 30px);
         }
 
-        .section-heading span {
-            color: var(--green);
-        }
+        .section-heading span { color: var(--green); }
 
         .profile-grid {
             display: grid;
@@ -235,9 +223,7 @@
             background: var(--surface-light);
         }
 
-        .bio-card {
-            padding: clamp(20px, 4vw, 32px);
-        }
+        .bio-card { padding: clamp(20px, 4vw, 32px); }
 
         .bio-card h3 {
             margin: 0 0 13px;
@@ -252,9 +238,7 @@
             font-size: 14px;
         }
 
-        .bio-card p:last-child {
-            margin-bottom: 0;
-        }
+        .bio-card p:last-child { margin-bottom: 0; }
 
         .info-grid {
             display: grid;
@@ -307,9 +291,7 @@
             transition: .2s;
         }
 
-        .honour-card .trophy {
-            font-size: 30px;
-        }
+        .honour-card .trophy { font-size: 30px; }
 
         .honour-card h3 {
             margin: 8px 0 5px;
@@ -323,10 +305,7 @@
             font-size: 13px;
         }
 
-        .timeline {
-            display: grid;
-            gap: 14px;
-        }
+        .timeline { display: grid; gap: 14px; }
 
         .timeline-item {
             display: grid;
@@ -362,7 +341,7 @@
             margin-bottom: 22px;
         }
 
-        #player-edits {
+        #player-edits-list {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 18px;
@@ -414,9 +393,7 @@
             margin-bottom: 8px;
         }
 
-        .loading-message.error {
-            color: #ffc5c5;
-        }
+        .loading-message.error { color: #ffc5c5; }
 
         .about-banner {
             padding: 26px;
@@ -452,14 +429,10 @@
             font-size: 13px;
         }
 
-        footer strong {
-            color: var(--green);
-        }
+        footer strong { color: var(--green); }
 
         @media (max-width: 850px) {
-            .profile-grid {
-                grid-template-columns: 1fr;
-            }
+            .profile-grid { grid-template-columns: 1fr; }
 
             .profile-photo-card img {
                 height: 350px;
@@ -470,15 +443,12 @@
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
-            .honours-grid {
+            .honours-grid,
+            #player-edits-list {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
-            #player-edits {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .bellingham-hero {
+            .messi-hero {
                 background-position: center, center, 58% 25%, center;
             }
         }
@@ -489,7 +459,7 @@
                 flex-direction: column;
             }
 
-            .bellingham-hero {
+            .messi-hero {
                 min-height: 350px;
                 padding: 27px 20px;
                 border-radius: 20px;
@@ -499,30 +469,22 @@
                         rgba(4,15,9,.91),
                         rgba(4,15,9,.52)
                     ),
-                    url("images/bellingham.jpg") center 25% / cover no-repeat,
+                    url("images/messi.jpg") center 25% / cover no-repeat,
                     #173823;
             }
 
-            .bellingham-hero p {
-                font-size: 13px;
-            }
+            .messi-hero p { font-size: 13px; }
 
-            .info-grid {
-                gap: 10px;
-            }
+            .info-grid { gap: 10px; }
 
-            .info-card {
-                padding: 15px 8px;
-            }
+            .info-card { padding: 15px 8px; }
 
             .honours-grid,
-            #player-edits {
+            #player-edits-list {
                 grid-template-columns: 1fr;
             }
 
-            .edit-item video {
-                max-height: 520px;
-            }
+            .edit-item video { max-height: 520px; }
 
             .timeline-item {
                 grid-template-columns: 72px minmax(0, 1fr);
@@ -530,15 +492,11 @@
                 padding: 14px;
             }
 
-            .section {
-                margin: 28px 0;
-            }
+            .section { margin: 28px 0; }
         }
 
         @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
+            html { scroll-behavior: auto; }
 
             *,
             *::before,
@@ -550,7 +508,6 @@
 </head>
 
 <body>
-
     <header class="site-header">
         <a class="logo" href="index.html">
             MJ <span>FOOTBALL EDITS</span>
@@ -564,24 +521,22 @@
     </a>
 
     <main>
-
-        <!-- Hero -->
-        <section class="bellingham-hero">
+        <section class="messi-hero">
             <span class="hero-tag">PLAYER PROFILE · 2026</span>
 
             <h1>
-                جود بلینگام
-                <span>JUDE BELLINGHAM</span>
+                لیونل مسی
+                <span>LIONEL MESSI</span>
             </h1>
 
             <p>
-                از شروع فوتبال در انگلیس تا درخشش در بزرگ‌ترین رقابت‌های اروپا؛
-                با زندگی فوتبالی، افتخارات و ادیت‌های اختصاصی یکی از ستاره‌های
-                نسل جدید فوتبال آشنا شو.
+                از روزهای آغازین در آرژانتین تا فتح جام جهانی؛
+                با داستان فوتبالی، افتخارات و ادیت‌های اختصاصی
+                یکی از بزرگ‌ترین بازیکنان تاریخ فوتبال آشنا شو.
             </p>
 
             <div class="hero-actions">
-                <a class="action-button" href="#player-edits">
+                <a class="action-button" href="#player-edits-list">
                     🎬 تماشای ادیت‌ها
                 </a>
 
@@ -591,73 +546,67 @@
             </div>
         </section>
 
-        <!-- Player profile -->
         <section class="section" id="biography">
             <h2 class="section-heading">
-                👤 درباره <span>جود بلینگام</span>
+                👤 درباره <span>لیونل مسی</span>
             </h2>
 
             <div class="profile-grid">
                 <div class="profile-photo-card">
                     <img
-                        src="images/bellingham.jpg"
-                        alt="تصویر جود بلینگام"
+                        src="images/messi.jpg"
+                        alt="تصویر لیونل مسی"
                         loading="lazy"
-                        onerror="this.style.display='none'; this.parentElement.innerHTML='<p style=&quot;text-align:center;padding:35px;color:#b5c8bb&quot;>عکس بازیکن پیدا نشد.<br>مسیر images/bellingham.jpg را بررسی کن.</p>';"
+                        onerror="this.style.display='none'; this.parentElement.innerHTML='<p style=&quot;text-align:center;padding:35px;color:#b5c8bb&quot;>عکس مسی پیدا نشد.<br>مسیر images/messi.jpg را بررسی کن.</p>';"
                     >
                 </div>
 
                 <article class="bio-card">
-                    <h3>داستان یک هافبک خاص</h3>
+                    <h3>داستان یک اسطوره</h3>
 
                     <p>
-                        جود ویکتور ویلیام بلینگام، معروف به جود بلینگام،
-                        فوتبالیست انگلیسی است که در ۲۹ ژوئن ۲۰۰۳ متولد شد.
-                        او به‌عنوان هافبکی چندکاره شناخته می‌شود؛ بازیکنی که
-                        می‌تواند در پیش‌بردن توپ، ساختن موقعیت، پرس‌کردن
-                        و حضور در نزدیکی محوطه جریمه به تیمش کمک کند.
+                        لیونل آندرس مسی در ۲۴ ژوئن ۱۹۸۷ در شهر روزاریو
+                        آرژانتین متولد شد. او به خاطر کنترل فوق‌العاده توپ،
+                        دریبل‌های تماشایی، پاس‌های دقیق و توانایی گل‌زنی
+                        به یکی از چهره‌های ماندگار فوتبال جهان تبدیل شده است.
                     </p>
 
                     <p>
-                        بلینگام فوتبال حرفه‌ای خود را در باشگاه بیرمنگام سیتی
-                        آغاز کرد. او با وجود سن کم، در ترکیب تیم بزرگسالان
-                        فرصت بازی پیدا کرد و خیلی زود توجه علاقه‌مندان فوتبال
-                        را به خودش جلب کرد.
+                        مسی در نوجوانی به آکادمی لاماسیا در بارسلونا پیوست
+                        و در سال ۲۰۰۴ نخستین بازی رسمی خود را برای تیم
+                        بزرگسالان این باشگاه انجام داد. او طی سال‌های حضور
+                        در بارسلونا به رکوردهای فردی و تیمی زیادی رسید.
                     </p>
 
                     <p>
-                        در سال ۲۰۲۰ به بوروسیا دورتموند آلمان پیوست.
-                        حضور در بوندس‌لیگا به او کمک کرد تجربه بیشتری در
-                        فوتبال سطح بالا به دست بیاورد و در رقابت‌های داخلی
-                        و اروپایی نقش مهمی داشته باشد.
+                        با بارسلونا، مسی قهرمانی‌های متعدد در لالیگا،
+                        جام حذفی اسپانیا و لیگ قهرمانان اروپا را تجربه کرد.
+                        او در طول دوران حضورش در این باشگاه به یکی از
+                        گل‌زنان برجسته تاریخ فوتبال تبدیل شد.
                     </p>
 
                     <p>
-                        تابستان ۲۰۲۳، بلینگام راهی رئال مادرید شد.
-                        او در نخستین فصل حضورش در این باشگاه، در قهرمانی
-                        رئال مادرید در لالیگا و لیگ قهرمانان اروپا نقش داشت.
-                        توانایی گل‌زنی از خط میانی و حضور در لحظات حساس،
-                        او را به یکی از چهره‌های مهم تیم تبدیل کرد.
+                        در سال ۲۰۲۱، مسی همراه تیم ملی آرژانتین قهرمان
+                        کوپا آمریکا شد. این قهرمانی یکی از لحظه‌های مهم
+                        دوران ملی او بود و پس از سال‌ها تلاش به دست آمد.
                     </p>
 
                     <p>
-                        بلینگام همچنین عضو تیم ملی انگلیس است و در تورنمنت‌های
-                        بزرگی مانند جام جهانی ۲۰۲۲ و یورو ۲۰۲۴ به میدان رفت.
-                        گل تماشایی او مقابل اسلواکی در یورو ۲۰۲۴ یکی از
-                        لحظه‌های به‌یادماندنی دوران ملی اوست.
+                        نقطه اوج دوران ملی مسی در جام جهانی ۲۰۲۲ قطر رقم خورد؛
+                        جایی که آرژانتین قهرمان شد و مسی توپ طلای بهترین
+                        بازیکن مسابقات را دریافت کرد.
                     </p>
 
                     <p>
-                        چیزی که سبک بازی او را جذاب می‌کند، ترکیب قدرت بدنی،
-                        کنترل توپ، دید بازی، حرکت بدون توپ و اعتمادبه‌نفس
-                        در لحظات پرفشار است. همین ویژگی‌ها باعث شده‌اند
-                        بلینگام انتخاب محبوبی برای ادیت‌های فوتبالی باشد. 🔥
+                        مسی پس از حضور در پاری‌سن‌ژرمن، در سال ۲۰۲۳ به
+                        اینتر میامی پیوست. سبک بازی، خلاقیت و لحظه‌های
+                        فراموش‌نشدنی او همچنان الهام‌بخش طرفداران فوتبال
+                        و سازندگان ادیت‌های فوتبالی است. 🔥
                     </p>
                 </article>
             </div>
         </section>
 
-        <!-- Quick facts -->
         <section class="section">
             <h2 class="section-heading">
                 📌 اطلاعات <span>بازیکن</span>
@@ -667,75 +616,73 @@
                 <div class="info-card">
                     <span class="info-icon">🎂</span>
                     <span class="info-label">تاریخ تولد</span>
-                    <span class="info-value">۲۹ ژوئن ۲۰۰۳</span>
+                    <span class="info-value">۲۴ ژوئن ۱۹۸۷</span>
                 </div>
 
                 <div class="info-card">
-                    <span class="info-icon">🏴</span>
+                    <span class="info-icon">🇦🇷</span>
                     <span class="info-label">ملیت</span>
-                    <span class="info-value">انگلیسی</span>
+                    <span class="info-value">آرژانتینی</span>
                 </div>
 
                 <div class="info-card">
                     <span class="info-icon">⚽</span>
                     <span class="info-label">پست اصلی</span>
-                    <span class="info-value">هافبک</span>
+                    <span class="info-value">مهاجم</span>
                 </div>
 
                 <div class="info-card">
-                    <span class="info-icon">👑</span>
-                    <span class="info-label">باشگاه</span>
-                    <span class="info-value">رئال مادرید</span>
+                    <span class="info-icon">🔟</span>
+                    <span class="info-label">شماره معروف</span>
+                    <span class="info-value">شماره ۱۰</span>
                 </div>
             </div>
         </section>
 
-        <!-- Honours -->
         <section class="section">
             <h2 class="section-heading">
-                🏆 افتخارات مهم <span>بلینگام</span>
+                🏆 افتخارات مهم <span>مسی</span>
             </h2>
 
             <div class="honours-grid">
                 <article class="honour-card">
-                    <span class="trophy">🏆</span>
-                    <h3>لیگ قهرمانان اروپا</h3>
-                    <p>قهرمانی با رئال مادرید در فصل ۲۰۲۳–۲۰۲۴</p>
+                    <span class="trophy">🌎</span>
+                    <h3>جام جهانی</h3>
+                    <p>قهرمانی با آرژانتین در سال ۲۰۲۲</p>
                 </article>
 
                 <article class="honour-card">
                     <span class="trophy">🥇</span>
-                    <h3>لالیگا</h3>
-                    <p>قهرمانی با رئال مادرید در فصل ۲۰۲۳–۲۰۲۴</p>
+                    <h3>۸ توپ طلا</h3>
+                    <p>برنده هشت جایزه توپ طلای فوتبال جهان</p>
                 </article>
 
                 <article class="honour-card">
-                    <span class="trophy">🏅</span>
-                    <h3>سوپرجام اسپانیا</h3>
-                    <p>قهرمانی با رئال مادرید در سال ۲۰۲۴</p>
+                    <span class="trophy">🏆</span>
+                    <h3>لیگ قهرمانان اروپا</h3>
+                    <p>چهار قهرمانی با بارسلونا</p>
                 </article>
 
                 <article class="honour-card">
-                    <span class="trophy">🏴</span>
-                    <h3>تیم ملی انگلیس</h3>
-                    <p>حضور در جام جهانی ۲۰۲۲ و یورو ۲۰۲۴</p>
+                    <span class="trophy">🇦🇷</span>
+                    <h3>کوپا آمریکا</h3>
+                    <p>قهرمانی در سال‌های ۲۰۲۱ و ۲۰۲۴</p>
+                </article>
+
+                <article class="honour-card">
+                    <span class="trophy">🔵🔴</span>
+                    <h3>بارسلونا</h3>
+                    <p>۱۰ قهرمانی لالیگا در دوران حضورش در باشگاه</p>
                 </article>
 
                 <article class="honour-card">
                     <span class="trophy">🌟</span>
-                    <h3>جایزه کوپا</h3>
-                    <p>برنده جایزه بهترین بازیکن جوان سال ۲۰۲۳</p>
-                </article>
-
-                <article class="honour-card">
-                    <span class="trophy">⚪</span>
-                    <h3>رئال مادرید</h3>
-                    <p>قهرمانی در رقابت‌های داخلی و اروپایی</p>
+                    <h3>توپ طلای جام جهانی</h3>
+                    <p>بهترین بازیکن جام جهانی ۲۰۱۴ و ۲۰۲۲</p>
                 </article>
             </div>
         </section>
 
-        <!-- Career timeline -->
         <section class="section">
             <h2 class="section-heading">
                 🛤️ مسیر <span>حرفه‌ای</span>
@@ -743,24 +690,44 @@
 
             <div class="timeline">
                 <article class="timeline-item">
-                    <div class="timeline-year">2019</div>
+                    <div class="timeline-year">1987</div>
                     <div>
-                        <h3>شروع در بیرمنگام سیتی</h3>
+                        <h3>تولد در آرژانتین</h3>
                         <p>
-                            بلینگام در سن کم وارد تیم بزرگسالان شد و
-                            نخستین قدم‌های فوتبال حرفه‌ای خود را برداشت.
+                            لیونل مسی در شهر روزاریو به دنیا آمد و از کودکی
+                            علاقه زیادی به فوتبال داشت.
                         </p>
                     </div>
                 </article>
 
                 <article class="timeline-item">
-                    <div class="timeline-year">2020</div>
+                    <div class="timeline-year">2004</div>
                     <div>
-                        <h3>انتقال به بوروسیا دورتموند</h3>
+                        <h3>اولین بازی برای بارسلونا</h3>
                         <p>
-                            با پیوستن به باشگاه آلمانی، وارد مرحله تازه‌ای
-                            از دوران حرفه‌ای خود شد و در رقابت‌های اروپایی
-                            تجربه بیشتری کسب کرد.
+                            مسی نخستین بازی رسمی خود را برای تیم بزرگسالان
+                            بارسلونا انجام داد.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="timeline-item">
+                    <div class="timeline-year">2009</div>
+                    <div>
+                        <h3>قهرمانی اروپا با بارسلونا</h3>
+                        <p>
+                            بارسلونا با درخشش مسی قهرمان لیگ قهرمانان اروپا
+                            در فصل ۲۰۰۸–۲۰۰۹ شد.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="timeline-item">
+                    <div class="timeline-year">2021</div>
+                    <div>
+                        <h3>قهرمانی کوپا آمریکا</h3>
+                        <p>
+                            مسی با تیم ملی آرژانتین قهرمان کوپا آمریکا شد.
                         </p>
                     </div>
                 </article>
@@ -768,10 +735,9 @@
                 <article class="timeline-item">
                     <div class="timeline-year">2022</div>
                     <div>
-                        <h3>حضور در جام جهانی</h3>
+                        <h3>فتح جام جهانی</h3>
                         <p>
-                            بلینگام برای تیم ملی انگلیس در جام جهانی قطر
-                            بازی کرد و در چند مسابقه مهم به میدان رفت.
+                            آرژانتین با کاپیتانی مسی قهرمان جام جهانی قطر شد.
                         </p>
                     </div>
                 </article>
@@ -779,52 +745,39 @@
                 <article class="timeline-item">
                     <div class="timeline-year">2023</div>
                     <div>
-                        <h3>پیوستن به رئال مادرید</h3>
+                        <h3>شروع فصل جدید در اینتر میامی</h3>
                         <p>
-                            انتقال به یکی از پرافتخارترین باشگاه‌های جهان
-                            و آغاز فصل تازه‌ای در دوران بازی او.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="timeline-item">
-                    <div class="timeline-year">2024</div>
-                    <div>
-                        <h3>فصل درخشان در مادرید</h3>
-                        <p>
-                            قهرمانی در لالیگا و لیگ قهرمانان اروپا با
-                            رئال مادرید و حضور در فینال یورو با انگلیس.
+                            مسی به فوتبال آمریکا رفت و به باشگاه اینتر میامی
+                            در لیگ MLS پیوست.
                         </p>
                     </div>
                 </article>
             </div>
         </section>
 
-        <!-- Edits -->
         <section class="section" id="player-edits">
             <h2 class="section-heading">
-                🎬 ادیت‌های <span>جود بلینگام</span>
+                🎬 ادیت‌های <span>لیونل مسی</span>
             </h2>
 
             <p class="edits-intro">
-                ادیت‌های بارگذاری‌شده برای این بازیکن از دیتابیس دریافت می‌شوند.
+                ادیت‌های مسی از دیتابیس سایت دریافت می‌شوند.
             </p>
 
             <div id="player-edits-list">
                 <p class="loading-message">
-                    در حال دریافت ادیت‌ها...
+                    در حال دریافت ادیت‌های مسی...
                 </p>
             </div>
         </section>
 
-        <!-- About -->
         <section class="section">
             <div class="about-banner">
                 <h2>💚 MJ FOOTBALL EDITS</h2>
                 <p>
-                    این صفحه برای طرفداران جود بلینگام ساخته شده است.
-                    ادیت‌ها را تماشا کن، از لحظه‌های جذاب فوتبال لذت ببر
-                    و برای دیدن بازیکن‌های بیشتر به صفحه اصلی برگرد.
+                    این صفحه برای طرفداران لیونل مسی ساخته شده است.
+                    ادیت‌ها را تماشا کن و برای دیدن بازیکن‌های بیشتر
+                    به صفحه اصلی برگرد.
                 </p>
                 <br>
                 <a class="action-button" href="index.html">
@@ -832,7 +785,6 @@
                 </a>
             </div>
         </section>
-
     </main>
 
     <footer>
@@ -854,7 +806,7 @@
         const container =
             document.getElementById("player-edits-list");
 
-        async function loadBellinghamEdits() {
+        async function loadMessiEdits() {
             try {
                 if (!window.supabase) {
                     throw new Error("کتابخانه Supabase بارگذاری نشد.");
@@ -868,7 +820,7 @@
                 const { data, error } = await supabaseClient
                     .from("videos")
                     .select("id, title, video_url, created_at")
-                    .eq("player", "bellingham")
+                    .eq("player", "messi")
                     .order("created_at", { ascending: false });
 
                 if (error) {
@@ -879,7 +831,7 @@
 
                 if (!data || data.length === 0) {
                     showMessage(
-                        "هنوز ادیتی برای جود بلینگام منتشر نشده است."
+                        "هنوز ادیتی برای لیونل مسی منتشر نشده است."
                     );
                     return;
                 }
@@ -890,7 +842,7 @@
 
                     const title = document.createElement("h3");
                     title.textContent =
-                        video.title || "ادیت جود بلینگام";
+                        video.title || "ادیت لیونل مسی";
 
                     card.appendChild(title);
 
@@ -903,7 +855,7 @@
                         player.src = video.video_url;
                         player.setAttribute(
                             "aria-label",
-                            video.title || "ادیت جود بلینگام"
+                            video.title || "ادیت لیونل مسی"
                         );
 
                         card.appendChild(player);
@@ -931,7 +883,7 @@
 
             } catch (error) {
                 console.error(
-                    "خطا در دریافت ادیت‌های بلینگام:",
+                    "خطا در دریافت ادیت‌های مسی:",
                     error
                 );
 
@@ -953,8 +905,7 @@
             container.appendChild(paragraph);
         }
 
-        loadBellinghamEdits();
+        loadMessiEdits();
     </script>
-
 </body>
 </html>
