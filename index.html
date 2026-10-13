@@ -1,1149 +1,678 @@
-
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#080812">
-    <meta name="description" content="MJ Football Edits | دنیای ادیت‌های فوتبالی، ستاره‌ها و لحظه‌های فراموش‌نشدنی فوتبال">
-    <meta name="color-scheme" content="dark">
-    <title>MJ FOOTBALL EDITS | دنیای فوتبال</title>
-
-    <style>
-        :root {
-            --bg: #080812;
-            --bg-soft: #0d0d1c;
-            --card: #111124;
-            --purple: #a855f7;
-            --blue: #38bdf8;
-            --green: #39ff88;
-            --text: #f6f5ff;
-            --muted: #aaa9c5;
-            --border: rgba(168, 85, 247, .25);
-            --glow: 0 0 30px rgba(168, 85, 247, .16);
-            --radius: 20px;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 85px;
-        }
-
-        body {
-            min-height: 100vh;
-            overflow-x: hidden;
-            background:
-                radial-gradient(ellipse at 10% 5%, rgba(88, 28, 135, .13), transparent 35%),
-                radial-gradient(ellipse at 90% 35%, rgba(14, 165, 233, .08), transparent 30%),
-                var(--bg);
-            color: var(--text);
-            font-family: Tahoma, Arial, sans-serif;
-            line-height: 1.9;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            pointer-events: none;
-            opacity: .18;
-            background-image:
-                linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
-            background-size: 42px 42px;
-        }
-
-        a {
-            color: inherit;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        a:focus-visible,
-        button:focus-visible,
-        input:focus-visible {
-            outline: 2px solid var(--blue);
-            outline-offset: 4px;
-        }
-
-        img {
-            max-width: 100%;
-        }
-
-        .ltr {
-            direction: ltr;
-            unicode-bidi: isolate;
-        }
-
-        .container {
-            width: min(1160px, 92%);
-            margin-inline: auto;
-        }
-
-        /* صفحه شروع */
-
-        #mj-intro {
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-            text-align: center;
-            cursor: pointer;
-            background:
-                radial-gradient(ellipse at center, rgba(126, 34, 206, .23), transparent 42%),
-                radial-gradient(ellipse at 80% 20%, rgba(56, 189, 248, .12), transparent 35%),
-                #080812;
-            transition: opacity .65s ease, visibility .65s ease;
-        }
-
-        #mj-intro.hide {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-
-        .intro-orb {
-            position: absolute;
-            width: 240px;
-            height: 240px;
-            border: 1px solid rgba(168, 85, 247, .3);
-            border-radius: 50%;
-            box-shadow:
-                0 0 70px rgba(168, 85, 247, .1),
-                inset 0 0 50px rgba(56, 189, 248, .06);
-            animation: orbPulse 4s ease-in-out infinite alternate;
-        }
-
-        .mj-logo {
-            position: relative;
-            direction: ltr;
-            font-family: Arial, sans-serif;
-            font-size: clamp(100px, 22vw, 175px);
-            font-weight: 1000;
-            line-height: 1.2;
-            letter-spacing: -8px;
-            color: #fff;
-            text-shadow:
-                0 0 12px rgba(168, 85, 247, .9),
-                0 0 40px rgba(168, 85, 247, .55),
-                0 0 80px rgba(56, 189, 248, .2);
-            animation: logoReveal .9s ease both;
-        }
-
-        .intro-title {
-            position: relative;
-            direction: ltr;
-            margin-top: 5px;
-            font-family: Arial, sans-serif;
-            font-size: clamp(17px, 4vw, 29px);
-            font-weight: 900;
-            letter-spacing: 3px;
-            animation: fadeUp .8s .2s both;
-        }
-
-        .intro-title span {
-            color: var(--blue);
-        }
-
-        .intro-hint {
-            position: relative;
-            margin-top: 25px;
-            color: var(--muted);
-            font-size: 13px;
-            animation: fadeUp .8s .5s both;
-        }
-
-        .intro-hint::after {
-            content: " ↓";
-            color: var(--green);
-        }
-
-        @keyframes logoReveal {
-            from { opacity: 0; transform: scale(.7); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(18px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes orbPulse {
-            from { transform: scale(.92); opacity: .5; }
-            to { transform: scale(1.08); opacity: 1; }
-        }
-
-        @keyframes cardReveal {
-            from { opacity: 0; transform: translateY(18px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* سربرگ */
-
-        .site-header {
-            position: relative;
-            padding: 25px 16px 21px;
-            text-align: center;
-            background: rgba(8, 8, 18, .82);
-            border-bottom: 1px solid rgba(168, 85, 247, .2);
-        }
-
-        .site-logo {
-            display: inline-block;
-            direction: ltr;
-            text-decoration: none;
-            font-family: Arial, sans-serif;
-            font-size: clamp(23px, 4vw, 35px);
-            font-weight: 1000;
-            letter-spacing: -.7px;
-        }
-
-        .site-logo .mj {
-            color: #fff;
-            text-shadow: 0 0 20px rgba(168, 85, 247, .5);
-        }
-
-        .site-logo .football {
-            color: var(--blue);
-        }
-
-        .site-header p {
-            margin-top: 5px;
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        .header-dot {
-            display: inline-block;
-            width: 7px;
-            height: 7px;
-            margin-left: 7px;
-            border-radius: 50%;
-            background: var(--green);
-            box-shadow: 0 0 12px var(--green);
-        }
-
-        /* منو */
-
-        .main-nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 9px;
-            padding: 10px 12px;
-            background: rgba(8, 8, 18, .88);
-            border-bottom: 1px solid rgba(168, 85, 247, .17);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-        }
-
-        .main-nav a {
-            padding: 7px 15px;
-            border: 1px solid transparent;
-            border-radius: 10px;
-            color: #d5d3e9;
-            text-decoration: none;
-            font-size: 13px;
-            transition: .25s ease;
-        }
-
-        .main-nav a:hover {
-            color: #fff;
-            border-color: var(--border);
-            background: rgba(168, 85, 247, .1);
-        }
-
-        /* بخش اصلی */
-
-        .hero {
-            position: relative;
-            isolation: isolate;
-            overflow: hidden;
-            padding: 100px 18px 90px;
-            text-align: center;
-            background:
-                radial-gradient(ellipse at 50% 0%, rgba(126, 34, 206, .23), transparent 55%),
-                linear-gradient(180deg, rgba(13, 13, 28, .35), transparent);
-        }
-
-        .hero::before,
-        .hero::after {
-            content: "";
-            position: absolute;
-            z-index: -1;
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            filter: blur(85px);
-            opacity: .16;
-            pointer-events: none;
-        }
-
-        .hero::before {
-            top: 15px;
-            right: -100px;
-            background: var(--purple);
-        }
-
-        .hero::after {
-            bottom: -100px;
-            left: -80px;
-            background: var(--blue);
-        }
-
-        .eyebrow {
-            display: inline-block;
-            padding: 5px 13px;
-            border: 1px solid rgba(56, 189, 248, .3);
-            border-radius: 100px;
-            background: rgba(56, 189, 248, .07);
-            color: var(--blue);
-            direction: ltr;
-            font-family: Arial, sans-serif;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 3px;
-        }
-
-        .hero h1 {
-            margin: 22px 0 12px;
-            font-size: clamp(29px, 5.5vw, 54px);
-            line-height: 1.5;
-            font-weight: 900;
-        }
-
-        .gradient-text {
-            color: transparent;
-            background: linear-gradient(100deg, var(--blue), #c084fc 55%, var(--purple));
-            background-clip: text;
-            -webkit-background-clip: text;
-            filter: drop-shadow(0 0 15px rgba(168, 85, 247, .16));
-        }
-
-        .hero-description {
-            max-width: 630px;
-            margin: 0 auto 28px;
-            color: #b5b4cf;
-            font-size: 15px;
-        }
-
-        .hero-actions {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .button {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            min-height: 46px;
-            padding: 10px 23px;
-            border: 1px solid transparent;
-            border-radius: 12px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: bold;
-            transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
-        }
-
-        .button-primary {
-            color: #fff;
-            background: linear-gradient(110deg, #7c3aed, #a855f7);
-            box-shadow: 0 5px 25px rgba(168, 85, 247, .23);
-        }
-
-        .button-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 32px rgba(168, 85, 247, .4);
-        }
-
-        .button-secondary {
-            color: #e8e7ff;
-            border-color: rgba(56, 189, 248, .35);
-            background: rgba(56, 189, 248, .06);
-        }
-
-        .button-secondary:hover {
-            transform: translateY(-3px);
-            border-color: var(--blue);
-            background: rgba(56, 189, 248, .12);
-        }
-
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 35px;
-            margin-top: 48px;
-        }
-
-        .stat {
-            min-width: 90px;
-        }
-
-        .stat strong {
-            display: block;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            font-size: 25px;
-            line-height: 1.4;
-        }
-
-        .stat span {
-            color: var(--muted);
-            font-size: 12px;
-        }
-
-        /* بخش‌ها */
-
-        .section {
-            width: min(1160px, 92%);
-            margin: 0 auto;
-            padding: 65px 0;
-        }
-
-        .section-heading {
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .section-kicker {
-            color: var(--blue);
-            font-family: Arial, sans-serif;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 3px;
-            direction: ltr;
-        }
-
-        .section-title {
-            margin-top: 7px;
-            font-size: clamp(25px, 4vw, 34px);
-            font-weight: 900;
-        }
-
-        .section-title span {
-            color: var(--purple);
-        }
-
-        .section-description {
-            max-width: 650px;
-            margin: 8px auto 0;
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        /* جست‌وجو */
-
-        .players-search {
-            max-width: 650px;
-            margin: 0 auto 25px;
-            text-align: center;
-        }
-
-        #player-search {
-            width: 100%;
-            padding: 14px 17px;
-            color: var(--text);
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            font-family: Tahoma, Arial, sans-serif;
-            font-size: 14px;
-            outline: none;
-        }
-
-        #player-search:focus {
-            border-color: var(--purple);
-            box-shadow: 0 0 18px rgba(168, 85, 247, .15);
-        }
-
-        #player-search::placeholder {
-            color: var(--muted);
-        }
-
-        #player-count {
-            margin-top: 10px;
-            color: var(--muted);
-            font-size: 12px;
-        }
-
-        /* کارت‌های بازیکن */
-
-        .players-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 20px;
-        }
-
-        .player-card {
-            position: relative;
-            isolation: isolate;
-            display: flex;
-            min-width: 0;
-            min-height: 330px;
-            align-items: flex-end;
-            overflow: hidden;
-            padding: 22px;
-            border: 1px solid rgba(168, 85, 247, .2);
-            border-radius: var(--radius);
-            background-color: var(--card);
-            background-position: center 22%;
-            background-size: cover;
-            background-repeat: no-repeat;
-            text-decoration: none;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, .16);
-            animation: cardReveal .65s ease both;
-            transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
-        }
-
-        .player-card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            z-index: -1;
-            background: linear-gradient(
-                180deg,
-                rgba(8, 8, 18, .04) 0%,
-                rgba(8, 8, 18, .12) 30%,
-                rgba(8, 8, 18, .72) 64%,
-                rgba(8, 8, 18, .98) 100%
-            );
-        }
-
-        .player-card::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            z-index: -1;
-            border-radius: inherit;
-            background: linear-gradient(135deg, rgba(168, 85, 247, .17), transparent 40%);
-            opacity: 0;
-            transition: opacity .35s ease;
-        }
-
-        .player-card:hover {
-            transform: translateY(-7px);
-            border-color: rgba(168, 85, 247, .8);
-            box-shadow: 0 14px 38px rgba(91, 33, 182, .2);
-        }
-
-        .player-card:hover::after {
-            opacity: 1;
-        }
-
-        .player-tag {
-            display: inline-block;
-            margin-bottom: 8px;
-            padding: 3px 9px;
-            border: 1px solid rgba(56, 189, 248, .25);
-            border-radius: 7px;
-            background: rgba(56, 189, 248, .09);
-            color: #9de5ff;
-            font-size: 10px;
-        }
-
-        .player-info {
-            width: 100%;
-        }
-
-        .player-info h3 {
-            direction: ltr;
-            text-align: right;
-            font-family: Arial, Tahoma, sans-serif;
-            font-size: clamp(19px, 2.2vw, 24px);
-            font-weight: 900;
-            line-height: 1.4;
-            overflow-wrap: anywhere;
-            text-shadow: 0 2px 12px rgba(0, 0, 0, .5);
-        }
-
-        .player-info p {
-            margin: 5px 0 13px;
-            color: #cbc9e1;
-            font-size: 13px;
-        }
-
-        .player-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: #c4b5fd;
-            font-size: 12px;
-            font-weight: bold;
-            transition: color .25s ease, gap .25s ease;
-        }
-
-        .player-card:hover .player-link {
-            gap: 13px;
-            color: var(--blue);
-        }
-
-        .player-empty {
-            grid-column: 1 / -1;
-            padding: 30px;
-            text-align: center;
-            color: var(--muted);
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 15px;
-        }
-
-        /* ادیت‌ها */
-
-        .edits-section {
-            position: relative;
-        }
-
-        .edits-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 18px;
-        }
-
-        .edit-card {
-            position: relative;
-            overflow: hidden;
-            padding: 24px;
-            border: 1px solid rgba(168, 85, 247, .2);
-            border-radius: 17px;
-            background: linear-gradient(145deg, #15142a, #0c0c19 70%);
-            transition: transform .3s ease, border-color .3s ease;
-        }
-
-        .edit-card::before {
-            content: "";
-            position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: var(--purple);
-            filter: blur(70px);
-            opacity: .12;
-            pointer-events: none;
-        }
-
-        .edit-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(168, 85, 247, .7);
-        }
-
-        .edit-icon {
-            display: grid;
-            place-items: center;
-            width: 46px;
-            height: 46px;
-            margin-bottom: 16px;
-            border: 1px solid rgba(168, 85, 247, .28);
-            border-radius: 13px;
-            background: rgba(168, 85, 247, .12);
-            color: #d8b4fe;
-            font-size: 22px;
-        }
-
-        .edit-card h3 {
-            margin-bottom: 7px;
-            font-size: 17px;
-        }
-
-        .edit-card p {
-            min-height: 50px;
-            margin-bottom: 18px;
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        .small-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 7px 13px;
-            border: 1px solid rgba(56, 189, 248, .35);
-            border-radius: 9px;
-            color: var(--blue);
-            text-decoration: none;
-            font-size: 12px;
-            transition: .25s ease;
-        }
-
-        .small-button:hover {
-            color: #080812;
-            background: var(--blue);
-            border-color: var(--blue);
-        }
-
-        /* بخش ویژه */
-
-        .premium-section {
-            position: relative;
-            isolation: isolate;
-            overflow: hidden;
-            margin: 20px auto 65px;
-            padding: 55px 22px;
-            width: min(1160px, 92%);
-            text-align: center;
-            border: 1px solid rgba(168, 85, 247, .3);
-            border-radius: 25px;
-            background:
-                radial-gradient(ellipse at 0% 100%, rgba(56, 189, 248, .13), transparent 45%),
-                radial-gradient(ellipse at 100% 0%, rgba(168, 85, 247, .2), transparent 50%),
-                linear-gradient(130deg, #111125, #0b0b19);
-            box-shadow: var(--glow);
-        }
-
-        .premium-section h2 {
-            font-size: clamp(25px, 4vw, 34px);
-            font-weight: 900;
-        }
-
-        .premium-section h2 span {
-            color: #c084fc;
-        }
-
-        .premium-section p {
-            max-width: 650px;
-            margin: 12px auto 22px;
-            color: #c0bfd7;
-            font-size: 14px;
-        }
-
-        .premium-badge {
-            display: inline-block;
-            margin-bottom: 12px;
-            padding: 4px 12px;
-            border: 1px solid rgba(192, 132, 252, .35);
-            border-radius: 100px;
-            background: rgba(168, 85, 247, .1);
-            color: #d8b4fe;
-            font-size: 11px;
-        }
-
-        .small-note {
-            display: block;
-            margin-top: 13px;
-            color: #8887a5;
-            font-size: 11px;
-        }
-
-        /* پاورقی */
-
-        footer {
-            padding: 27px 16px;
-            text-align: center;
-            border-top: 1px solid rgba(168, 85, 247, .17);
-            background: rgba(5, 5, 13, .7);
-        }
-
-        .footer-logo {
-            direction: ltr;
-            font-family: Arial, sans-serif;
-            font-size: 18px;
-            font-weight: 900;
-        }
-
-        .footer-logo span {
-            color: var(--blue);
-        }
-
-        footer p {
-            margin-top: 5px;
-            color: #8887a5;
-            font-size: 12px;
-        }
-
-        .back-top {
-            display: inline-block;
-            margin-top: 13px;
-            color: #c4b5fd;
-            font-size: 12px;
-            text-decoration: none;
-        }
-
-        .back-top:hover {
-            color: var(--blue);
-        }
-
-        /* واکنش‌گرایی */
-
-        @media (max-width: 900px) {
-            .players-grid,
-            .edits-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .player-card {
-                min-height: 310px;
-            }
-        }
-
-        @media (max-width: 560px) {
-            .container,
-            .section {
-                width: 92%;
-            }
-
-            .hero {
-                padding: 70px 17px 60px;
-            }
-
-            .hero-description {
-                font-size: 13px;
-            }
-
-            .hero-stats {
-                gap: 20px;
-                margin-top: 35px;
-            }
-
-            .stat strong {
-                font-size: 22px;
-            }
-
-            .main-nav {
-                gap: 3px;
-                padding: 8px 5px;
-            }
-
-            .main-nav a {
-                padding: 7px 9px;
-                font-size: 12px;
-            }
-
-            .section {
-                padding: 45px 0;
-            }
-
-            .players-grid,
-            .edits-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .player-card {
-                min-height: 330px;
-                background-position: center 20%;
-            }
-
-            .player-info h3 {
-                font-size: 23px;
-            }
-
-            .edit-card {
-                padding: 21px;
-            }
-
-            .premium-section {
-                padding: 40px 18px;
-                margin-bottom: 45px;
-            }
-
-            .site-header {
-                padding: 22px 12px;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                scroll-behavior: auto !important;
-                animation: none !important;
-                transition-duration: .01ms !important;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MJ FOOTBALL EDITS</title>
+  <meta
+    name="description"
+    content="Discover football edits, legendary players, and amazing football moments at MJ FOOTBALL EDITS."
+  >
+
+  <style>
+    :root {
+      --bg: #080711;
+      --panel: #111025;
+      --panel-light: #191633;
+      --purple: #a855f7;
+      --blue: #38bdf8;
+      --text: #f8f7ff;
+      --muted: #aaa6c4;
+      --border: rgba(168, 85, 247, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 15% 5%, #241044 0, transparent 30%),
+        radial-gradient(circle at 90% 30%, #101c40 0, transparent 28%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 7, 17, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: clamp(19px, 3vw, 27px);
+      font-weight: 900;
+      letter-spacing: 1px;
+      background: linear-gradient(90deg, var(--purple), var(--blue));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .hero {
+      min-height: 450px;
+      padding: 90px 0 75px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-content {
+      width: 100%;
+    }
+
+    .hero-label {
+      display: inline-block;
+      padding: 9px 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--blue);
+      background: rgba(56, 189, 248, 0.07);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 76px);
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: -2px;
+      margin-bottom: 22px;
+      text-shadow: 0 0 35px rgba(168, 85, 247, 0.24);
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--purple), var(--blue));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto 30px;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border-radius: 10px;
+      font-weight: 800;
+      border: 1px solid var(--border);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(168, 85, 247, 0.2);
+    }
+
+    .btn-primary {
+      color: #080711;
+      border: none;
+      background: linear-gradient(90deg, var(--purple), var(--blue));
+    }
+
+    .btn-secondary {
+      background: var(--panel);
+    }
+
+    .section {
+      padding: 65px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(25px, 4vw, 38px);
+      margin-bottom: 9px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .players-search {
+      width: min(100%, 380px);
+      margin-bottom: 26px;
+    }
+
+    .players-search input {
+      width: 100%;
+      padding: 15px 17px;
+      color: var(--text);
+      background: rgba(17, 16, 37, 0.95);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .players-search input:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.12);
+    }
+
+    .players-search input::placeholder {
+      color: #817c9e;
+    }
+
+    .players-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .player-card {
+      min-height: 310px;
+      position: relative;
+      display: flex;
+      align-items: end;
+      overflow: hidden;
+      isolation: isolate;
+      border-radius: 17px;
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(0deg, #0a0815 0%, rgba(10, 8, 21, 0.15) 100%),
+        var(--panel-light);
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .player-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(
+        0deg,
+        rgba(8, 7, 17, 0.98) 0%,
+        rgba(8, 7, 17, 0.48) 48%,
+        rgba(8, 7, 17, 0.02) 100%
+      );
+    }
+
+    .player-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--blue);
+    }
+
+    .player-info {
+      width: 100%;
+      padding: 22px;
+    }
+
+    .player-tag {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 6px 10px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      border-radius: 5px;
+      color: white;
+      background: linear-gradient(90deg, #7c3aed, #0284c7);
+    }
+
+    .player-info h3 {
+      font-size: 25px;
+      margin-bottom: 8px;
+    }
+
+    .player-info p {
+      color: #d0cce2;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .card-arrow {
+      display: inline-block;
+      margin-top: 15px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .status-message {
+      grid-column: 1 / -1;
+      padding: 30px 20px;
+      text-align: center;
+      color: var(--muted);
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      line-height: 1.8;
+    }
+
+    .edits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .edit-card {
+      padding: 25px;
+      min-height: 185px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: linear-gradient(145deg, var(--panel-light), var(--panel));
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .edit-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--purple);
+    }
+
+    .edit-icon {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(168, 85, 247, 0.14);
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+
+    .edit-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .edit-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .premium-box {
+      position: relative;
+      overflow: hidden;
+      padding: 45px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.12), transparent 38%),
+        radial-gradient(circle at 0% 100%, rgba(168, 85, 247, 0.16), transparent 38%),
+        var(--panel);
+    }
+
+    .premium-box h2 {
+      font-size: clamp(26px, 4vw, 40px);
+      margin-bottom: 14px;
+    }
+
+    .premium-box p {
+      max-width: 650px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 23px;
+    }
+
+    footer {
+      margin-top: 35px;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    footer strong {
+      color: var(--text);
+    }
+
+    @media (max-width: 800px) {
+      .players-grid,
+      .edits-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .nav-inner {
+        padding: 15px 0;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .hero {
+        min-height: 390px;
+        padding: 65px 0;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .players-grid,
+      .edits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .player-card {
+        min-height: 340px;
+      }
+
+      .premium-box {
+        padding: 27px;
+      }
+
+      .section {
+        padding: 45px 0;
+      }
+
+      .section-heading {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+    }
+  </style>
 </head>
 
-<body id="top">
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="logo" href="./index.html">MJ FOOTBALL EDITS</a>
 
-    <!-- صفحه شروع -->
-    <div id="mj-intro" role="button" tabindex="0" aria-label="ورود به سایت">
-        <div class="intro-orb" aria-hidden="true"></div>
-        <div class="mj-logo">MJ</div>
-        <div class="intro-title">FOOTBALL <span>EDITS</span></div>
-        <p class="intro-hint">برای ورود به دنیای فوتبال کلیک کن</p>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#players">Players</a>
+        <a href="#edits">Edits</a>
+        <a href="#premium">Premium</a>
+      </nav>
     </div>
+  </header>
 
-    <!-- سربرگ -->
-    <header class="site-header">
-        <a class="site-logo" href="./index.html" aria-label="صفحه اصلی MJ Football Edits">
-            <span class="mj">MJ</span>
-            <span class="football"> FOOTBALL EDITS</span>
-        </a>
-        <p><span class="header-dot"></span>دنیای ادیت‌های فوتبالی و ستاره‌های جهان</p>
-    </header>
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <span class="hero-label">WELCOME TO THE FOOTBALL WORLD</span>
 
-    <!-- منو -->
-    <nav class="main-nav" aria-label="منوی اصلی">
-        <a href="#home">صفحه اصلی</a>
-        <a href="#players">ستاره‌ها</a>
-        <a href="#edits">ادیت‌ها</a>
-        <a href="#premium">بخش ویژه</a>
-    </nav>
+        <h1>
+          MJ FOOTBALL<br>
+          <span class="gradient-text">EDITS</span>
+        </h1>
 
-    <main>
-        <!-- بخش اصلی -->
-        <section class="hero" id="home">
-            <p class="eyebrow">WELCOME TO MJ</p>
+        <p>
+          Discover football legends, explore your favorite players,
+          and enjoy amazing football edits all in one place.
+        </p>
 
-            <h1>
-                فوتبال رو با یه
-                <span class="gradient-text">نگاه متفاوت</span>
-                ببین!
-            </h1>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="#players">Explore Players</a>
+          <a class="btn btn-secondary" href="#edits">Discover Edits</a>
+        </div>
+      </div>
+    </section>
 
-            <p class="hero-description">
-                به دنیای MJ Football Edits خوش اومدی؛
-                جایی برای ستاره‌های بزرگ فوتبال، لحظه‌های فراموش‌نشدنی
-                و ادیت‌هایی که عاشقشون می‌شی.
-            </p>
+    <section class="section" id="players">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">FOOTBALL LEGENDS</div>
+            <h2>Explore <span class="gradient-text">Players</span></h2>
+            <p>Search for your favorite football player.</p>
+          </div>
+        </div>
 
-            <div class="hero-actions">
-                <a class="button button-primary" href="#players">
-                    کشف ستاره‌ها <span aria-hidden="true">←</span>
-                </a>
-                <a class="button button-secondary" href="#edits">
-                    دیدن ادیت‌ها <span aria-hidden="true">▶</span>
-                </a>
-            </div>
+        <div class="players-search">
+          <input
+            type="search"
+            id="player-search"
+            placeholder="Search players..."
+            aria-label="Search players"
+            autocomplete="off"
+          >
+        </div>
 
-            <div class="hero-stats">
-                <div class="stat">
-                    <strong id="player-total">06</strong>
-                    <span>ستاره فوتبالی</span>
-                </div>
-                <div class="stat">
-                    <strong class="ltr">MJ</strong>
-                    <span>برند اختصاصی</span>
-                </div>
-                <div class="stat">
-                    <strong>∞</strong>
-                    <span>عشق به فوتبال</span>
-                </div>
-            </div>
-        </section>
+        <div class="players-grid" id="players-grid">
+          <div class="status-message">Loading players...</div>
+        </div>
+      </div>
+    </section>
 
-        <!-- بازیکن‌ها -->
-        <section class="section" id="players">
-            <div class="section-heading">
-                <p class="section-kicker">FOOTBALL LEGENDS</p>
-                <h2 class="section-title">ستاره‌های <span>فوتبال</span></h2>
-                <p class="section-description">
-                    ستاره موردعلاقه‌ات رو انتخاب کن و وارد صفحه اختصاصی اون شو.
-                </p>
-            </div>
+    <section class="section" id="edits">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">OUR COLLECTION</div>
+            <h2>Football <span class="gradient-text">Edits</span></h2>
+            <p>Explore different types of football content.</p>
+          </div>
+        </div>
 
-            <div class="players-search">
-                <input
-                    type="search"
-                    id="player-search"
-                    placeholder="🔍 جست‌وجوی نام بازیکن..."
-                    aria-label="جست‌وجوی بازیکن"
-                >
-                <p id="player-count">در حال بارگذاری بازیکن‌ها...</p>
-            </div>
+        <div class="edits-grid">
+          <article class="edit-card">
+            <div class="edit-icon">⚽</div>
+            <h3>Skills & Tricks</h3>
+            <p>Enjoy incredible skills, dribbles, and unforgettable football moments.</p>
+          </article>
 
-            <div class="players-grid" id="players-grid"></div>
-        </section>
+          <article class="edit-card">
+            <div class="edit-icon">🔥</div>
+            <h3>Best Goals</h3>
+            <p>Discover spectacular goals and amazing finishes from football stars.</p>
+          </article>
 
-        <!-- ادیت‌ها -->
-        <section class="section edits-section" id="edits">
-            <div class="section-heading">
-                <p class="section-kicker">LATEST CONTENT</p>
-                <h2 class="section-title">دنیای <span>ادیت‌ها</span></h2>
-                <p class="section-description">
-                    این بخش برای معرفی ادیت‌های جدید سایت آماده شده.
-                </p>
-            </div>
+          <article class="edit-card">
+            <div class="edit-icon">🎬</div>
+            <h3>Player Edits</h3>
+            <p>Find edits featuring legendary players and modern football superstars.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-            <div class="edits-grid">
-                <article class="edit-card">
-                    <div class="edit-icon" aria-hidden="true">⚡</div>
-                    <h3>ادیت‌های خفن فوتبال</h3>
-                    <p>لحظه‌های سریع، گل‌های تماشایی و صحنه‌های هیجان‌انگیز.</p>
-                    <a class="small-button" href="#players">انتخاب بازیکن ←</a>
-                </article>
+    <section class="section" id="premium">
+      <div class="container">
+        <div class="premium-box">
+          <div class="eyebrow">MJ FOOTBALL EDITS</div>
+          <h2>Football is more than <span class="gradient-text">a game.</span></h2>
+          <p>
+            Explore player profiles and discover more football content.
+            This website is designed to grow with your player collection.
+          </p>
+          <a class="btn btn-primary" href="#players">Explore Players</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-                <article class="edit-card">
-                    <div class="edit-icon" aria-hidden="true">🎬</div>
-                    <h3>ادیت‌های سینمایی</h3>
-                    <p>ترکیبی از تصاویر فوتبالی، افکت‌های جذاب و حال‌وهوای سینمایی.</p>
-                    <a class="small-button" href="#players">انتخاب بازیکن ←</a>
-                </article>
+  <footer>
+    <div class="container">
+      <strong>MJ FOOTBALL EDITS</strong><br>
+      Made for football fans.<br>
+      © <span id="current-year"></span> MJ FOOTBALL EDITS. All rights reserved.
+    </div>
+  </footer>
 
-                <article class="edit-card">
-                    <div class="edit-icon" aria-hidden="true">🏆</div>
-                    <h3>لحظه‌های افسانه‌ای</h3>
-                    <p>به‌یادماندنی‌ترین لحظه‌های ستاره‌های فوتبال جهان.</p>
-                    <a class="small-button" href="#players">انتخاب بازیکن ←</a>
-                </article>
-            </div>
-        </section>
+  <!-- Load the player list before rendering the cards. -->
+  <script src="./players.js"></script>
 
-        <!-- بخش ویژه -->
-        <section class="premium-section" id="premium">
-            <span class="premium-badge">✦ MJ EXCLUSIVE</span>
-            <h2>بخش ویژه <span>MJ</span></h2>
+  <script>
+    const playersGrid = document.getElementById("players-grid");
+    const playerSearch = document.getElementById("player-search");
 
-            <p>
-                اینجا قراره خونه ادیت‌های منتخب و محتوای ویژه MJ Football Edits باشه.
-                با اضافه‌شدن ویدیوها و امکانات جدید، این بخش هم به‌روزرسانی می‌شه.
-            </p>
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
 
-            <a class="button button-primary" href="#edits">
-                گشت‌وگذار در سایت ←
-            </a>
+    function escapeHTML(value) {
+      return String(value ?? "").replace(/[&<>"']/g, function (character) {
+        const entities = {
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;"
+        };
 
-            <span class="small-note">
-                در حال حاضر پرداخت آنلاین یا خرید اشتراک در این سایت فعال نیست.
-            </span>
-        </section>
-    </main>
+        return entities[character];
+      });
+    }
 
-    <!-- پاورقی -->
-    <footer>
-        <div class="footer-logo">MJ <span>FOOTBALL EDITS</span></div>
-        <p>ساخته‌شده با عشق به فوتبال ⚽</p>
-        <p>© 2026 MJ Football Edits</p>
-        <a class="back-top" href="#top">بازگشت به بالای صفحه ↑</a>
-    </footer>
+    function getPlayersList() {
+      if (Array.isArray(window.MJ_PLAYERS)) {
+        return window.MJ_PLAYERS;
+      }
 
-    <!-- انیمیشن شروع -->
-    <script>
-        (() => {
-            const intro = document.getElementById("mj-intro");
-            if (!intro) return;
+      if (typeof players !== "undefined" && Array.isArray(players)) {
+        return players;
+      }
 
-            let closed = false;
+      return [];
+    }
 
-            function closeIntro() {
-                if (closed) return;
-                closed = true;
-                intro.classList.add("hide");
+    function renderPlayers(searchTerm = "") {
+      const allPlayers = getPlayersList();
+      const query = searchTerm.trim().toLowerCase();
 
-                window.setTimeout(() => intro.remove(), 700);
+      const filteredPlayers = allPlayers.filter(function (player) {
+        const searchableText = [
+          player.name,
+          player.englishName,
+          player.club,
+          player.position,
+          player.nationality
+        ].filter(Boolean).join(" ").toLowerCase();
+
+        return searchableText.includes(query);
+      });
+
+      if (filteredPlayers.length === 0) {
+        playersGrid.innerHTML = `
+          <div class="status-message">
+            ${
+              allPlayers.length === 0
+                ? "No player data was found. Check that players.js exists and contains your player list."
+                : "No players found. Try another search."
             }
+          </div>
+        `;
+        return;
+      }
 
-            intro.addEventListener("click", closeIntro);
+      playersGrid.innerHTML = filteredPlayers.map(function (player) {
+        const id = encodeURIComponent(player.id || "");
+        const name = escapeHTML(player.name || player.englishName || "Football Player");
+        const club = escapeHTML(player.club || "Football Player");
+        const position = escapeHTML(player.position || "Football Star");
+        const image = escapeHTML(player.image || "");
 
-            intro.addEventListener("keydown", event => {
-                if (event.key === "Enter" || event.key === " ") {
-                    event.preventDefault();
-                    closeIntro();
-                }
-            });
+        return `
+          <a
+            class="player-card"
+            href="./player.html?id=${id}"
+            style="${image ? `background-image: url('${image}');` : ""}"
+            aria-label="View ${name} profile"
+          >
+            <div class="player-info">
+              <span class="player-tag">${position}</span>
+              <h3>${name}</h3>
+              <p>${club}</p>
+              <span class="card-arrow">View Player Profile →</span>
+            </div>
+          </a>
+        `;
+      }).join("");
+    }
 
-            window.setTimeout(closeIntro, 3500);
-        })();
-    </script>
+    playerSearch.addEventListener("input", function () {
+      renderPlayers(playerSearch.value);
+    });
 
-    <!-- سیستم خودکار بازیکن‌ها -->
-    <script src="./players.js"></script>
-    <script>
-        (() => {
-            const grid = document.getElementById("players-grid");
-            const search = document.getElementById("player-search");
-            const count = document.getElementById("player-count");
-            const total = document.getElementById("player-total");
-
-            if (!grid || !search || !count) return;
-
-            if (typeof players === "undefined" || !Array.isArray(players)) {
-                count.textContent = "فایل players.js بارگذاری نشد. نام و مسیر فایل را بررسی کن.";
-                grid.innerHTML =
-                    '<div class="player-empty">اطلاعات بازیکن‌ها در دسترس نیست.</div>';
-                return;
-            }
-
-            function escapeHTML(value) {
-                return String(value ?? "").replace(/[&<>"']/g, char => ({
-                    "&": "&amp;",
-                    "<": "&lt;",
-                    ">": "&gt;",
-                    '"': "&quot;",
-                    "'": "&#39;"
-                })[char]);
-            }
-
-            function renderPlayers() {
-                const query = search.value.trim().toLowerCase();
-
-                const filtered = players.filter(player => {
-                    const searchable = [
-                        player.name,
-                        player.englishName,
-                        player.club,
-                        player.nationality,
-                        player.position
-                    ];
-
-                    return searchable.some(value =>
-                        String(value ?? "").toLowerCase().includes(query)
-                    );
-                });
-
-                count.textContent = `${filtered.length} بازیکن پیدا شد`;
-
-                if (total) {
-                    total.textContent = String(players.length).padStart(2, "0");
-                }
-
-                if (filtered.length === 0) {
-                    grid.innerHTML =
-                        '<div class="player-empty">بازیکنی با این نام پیدا نشد!</div>';
-                    return;
-                }
-
-                grid.innerHTML = filtered.map((player, index) => {
-                    const imagePath = String(player.image ?? "")
-                        .replace(/\\/g, "/");
-
-                    const imageURL = encodeURI(imagePath)
-                        .replace(/'/g, "%27")
-                        .replace(/"/g, "%22");
-
-                    return `
-                        <a
-                            class="player-card"
-                            href="./player.html?id=${encodeURIComponent(player.id)}"
-                            aria-label="صفحه ${escapeHTML(player.name)}"
-                            style="background-image: url('${imageURL}'); animation-delay: ${Math.min(index, 6) * 0.05}s;"
-                        >
-                            <div class="player-info">
-                                <span class="player-tag">${escapeHTML(player.badge)}</span>
-                                <h3>${escapeHTML(player.englishName || player.name)}</h3>
-                                <p>${escapeHTML(player.description)}</p>
-                                <span class="player-link">مشاهده صفحه بازیکن ←</span>
-                            </div>
-                        </a>
-                    `;
-                }).join("");
-            }
-
-            search.addEventListener("input", renderPlayers);
-            renderPlayers();
-        })();
-    </script>
-
+    renderPlayers();
+  </script>
 </body>
 </html>
