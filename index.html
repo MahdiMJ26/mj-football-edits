@@ -1,13 +1,12 @@
-
+```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080711">
-
   <title>MJ FOOTBALL EDITS | دنیای ادیت‌های فوتبال</title>
-  <meta name="description" content="به دنیای MJ FOOTBALL EDITS خوش آمدید؛ اسطوره‌های فوتبال را بشناسید و ادیت‌های فوتبالی را کشف کنید.">
+  <meta name="description" content="اسطوره‌های فوتبال را بشناس و ادیت‌های فوتبالی را کشف کن.">
 
   <style>
     :root {
@@ -18,7 +17,7 @@
       --blue: #38bdf8;
       --text: #f8f7ff;
       --muted: #aaa6c4;
-      --border: rgba(168, 85, 247, 0.28);
+      --border: rgba(168, 85, 247, .28);
     }
 
     * {
@@ -62,7 +61,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(8, 7, 17, 0.9);
+      background: rgba(8, 7, 17, .9);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
@@ -76,7 +75,7 @@
     }
 
     .logo {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Arial, sans-serif;
       font-size: clamp(18px, 3vw, 26px);
       font-weight: 900;
       direction: ltr;
@@ -129,7 +128,7 @@
     }
 
     .hero h1 {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Arial, sans-serif;
       font-size: clamp(38px, 7vw, 76px);
       line-height: 1.15;
       font-weight: 900;
@@ -230,7 +229,6 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       outline: none;
-      transition: border-color .2s, box-shadow .2s;
     }
 
     .players-search input:focus {
@@ -257,10 +255,19 @@
       isolation: isolate;
       border-radius: 17px;
       border: 1px solid var(--border);
-      background-color: var(--panel-light);
-      background-size: cover;
-      background-position: center;
+      background: var(--panel-light);
       transition: transform .25s, border-color .25s;
+    }
+
+    .player-photo {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform .35s;
     }
 
     .player-card::before {
@@ -279,6 +286,10 @@
     .player-card:hover {
       transform: translateY(-6px);
       border-color: var(--blue);
+    }
+
+    .player-card:hover .player-photo {
+      transform: scale(1.04);
     }
 
     .player-info {
@@ -538,28 +549,19 @@
           <article class="edit-card">
             <div class="edit-icon">⚽</div>
             <h3>تکنیک و دریبل</h3>
-            <p>
-              تماشای تکنیک‌های شگفت‌انگیز، دریبل‌های زیبا
-              و لحظه‌های فراموش‌نشدنی فوتبال.
-            </p>
+            <p>تکنیک‌های شگفت‌انگیز، دریبل‌های زیبا و لحظه‌های فراموش‌نشدنی فوتبال.</p>
           </article>
 
           <article class="edit-card">
             <div class="edit-icon">🔥</div>
             <h3>بهترین گل‌ها</h3>
-            <p>
-              گل‌های تماشایی و ضربات فوق‌العاده ستاره‌های
-              فوتبال را کشف کن.
-            </p>
+            <p>گل‌های تماشایی و ضربات فوق‌العاده ستاره‌های فوتبال را کشف کن.</p>
           </article>
 
           <article class="edit-card">
             <div class="edit-icon">🎬</div>
             <h3>ادیت بازیکنان</h3>
-            <p>
-              ادیت‌های جذاب از اسطوره‌های فوتبال و
-              ستاره‌های نسل جدید را پیدا کن.
-            </p>
+            <p>ادیت‌های جذاب از اسطوره‌های فوتبال و ستاره‌های نسل جدید را پیدا کن.</p>
           </article>
         </div>
       </div>
@@ -569,21 +571,14 @@
       <div class="container">
         <div class="premium-box">
           <div class="eyebrow">MJ FOOTBALL EDITS</div>
-
-          <h2>
-            فوتبال فقط یک <span class="gradient-text">بازی نیست!</span>
-          </h2>
-
+          <h2>فوتبال فقط یک <span class="gradient-text">بازی نیست!</span></h2>
           <p>
             اینجا می‌تونی پروفایل بازیکنان محبوبت رو ببینی
             و با دنیای ادیت‌های فوتبالی بیشتر آشنا بشی.
             این سایت قراره با اضافه‌شدن بازیکنان و ادیت‌های جدید
             روزبه‌روز بزرگ‌تر بشه.
           </p>
-
-          <a class="btn btn-primary" href="#players">
-            مشاهده بازیکنان ⚽
-          </a>
+          <a class="btn btn-primary" href="#players">مشاهده بازیکنان ⚽</a>
         </div>
       </div>
     </section>
@@ -600,99 +595,166 @@
   <script src="./players.js"></script>
 
   <script>
-    const playersGrid = document.getElementById("players-grid");
-    const playerSearch = document.getElementById("player-search");
+    (() => {
+      "use strict";
 
-    document.getElementById("current-year").textContent =
-      new Date().getFullYear();
+      const playersGrid = document.getElementById("players-grid");
+      const playerSearch = document.getElementById("player-search");
+      const imageCache = new Map();
 
-    function escapeHTML(value) {
-      return String(value ?? "").replace(/[&<>"']/g, function (character) {
-        const entities = {
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+
+      function escapeHTML(value) {
+        return String(value ?? "").replace(/[&<>"']/g, character => ({
           "&": "&amp;",
           "<": "&lt;",
           ">": "&gt;",
           '"': "&quot;",
           "'": "&#39;"
-        };
-
-        return entities[character];
-      });
-    }
-
-    function getPlayersList() {
-      if (Array.isArray(window.MJ_PLAYERS)) {
-        return window.MJ_PLAYERS;
+        })[character]);
       }
 
-      if (typeof players !== "undefined" && Array.isArray(players)) {
-        return players;
+      function getPlayersList() {
+        if (Array.isArray(window.MJ_PLAYERS)) {
+          return window.MJ_PLAYERS;
+        }
+
+        if (Array.isArray(window.players)) {
+          return window.players;
+        }
+
+        return [];
       }
 
-      return [];
-    }
+      function getImage(player) {
+        const id = String(player.id || player.englishName || player.name || "");
 
-    function renderPlayers(searchTerm = "") {
-      const allPlayers = getPlayersList();
-      const query = searchTerm.trim().toLowerCase();
+        // آدرسی که قبلاً با موفقیت بارگذاری شده، در جست‌وجو هم حفظ می‌شود.
+        if (imageCache.has(id)) {
+          return imageCache.get(id);
+        }
 
-      const filteredPlayers = allPlayers.filter(function (player) {
-        const searchableText = [
-          player.name,
-          player.englishName,
-          player.club,
-          player.position,
-          player.nationality
-        ].filter(Boolean).join(" ").toLowerCase();
-
-        return searchableText.includes(query);
-      });
-
-      if (filteredPlayers.length === 0) {
-        playersGrid.innerHTML = `
-          <div class="status-message">
-            ${
-              allPlayers.length === 0
-                ? "اطلاعات بازیکنان پیدا نشد. فایل players.js را بررسی کن."
-                : "بازیکنی با این نام پیدا نشد؛ عبارت دیگری را امتحان کن."
-            }
-          </div>
-        `;
-        return;
+        return player.image || "";
       }
 
-      playersGrid.innerHTML = filteredPlayers.map(function (player) {
-        const id = encodeURIComponent(player.id || "");
-        const name = escapeHTML(
-          player.name || player.englishName || "بازیکن فوتبال"
-        );
-        const club = escapeHTML(player.club || "بازیکن فوتبال");
-        const position = escapeHTML(player.position || "ستاره فوتبال");
-        const image = escapeHTML(player.image || "");
+      function rememberImage(image, playerId) {
+        image.addEventListener("load", () => {
+          if (image.currentSrc || image.src) {
+            imageCache.set(playerId, image.currentSrc || image.src);
+          }
+        });
 
-        return `
-          <a
-            class="player-card"
-            href="./player.html?id=${id}"
-            style="${image ? `background-image: url('${image}');` : ""}"
-            aria-label="مشاهده پروفایل ${name}"
-          >
-            <div class="player-info">
-              <span class="player-tag">${position}</span>
-              <h3>${name}</h3>
-              <p>${club}</p>
-              <span class="card-arrow">مشاهده پروفایل بازیکن ←</span>
+        image.addEventListener("error", () => {
+          console.warn("عکس بازیکن بارگذاری نشد:", image.src);
+        });
+      }
+
+      function renderPlayers(searchTerm = "") {
+        const allPlayers = getPlayersList();
+        const query = searchTerm.trim().toLocaleLowerCase();
+
+        if (!allPlayers.length) {
+          playersGrid.innerHTML = `
+            <div class="status-message">
+              اطلاعات بازیکنان هنوز بارگذاری نشده است.
+              چند لحظه صبر کن؛ اگر مشکل ادامه داشت، فایل players.js را بررسی می‌کنیم.
             </div>
-          </a>
-        `;
-      }).join("");
-    }
+          `;
+          return;
+        }
 
-    playerSearch.addEventListener("input", function () {
-      renderPlayers(playerSearch.value);
-    });
+        const filteredPlayers = allPlayers.filter(player => {
+          const searchableText = [
+            player.name,
+            player.englishName,
+            player.club,
+            player.position,
+            player.nationality
+          ].filter(Boolean).join(" ").toLocaleLowerCase();
 
-    renderPlayers();
+          return searchableText.includes(query);
+        });
+
+        if (!filteredPlayers.length) {
+          playersGrid.innerHTML = `
+            <div class="status-message">
+              بازیکنی با این نام پیدا نشد؛ عبارت دیگری را امتحان کن.
+            </div>
+          `;
+          return;
+        }
+
+        playersGrid.innerHTML = filteredPlayers.map(player => {
+          const id = String(player.id || "");
+          const safeId = encodeURIComponent(id);
+          const name = escapeHTML(
+            player.name || player.englishName || "بازیکن فوتبال"
+          );
+          const englishName = escapeHTML(
+            player.englishName || player.name || "Football player"
+          );
+          const club = escapeHTML(player.club || "ستاره فوتبال");
+          const position = escapeHTML(player.position || "بازیکن فوتبال");
+          const image = escapeHTML(getImage(player));
+          const cacheKey = escapeHTML(id || player.englishName || player.name);
+
+          return `
+            <a class="player-card"
+               href="./player.html?id=${safeId}"
+               aria-label="مشاهده پروفایل ${name}">
+
+              ${image ? `
+                <img
+                  class="player-photo"
+                  src="${image}"
+                  alt="${englishName}"
+                  data-player-id="${cacheKey}"
+                  loading="eager"
+                  decoding="async"
+                  fetchpriority="auto"
+                >
+              ` : ""}
+
+              <div class="player-info">
+                <span class="player-tag">${position}</span>
+                <h3>${name}</h3>
+                <p>${club}</p>
+                <span class="card-arrow">مشاهده پروفایل بازیکن ←</span>
+              </div>
+            </a>
+          `;
+        }).join("");
+
+        playersGrid.querySelectorAll(".player-photo").forEach(image => {
+          rememberImage(image, image.dataset.playerId);
+        });
+      }
+
+      playerSearch.addEventListener("input", () => {
+        renderPlayers(playerSearch.value);
+      });
+
+      // ابتدا کارت‌ها را می‌سازیم تا فایل players.js بتواند عکس‌ها را پیدا کند.
+      renderPlayers();
+
+      // اگر اطلاعات یا عکس‌ها بعداً آماده شدند، فقط در صورت نیاز کارت‌ها را می‌سازیم.
+      window.addEventListener("mjPlayersReady", () => {
+        const hasCards = playersGrid.querySelector(".player-card");
+
+        if (!hasCards) {
+          renderPlayers(playerSearch.value);
+        }
+      });
+
+      // پشتیبانی از رویداد آماده‌شدن اطلاعات بازیکنان.
+      window.addEventListener("load", () => {
+        if (!playersGrid.querySelector(".player-card")) {
+          renderPlayers(playerSearch.value);
+        }
+      });
+    })();
   </script>
 </body>
 </html>
+```
